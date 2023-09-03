@@ -15,10 +15,11 @@ Respecto a nuestro logo, creamos una imagen en la que el mundo tiene las letras 
 
 Encontramos como inspiración los siguientes sitios:
 
-https://www.trideo3d.com/factory-servicio-de-impresion-3d-profesional?gclid=Cj0KCQjwuZGnBhD1ARIsACxbAVg4yA-RnHz2xBXPH_zLZjKGQ2AyldfMDNTjsNgBCJE6sre_0nNDdCsaAmuaEALw_wcB
-esta tiene una parte de galería que muestra trabajos hechos
+https://www.trideo3d.com Elegimos este sitio web por su galería de trabajos anteriores realizados, que nos inspira a mostrar nuestros propios proyectos a través de una presentación atractiva.
 
-https://fus3d.com.ar/ de esta pagina nos gusto 
+https://rgbestudio.com.ar nos llamó la atención por su amplia gama de productos y la opción de servicios personalizados a medida. Además, se destaca por contar con un "cotizador 3D" que permite a los clientes enviar sus ideas, medidas y detalles, facilitando así la creación de productos personalizados a través de un contacto directo con el equipo.
+
+https://fus3d.com.ar de esta pagina nos resulta interesante su sección de servicios, ya que ofrece impresión, diseño y asesoramiento, lo cual sugiere una amplia gama de soluciones relacionadas con impresiones 3D y diseño personalizado. Además en su pagina principal posee un carrusel de imágenes mostrando sus trabajos destacados u ofertas.
 
 ### Presentación de los integrantes del equipo
 
