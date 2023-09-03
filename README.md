@@ -1,4 +1,4 @@
-# grupo 8: 3DWORLD
+# Grupo 8: 3DWORLD
 Este es el repositorio del trabajo integrador del grupo 8, el cual consta de una tienda que vende impresiones 3D.
 
 ## Presentación de la tienda
