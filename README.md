@@ -20,3 +20,5 @@ https://fus3d.com.ar de esta pagina nos resulta interesante su sección de servi
 ### Presentación de los integrantes del equipo
 
 Hola, mi nombre es Juan Ignacio Bordón. Tengo 23 años y soy oriundo de la ciudad de Las Rosas, Santa Fe. Actualmente soy estudiante de la carrera de Administración de Empresas en la Universidad Nacional del Litoral y trabajo en el área contable de una concesionaria. Tengo conocimientos en HTML, CSS y JavaScript que adquirí de forma autodidacta. En mis tiempos libres me gusta tocar la guitarra y jugar o ver futbol.
+
+Buenas, mi nombre es Axel Manuel Clavero, tengo 21 años, vivo en Santa Fe, Capital. Soy estudiante de diseño industrial en la Facultad de arquitertura diseño y urbanismo en la cual aprendi a utlizar programas como photoshopp, solidworks, fusion 360, ilustrator. Me gusta mucho la tecnologia, realizo impresiones 3D en mis tiempos libres y por medio de cursos en Youtube y Udemy aprendi a utilizar html, css, javascript y react.
