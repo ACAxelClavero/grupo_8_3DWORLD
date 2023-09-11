@@ -37,3 +37,6 @@ Hola mi nombre es Rubén Darío Alem. Tengo 27 años, nací en la ciudad de Sant
 Hola, mi nombre es Emilio Di Fulvio, tengo 28 años, y soy oriundo de la localidad de Carreras. Estoy graduado en Higiene y Seguridad, aunque desde hace varios años soy deportista profesional. Me gusta aprender nuevas habilidades continuamente, y desde hace tiempo empecé a incursionar en el área de la programación, sin conocimientos previos. Tengo mucho entusiasmo en poder desarrollar las nuevas habilidades y conocimientos que brinda este curso para lograr ser un desarrollador web.
 
 Holaa!! Me llamo Geraldine Sedlar Terreno, tengo 18 años y actualmente estoy cursando el ultimo año de la escuela secundaria. Vivo en el Trebol, un pueblo en el interior de Santa Fe. En mi ultimo año, me estoy dedicando mucho a aprender distintos lenguajes de programacion, ya que el proximo año pienso estudiar algo relacionado con la informatica. Y soy patinadora de alta competencia.
+
+ENLACE DE TABLERO DE TRABAJO
+https://miro.com/app/board/uXjVMnTjs-I=/?share_link_id=261249398972
