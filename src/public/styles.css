@@ -12,6 +12,25 @@ header {
     display: flex;
 }
 
-.buscador {
+/* .buscador {
 
+} */
+
+
+
+/* ESTILO DETALLE DEL PRODUCTO */
+/* .main-detail-product{
+    border: 2px solid red;
 }
+h2{
+    text-align: center;
+}
+.carrusel-imgs{
+    width: 80vw;
+    height: 300px;
+    justify-content: center;
+}
+.detail-product{
+    display: flex;
+    flex-wrap: wrap;
+} */
