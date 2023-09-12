@@ -1,0 +1,17 @@
+header {
+    background-color: #8373C4;
+    width: 100vw;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo_header {
+    width: 200px;
+    height: auto;
+    display: flex;
+}
+
+.buscador {
+
+}
