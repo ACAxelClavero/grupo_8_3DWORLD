@@ -12,4 +12,4 @@ Todas las decisiones las tomamos de forma grupal con el apoyo de todos, y si alg
 Perder tiempo juntandonos en grupo cuando uno solo es el que realiza esa tarea. 
 
 5. Dejar de hacer. (Stop Doing)
-Esperar el momento adecuado para estar todos juntos como grupo, sabiendo que es una tarea dificil, y comenzar a realizar tareas entre meno, para luego informarle a los faltantes las decisiones tomadas como grupo.
+Esperar el momento adecuado para estar todos juntos como grupo, sabiendo que es una tarea dificil, y comenzar a realizar tareas entre menos, para luego informarle a los faltantes las decisiones tomadas como grupo.
