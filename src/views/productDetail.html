@@ -20,23 +20,64 @@
         <i class="fas fa-user-plus"></i>
     </div>
     </header>
-
+<!-- ACA COMIENZA EL MAIN -->
     <main class="main-detail-product">
         <h2 class="titulo-producto">NOMBRE DEL PRODUCTO</h2>
-        <section class="carrusel-imgs">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-        </section>
+        
+        <section class="contenidoItem-carrusel">
+        <div class="item-carrusel" id="imagen1">
+            <div class="tarjeta-carrusel" id="tarjeta1">A</div>
+            <div class="flechas-carrusel">
+                <a href="#imagen4"><i class="fas fa-arrow-alt-circle-left"></i></a>
+                <a href="#imagen2"><i class="fas fa-arrow-alt-circle-right"></i></a>
+            </div>
+        </div>
+        <div class="item-carrusel" id="imagen2">
+            <div class="tarjeta-carrusel" id="tarjeta2">B</div>
+            <div class="flechas-carrusel">
+                <a href="#imagen1"><i class="fas fa-arrow-alt-circle-left"></i></a>
+                <a href="#imagen3"><i class="fas fa-arrow-alt-circle-right"></i></a>
+            </div>
+        </div>
+        <div class="item-carrusel" id="imagen3">
+            <div class="tarjeta-carrusel" id="tarjeta3">C</div>
+            <div class="flechas-carrusel">
+                <a href="#imagen2"><i class="fas fa-arrow-alt-circle-left"></i></a>
+                <a href="#imagen4"><i class="fas fa-arrow-alt-circle-right"></i></a>
+            </div>
+        </div>
+        <div class="item-carrusel" id="imagen4">
+            <div class="tarjeta-carrusel" id="tarjeta3">D</div>
+            <div class="flechas-carrusel">
+                <a href="#imagen3"><i class="fas fa-arrow-alt-circle-left"></i></a>
+                <a href="#imagen1"><i class="fas fa-arrow-alt-circle-right"></i></a>
+            </div>
+        </div>
+    </section>
         <section class="detail-product">
-            <a class="button" href="">Agregar a la bolsa de compras</a>
-            <a class="button" href="">Dimensiones</a>
-            <a class="button" href="">Cantidad</a>
+            <form action="">
+                <div>
+                <label for="dimensiones">Dimensiones</label>
+                <select name="dimensiones" id="dimensiones">
+                    <option value="10x10">10x10</option>
+                    <option value="20x20">20x20</option>
+                    <option value="30x30">30x30</option>
+                </select>
+            </div>
+            <div>
+                <label for="cantidad">Cantidad</label>
+                <select name="cantidad" id="cantidad">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+            </form>
+            <a class="button" href="/productCart">Agregar a la bolsa de compras</a>
         </section>
+
         <section class="desc">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque voluptates facilis optio ad sunt debitis doloremque tenetur consectetur sequi natus, unde distinctio eum velit atque commodi ipsum, cum deleniti earum.</p>
-        </section>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
         <section class="detail-buy">
             <a class="button" href="">Metodos de pago</a>
             <a class="button" href="">Devolucion</a>
@@ -45,7 +86,7 @@
 
 
     </main>
-
+<!-- ACA FINALIZA EL MAIN -->
 
 
     <footer>
