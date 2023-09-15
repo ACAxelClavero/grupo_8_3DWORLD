@@ -3,7 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+body {
+    background-color: #303056;
+}
 header {
     background-color: #8373C4;
     width: 100vw;
@@ -34,9 +36,10 @@ header {
 footer {
     background-color: #8373C4;
     width: 100vw;
-    height: 120px;
+    height: 14vh;
     position: absolute;
     bottom: 0;
+    margin-top: auto;
 }
 .foter {
     width: 100vw;
