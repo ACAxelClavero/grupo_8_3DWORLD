@@ -22,32 +22,40 @@
     </header>
 <!-- ACA COMIENZA EL MAIN -->
     <main class="main-detail-product">
-        <h2 class="titulo-producto">NOMBRE DEL PRODUCTO</h2>
+        <h2 class="titulo-producto">Soporte Notebook</h2>
         
         <section class="contenidoItem-carrusel">
         <div class="item-carrusel" id="imagen1">
-            <div class="tarjeta-carrusel" id="tarjeta1">A</div>
+            <div class="tarjeta-carrusel" id="tarjeta1">
+                <img src="../images/carrusel/carrusel_1.png" alt="img-1">
+            </div>
             <div class="flechas-carrusel">
                 <a href="#imagen4"><i class="fas fa-arrow-alt-circle-left"></i></a>
                 <a href="#imagen2"><i class="fas fa-arrow-alt-circle-right"></i></a>
             </div>
         </div>
         <div class="item-carrusel" id="imagen2">
-            <div class="tarjeta-carrusel" id="tarjeta2">B</div>
+            <div class="tarjeta-carrusel" id="tarjeta2">
+                <img src="../images/carrusel/carrusel_2.webp" alt="img-2">
+            </div>
             <div class="flechas-carrusel">
                 <a href="#imagen1"><i class="fas fa-arrow-alt-circle-left"></i></a>
                 <a href="#imagen3"><i class="fas fa-arrow-alt-circle-right"></i></a>
             </div>
         </div>
         <div class="item-carrusel" id="imagen3">
-            <div class="tarjeta-carrusel" id="tarjeta3">C</div>
+            <div class="tarjeta-carrusel" id="tarjeta3">
+                <img src="../images/carrusel/carrusel_3.webp" alt="img-3">
+            </div>
             <div class="flechas-carrusel">
                 <a href="#imagen2"><i class="fas fa-arrow-alt-circle-left"></i></a>
                 <a href="#imagen4"><i class="fas fa-arrow-alt-circle-right"></i></a>
             </div>
         </div>
         <div class="item-carrusel" id="imagen4">
-            <div class="tarjeta-carrusel" id="tarjeta3">D</div>
+            <div class="tarjeta-carrusel" id="tarjeta3">
+                <img src="../images/carrusel/carrusel_4.webp" alt="img-4">
+            </div>
             <div class="flechas-carrusel">
                 <a href="#imagen3"><i class="fas fa-arrow-alt-circle-left"></i></a>
                 <a href="#imagen1"><i class="fas fa-arrow-alt-circle-right"></i></a>
@@ -57,46 +65,49 @@
         <section class="detail-product">
             <form action="">
                 <div>
-                <label for="dimensiones">Dimensiones</label>
-                <select name="dimensiones" id="dimensiones">
-                    <option value="10x10">10x10</option>
-                    <option value="20x20">20x20</option>
-                    <option value="30x30">30x30</option>
+                <label class="button-dimensiones" for="dimensiones">Dimensiones</label>
+                <select class="select-dimensiones" name="dimensiones" id="dimensiones">
+                    <option value="s">Small</option>
+                    <option value="m">Medium</option>
+                    <option value="l">Large</option>
+                    <option value="xl">XLarge</option>
                 </select>
             </div>
             <div>
-                <label for="cantidad">Cantidad</label>
-                <select name="cantidad" id="cantidad">
+                <label class="button-cantidad" for="cantidad">Cantidad</label>
+                <select class="select-cantidad" name="cantidad" id="cantidad">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
+                    <option value="3">4</option>
+                    <option value="3">5</option>
                 </select>
             </div>
             </form>
-            <a class="button" href="/productCart">Agregar a la bolsa de compras</a>
+            <a class="button-productCart" href="/productCart">Agregar a la bolsa de compras</a>
         </section>
 
         <section class="desc">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+            <p>Soporte ergonómico, ajustable y regulable para notebook, y tablets.</p>
+        </section>
         <section class="detail-buy">
-            <a class="button" href="">Metodos de pago</a>
+            <a class="button" href="">Medios de pago</a>
             <a class="button" href="">Devolucion</a>
-            <a class="button" href="">Envio</a>
+            <a class="button" href="">Compartir</a>
         </section>
 
 
     </main>
 <!-- ACA FINALIZA EL MAIN -->
 
-
     <footer>
         <div class="foter">
             <img class="logo_footer" src="images/logo.png" alt="Logo">
             <div class="redes_sociales">
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-facebook"></i>
-                <i class="far fa-envelope"></i>
-                <i class="fab fa-whatsapp"></i>
+                <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.google.com/intl/es-419/gmail/about/"><i class="far fa-envelope"></i></a>
+                <a href="https://www.whatsapp.com/?lang=es_LA"><i class="fab fa-whatsapp"></i></a>
             </div>
         </div>
         <div class="terminos">
