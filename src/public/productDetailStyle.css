@@ -64,7 +64,7 @@ main section img{
     padding: 10px;
 }
 i{
-    color: #8373C4;
+    color: #000000;
 }
 .detail-product{
     display: flex;
@@ -85,6 +85,9 @@ i{
     margin: 2px;
     border: 2px solid #8373C4;
     border-radius: 8px;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
 }
 .select-dimensiones{
     background-color: #FFFFFF;
@@ -93,6 +96,9 @@ i{
     margin: 2px;
     border: 2px solid #8373C4;
     border-radius: 8px;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
 }
 .button-cantidad{
     background-color: #FFFFFF;
@@ -101,6 +107,9 @@ i{
     margin: 2px;
     border: 2px solid #8373C4;
     border-radius: 8px;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
 }
 .select-cantidad{
     background-color: #FFFFFF;
@@ -109,6 +118,9 @@ i{
     margin: 2px;
     border: 2px solid #8373C4;
     border-radius: 8px;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
 }
 .button-productCart{
     background-color: #FFFFFF;
@@ -119,6 +131,9 @@ i{
     border: 2px solid #8373C4;
     border-radius: 8px;
     text-decoration: none;
+    width: 80%;
+    display: inline-block;
+    text-align: center;
 }
 .button{
     background-color: #FFFFFF;
@@ -134,50 +149,97 @@ i{
     margin: 3px;
     color: #FFFFFF;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
+.desc-corta{
+
+}
+.desc-larga{
+    display: none;
+}
 .detail-buy{
+    display: none;
     padding: 2px;
     margin: 3px;
     justify-content: space-between;
-    
 }
 /* 1ER MEDIA QUERIES */
-@media (min-width: 576px){
+@media (min-width: 425px){
     .titulo-producto{
         font-size: 22px;
     }
     .contenidoItem-carrusel{
-        height: 165px;
+    height: 125px;
+    display: flex;
+    width: 85vw;
+    flex-direction: row;
     }
-    .item-carrusel{
-        width: 50vw;
+    .flechas-carrusel{
+        display: none;
     }
-    i{
-        font-size: 20px;
+    .desc-corta{
+        font-size: 18px;
     }
-    .desc{
-        padding: 3px;
-        margin: 2px;
-        color: #FFFFFF;
+    form {
+        display: inline;
+        flex-wrap: nowrap;
+    }
+    .detail-buy{
         display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
+        padding: 4px;
+        margin: 5px;
+        justify-content: space-between;
     }
 } 
 
 
-
 /* 2DA MEDIA QUERIES */
 @media (min-width: 768px){
-
+    .main-detail-product{
+        display: flex;
+        padding: 10px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .contenidoItem-carrusel{
+        height: 125px;
+        display: flex;
+        width: 85vw;
+        flex-direction: row;
+    }
+    .desc-corta{
+        font-size: 20px;
+    }
+    .desc-larga{
+        font-size: 16px;
+        text-align: center;
+    }
+    form {
+        display: inline;
+        flex-wrap: nowrap;
+    }
+    .detail-buy{
+        display: flex;
+        padding: 4px;
+        margin: 5px;
+        justify-content: space-between;
+    }
+    .desc-larga{
+        display: flex;
+    };
 } 
 
 
 /* 3ERA MEDIA QUERIES */
 @media (min-width: 992px){
-
+    .contenidoItem-carrusel{
+        height: 125px;
+        display: flex;
+        width: 85vw;
+        flex-direction: row;
+        }
 } 
