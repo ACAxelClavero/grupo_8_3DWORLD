@@ -28,6 +28,7 @@ header {
     border-radius: 8px;
 } 
 .fa-user-plus, .fa-shopping-cart {
+    color:#551A8B;
     padding: 5px;
     margin: 2px;
     font-size: 20px;
@@ -75,3 +76,20 @@ footer {
     color: #551A8B;
 }
 
+#busquedaylupa {
+    display: flex;
+    justify-content: flex-start;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.buscador:focus{
+    outline: none;
+    border: white;
+}
+
+#botonLupa {
+    background-color: transparent;
+    border: none;
+}
