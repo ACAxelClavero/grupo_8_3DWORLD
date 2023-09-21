@@ -175,7 +175,7 @@ i{
     width: 30%;
     text-align: center;
 }
-.desc{
+.desc-corta{
     padding: 2px;
     margin: 3px;
     color: #FFFFFF;
@@ -184,9 +184,6 @@ i{
     justify-content: center;
     align-items: center;
     text-align: center;
-}
-.desc-corta{
-
 }
 .desc-larga{
     display: none;
@@ -207,9 +204,6 @@ i{
         align-items: center;
         justify-content: center;
     }
-    
-    
-    
     .main-detail-product{
         display: flex;
         padding: 10px;
@@ -225,7 +219,7 @@ i{
         display: flex;
         width: 85vw;
         flex-direction: row;
-        }
+    }
     .item-carrusel{
         width: 60vw;
         height: 100%;
@@ -266,6 +260,14 @@ i{
     }
     .desc-corta{
         font-size: 18px;
+        padding: 2px;
+        margin: 3px;
+        color: #FFFFFF;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
     }
     .detail-buy{
         display: flex;
@@ -278,15 +280,7 @@ i{
 
 
 /* 2DA MEDIA QUERIES */
-@media (min-width: 768px){
-    /* .sin-titulo{
-        display: flex;
-        padding: 10px;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    } */
-    
+@media (min-width: 790px){
     .main-detail-product{
         display: flex;
         padding: 10px;
@@ -294,37 +288,109 @@ i{
         align-items: center;
         justify-content: center;
     }
-    .contenidoItem-carrusel{
-        height: 125px;
+    .titulo-producto{
+        width: 100vw;
+        text-align: start;
+        position: relative;
+        left: 80px;
+    }
+    .sin-titulo{
         display: flex;
-        width: 85vw;
+        padding: 10px;
         flex-direction: row;
+        align-items: start;
+        justify-content: start;
+        width: 100vw;
+        height: 90vh;
+        border: solid 2px red;
+        flex-wrap: wrap;
+    }
+    .contenidoItem-carrusel{
+        height: 60vh;
+        display: flex;
+        width: 40vw;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: space-evenly;
+        align-items: center;
+    }
+    .item-carrusel{
+        width: 48%;
+        height: 48%;
+        justify-content: center;
+        position: relative;
+        margin: 1px;
+    }
+    .tarjeta-carrusel{
+        height: 95%;
+        width: 95%;
+    }
+    main section img{
+        width: 100%;
+        height: 100%;
     }
     .desc-corta{
-        font-size: 20px;
+        font-size: 19px;
+        padding: 2px;
+        margin: 3px;
+        color: #FFFFFF;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        position: relative;
     }
     .desc-larga{
-        font-size: 16px;
+        display: flex;
+        padding: 2px;
+        margin: 3px;
+        color: #FFFFFF;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         text-align: center;
+        position: relative;
+        font-size: 13px;
     }
     form {
-        display: inline;
-        flex-wrap: nowrap;
+        display: flex;
+        flex-wrap: wrap;
+        border: solid 2px red;
+    }
+    .detail-product {
+        flex-direction: column;
+        width: 25vw;
     }
     .detail-buy{
         display: flex;
         padding: 4px;
         margin: 5px;
         justify-content: space-between;
+        border: solid 2px red;
     }
-    .desc-larga{
-        display: flex;
-    };
+    
+    .contenedor-botones-dimensiones{
+        width: 45vw;
+        border: solid 2px red;
+    }
+    .contenedor-botones-cantidad{
+    width: 45vw;
+    border: solid 2px red;
+    }
+    .contenedor-boton-productCart{
+    width: 75vw;
+    border: solid 2px red;
+    }
 } 
 
 
 /* 3ERA MEDIA QUERIES */
-@media (min-width: 992px){
+
+
+
+/* @media (min-width: 992px){
     .main-detail-product{
         display: flex;
         padding: 10px;
@@ -340,7 +406,7 @@ i{
         justify-content: center;
     }
     
-    /* .contenidoItem-carrusel{
+    .contenidoItem-carrusel{
         height: 125px;
         display: flex;
         width: 85vw;
