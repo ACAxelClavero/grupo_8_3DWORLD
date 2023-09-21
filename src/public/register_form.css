@@ -75,7 +75,7 @@ button[type="submit"]:hover {
 }
 
 
-/* Media queries para tamaños de pantalla diferentes */
+/* Media queries para tamaños de pantalla*/
 @media screen and (max-width: 768px) {
     /* Estilos para tablet */
     #registration-container {
@@ -84,8 +84,8 @@ button[type="submit"]:hover {
 }
 
 @media screen and (max-width: 576px) {
-    /* Estilos para dispositivos móviles */
+    /* Estilos para celular */
     #registration-container {
-        width: 90%; /* Cambia el ancho del formulario para móviles */
+        width: 90%; /* Cambia el ancho del formulario para celular */
     }
 }
