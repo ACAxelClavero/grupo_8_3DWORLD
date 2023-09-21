@@ -1,0 +1,75 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #8373C4; /* Fondo de color cuando se muestra el formulario */
+    color: #000000;
+}
+
+/* Encabezado y pie de página ocultos cuando se muestra el formulario */
+header, footer {
+    display: none;
+}
+
+/* Contenedor principal del formulario */
+main {
+    text-align: center;
+    padding: 20px;
+}
+
+
+/* Contenedor para el formulario */
+#registration-container {
+    background-color: #FFFFFF;
+    border: 5px solid #47077F;
+    border-radius: 20px;
+    padding: 20px;
+    width: 33%; /* El formulario ocupará un tercio del ancho de la página */
+    margin: 0 auto; /* Centrar horizontalmente */
+    margin-top: 50px; /* Espacio superior */
+    box-sizing: border-box; /* Incluir el borde en el ancho total */
+}
+
+#registration-container h2 {
+    color: #47077F;
+}
+/* Estilos para etiquetas y campos de entrada en el formulario */
+label {
+    display: block;
+    margin-bottom: 10px;
+    text-align: start;
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #D1D1EF; /* Fondo de campos a rellenar */
+    border: 2px solid #8373C4;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    color: #FFFFFF; /* Color de texto en campos */
+    box-sizing: border-box; /* Incluir el borde en el ancho total */
+}
+
+
+/* Estilos para el botón de enviar en el formulario */
+button[type="submit"] {
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border: 2px solid #7E5EFF;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block; /* Para evitar que el botón se superponga con los campos */
+    margin: 0 auto; /* Centrar horizontalmente */
+}
+
+button[type="submit"]:hover {
+    background-color: #D1D1EF;
+}
