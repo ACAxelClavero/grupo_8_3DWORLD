@@ -70,6 +70,7 @@ footer {
     padding-bottom: 5px;
     color: #ffffff;
 }
+<<<<<<< HEAD
 .inicio {
     color: rgb(172, 46, 172); 
     padding: 15px 30px;
@@ -117,5 +118,10 @@ article div{
     flex: 1;
     width: 20%;
     height: 2%;
+=======
+
+#enlaceRegistrarse {
+    color: #551A8B;
+>>>>>>> b548ae1ea1a2f0eb3411fcc20c216eac908725ee
 }
 
