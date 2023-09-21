@@ -312,6 +312,7 @@ i{
         flex-wrap: wrap;
         align-content: space-evenly;
         align-items: center;
+        margin-left: 8px;
     }
     .item-carrusel{
         width: 48%;
@@ -334,7 +335,7 @@ i{
         flex-direction: column;
     }
     .desc-corta{
-        font-size: 19px;
+        font-size: 22px;
         padding: 2px;
         margin: 3px;
         color: #FFFFFF;
@@ -356,15 +357,15 @@ i{
         align-items: center;
         text-align: center;
         position: relative;
-        font-size: 13px;
+        font-size: 16px;
     }
     form {
         display: flex;
         flex-wrap: nowrap;
         width: 40vw;
         position: relative;
-        left: 500px;
-        bottom: 125px;
+        left: 430px;
+        bottom: 80px;
         justify-content: space-evenly
     }
     .detail-product {
@@ -390,7 +391,7 @@ i{
     width: 45vw;
     }
     .contenedor-boton-productCart{
-        width: 75vw;
+    width: 75vw;
     position: relative;
     left: 95px;
     bottom: 60px
@@ -402,36 +403,25 @@ i{
 
 
 
-/* @media (min-width: 992px){
-    .main-detail-product{
-        display: flex;
-        padding: 10px;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+@media (min-width: 950px){
+    .desc-corta{
+        font-size: 26px;
     }
-    .sin-titulo{
-        display: flex;
-        padding: 10px;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+    .desc-larga{
+        font-size: 18px;
     }
-    
-    .contenidoItem-carrusel{
-        height: 125px;
-        display: flex;
-        width: 85vw;
-        flex-direction: row;
-        flex-wrap: wrap;
-    } */
+    form {
+        position: relative;
+        left: 470px;
+        bottom: 80px;
+    }
+}
 
 
-
-
-
-
-
-
-
-    
+@media screen and (min-width: 1100px){
+    form {
+        position: relative;
+        left: 650px;
+        bottom: 90px
+    }
+}
