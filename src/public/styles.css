@@ -28,22 +28,24 @@ header {
     border-radius: 8px;
 } 
 .fa-user-plus, .fa-shopping-cart {
-    padding: 5px;
+   
     margin: 2px;
     font-size: 20px;
 }
-
+.fa-shopping-cart {
+    padding-right: 10px;
+}
 footer {
     background-color: #8373C4;
     width: 100vw;
-    height: 14vh;
+    height: auto;
     /* position: absolute;
     bottom: 0;
     margin-top: auto; */
 }
 .foter {
     width: 100vw;
-    height: 80px;
+    height: 12vh;
     display: flex;
     justify-content: space-between;
 }
@@ -54,7 +56,7 @@ footer {
 }
 .redes_sociales {
     align-self: center; 
-    flex-grow: 0.3;
+    flex-grow: 0.21;
 }
 .redes_sociales i {
     font-size: 25px;
@@ -66,10 +68,37 @@ footer {
     font-style: italic;
 }
 .terminos a {
-    padding: 0% 2% 2% 2% ;
+    padding: 0% 2% 2% 0% ;
     padding-bottom: 5px;
     color: #ffffff;
 }
 
 
+@media (min-width: 768px)  {
 
+    
+    .logo_header {
+        width: auto;
+        height: 90%;
+       
+    }
+    .buscador {
+        width: 20vw;
+    }
+    .fa-shopping-cart {
+        padding-right: 20px;
+    }
+    .foter {
+        height: 90px;
+    }
+   .redes_sociales {
+     flex-grow: 0.08;
+   }
+    .logo_footer {
+        width: auto;
+        height: 100%;
+        align-items: center; 
+        margin-top: 3vh;
+    }
+  
+}

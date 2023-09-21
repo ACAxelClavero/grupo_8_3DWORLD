@@ -10,7 +10,173 @@
     justify-content: center;
     align-items: center;
 }
+
+
+.titular {
+    color: white;
+    font-size: 40px;
+    margin: 20px;
+    margin-left: 32px;
+}
+
+.producto {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 20px;
+    margin-bottom: 30px;
+}
 .carrusel {
-    width: 70vw;
+    width: 50vw;
     height: auto;
+    border: solid 4px #47077F;
+
+}
+.titular_producto {
+    color: #fff;
+    font-size: 25px;
+text-align: center;
+}
+.especificaciones {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: center
+
+
+}
+.select {
+    margin: 10px;
+    font-size: 20px;
+    border-radius: 15px;
+    border: 4px #47077F solid;
+    text-align: center;
+    cursor: pointer;
+
+}
+
+
+.botones_compra {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+    flex-wrap: wrap;    
+
+}
+
+.boton {
+    margin: 5px;
+    width: 80%;
+    height: 50;
+    font-size: 25px;
+    border-radius: 15px;
+    border: 4px #47077F solid;
+    cursor: pointer;
+
+}
+.trash {
+    cursor: pointer;
+    margin: auto;
+}
+ .fa-trash {
+    color: #fff;
+    font-size: 30px;
+    padding: 5%;
+    cursor: pointer;
+
+}
+
+.carro {
+    padding: 10px;
+    width: 90%;
+    margin: auto;
+    background-color: #fff;
+    margin-bottom: 20px;    
+    border: solid 7px #47077F;
+    border-radius: 15px;
+}
+.total {
+    font-style: bold;
+    margin-left: 15px;
+}
+.item {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.finalizar {
+    width: 200px;
+    height: 50;
+    font-size: 25px;
+    justify-content: space-around;
+    display: flex;
+    margin: auto;
+    border-radius: 10px;
+    border: 4px #47077F solid;
+    cursor: pointer;
+
+}
+    .finalizar:hover {
+        background-color: #47077F;
+        color: #fff;
+    }
+    .boton:hover {
+        background-color: #47077F;
+        color: #fff;
+    }
+    .select:hover {
+        background-color: #47077F;
+        color: #fff;
+    } 
+
+  .fa-trash:hover {
+    color: #47077F;  
+  } 
+@media (min-width: 769px)  {
+
+
+  .main {
+    width: 70%;
+    float: left;
+  }
+  .titular {
+    margin-left: 8%;
+  }
+  .producto {
+    justify-content: space-between;
+  }
+ .lista_productos {
+    width: 60%;
+    overflow-y: scroll;
+    height: 400px;
+    float: left;
+    margin: 10px;
+
+ }
+ .carrusel {
+    height: 50vh;
+    width: auto;
+    margin-left: 8%;
+ }
+ .especificaciones {
+    margin: auto; 
+}
+ .botones_compra {
+    width: 30%;
+    display: flex;
+    align-content: flex-end;
+}
+ .carro {
+    width: 30%;
+    float: right;
+    margin-right: 6%;
+ }
+ footer {
+    position: absolute;
+    bottom: 0;
+ }
 }
