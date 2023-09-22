@@ -32,7 +32,7 @@ main {
     box-sizing: border-box; /* Incluir el borde en el ancho total */
 }
 
-#registration-container h2 {
+#login-container h2 {
     color: #47077F;
 }
 /* Estilos para etiquetas y campos de entrada en el formulario */
@@ -58,7 +58,7 @@ input[type="password"] {
 
 
 /* Estilos para el botón de enviar en el formulario */
-button[type="submit"] {
+button[type="submit"], button[type="button"] {
     background-color: white;
     color: black;
     padding: 10px 20px;
@@ -73,7 +73,23 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #D1D1EF;
 }
+button[type="button"]:hover {
+    background-color: #D1D1EF;
+}
 
+.botones {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Distribuir equitativamente los botones */
+    align-items: center; /* Centrar verticalmente los botones */
+}
+
+#enlaceRegistrarse {
+    color: #000000;
+}
+#enlaceRegistrarse:link {
+    text-decoration: none;
+}
 
 /* Media queries para tamaños de pantalla*/
 @media screen and (max-width: 768px) {
