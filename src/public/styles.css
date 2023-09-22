@@ -28,23 +28,24 @@ header {
     border-radius: 8px;
 } 
 .fa-user-plus, .fa-shopping-cart {
-    color:#551A8B;
     padding: 5px;
     margin: 2px;
     font-size: 20px;
 }
-
+.fa-shopping-cart {
+    padding-right: 10px;
+}
 footer {
     background-color: #8373C4;
     width: 100vw;
-    height: 14vh;
+    height: auto;
     /* position: absolute;
     bottom: 0;
     margin-top: auto; */
 }
 .foter {
     width: 100vw;
-    height: 80px;
+    height: 12vh;
     display: flex;
     justify-content: space-between;
 }
@@ -55,7 +56,7 @@ footer {
 }
 .redes_sociales {
     align-self: center; 
-    flex-grow: 0.3;
+    flex-grow: 0.21;
 }
 .redes_sociales i {
     font-size: 25px;
@@ -67,29 +68,59 @@ footer {
     font-style: italic;
 }
 .terminos a {
-    padding: 0% 2% 2% 2% ;
+    padding: 0% 2% 2% 0% ;
     padding-bottom: 5px;
     color: #ffffff;
 }
-
+.inicio {
+    color: rgb(172, 46, 172); 
+    padding: 15px 30px;
+    border: 2px solid rgb(172, 46, 172); 
+    border-radius: 10px;
+    margin-bottom: 30px; 
+    margin-top: 30px;
+    cursor: pointer; 
+}
+.Trabajos {
+    color: rgb(172, 46, 172); ; 
+    padding: 15px 30px;
+    border: 2px solid rgb(172, 46, 172); ;
+    border-radius: 10px;
+    margin-bottom: 30px; 
+    cursor: pointer; 
+}
+.Plasticos {
+    color: rgb(172, 46, 172); ; 
+    padding: 15px 30px; 
+    border: 2px solid rgb(172, 46, 172); ;
+    border-radius: 10px;
+    margin-bottom: 30px; 
+    cursor: pointer; 
+}
+.Nosotros {
+    color: rgb(172, 46, 172); ; 
+    padding: 15px 30px; 
+    border: 2px solid rgb(172, 46, 172); ;
+    border-radius: 10px;
+    margin-bottom: 30px; 
+    cursor: pointer; 
+}
+.botones {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+article div{
+    display:flex;
+    flex-direction:column;
+    flex-wrap: wrap;
+}
+.img-3{
+    flex: 1;
+    width: 20%;
+    height: 2%;
+}
 #enlaceRegistrarse {
     color: #551A8B;
 }
 
-#busquedaylupa {
-    display: flex;
-    justify-content: flex-start;
-    background-color: white;
-    padding: 5px;
-    border-radius: 5px;
-}
-
-.buscador:focus{
-    outline: none;
-    border: white;
-}
-
-#botonLupa {
-    background-color: transparent;
-    border: none;
-}
