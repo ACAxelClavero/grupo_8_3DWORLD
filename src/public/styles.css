@@ -79,7 +79,6 @@ footer {
     border: 2px solid rgb(172, 46, 172); 
     border-radius: 10px;
     margin-bottom: 30px; 
-    margin-top: 30px;
     cursor: pointer; 
 }
 .Trabajos {
@@ -106,10 +105,21 @@ footer {
     margin-bottom: 30px; 
     cursor: pointer; 
 }
+
+.cuerpo{
+    width: 100%;
+    display: flex;
+}
 .botones {
     flex: 1;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 5%;
+}
+.carruselHome {
+    display: flex;
+    justify-content: center;
 }
 article div{
     display:flex;
@@ -117,10 +127,9 @@ article div{
     flex-wrap: wrap;
 }
 .img-3{
-    flex: 1;
     width: 20%;
-    height: 2%;
 }
+
 #enlaceLogin {
     color: #551A8B;
 }
