@@ -86,7 +86,9 @@ text-align: center;
     cursor: pointer;
 
 }
-
+.fa-trash:hover {
+    color: #47077F;
+}
 .carro {
     padding: 10px;
     width: 90%;

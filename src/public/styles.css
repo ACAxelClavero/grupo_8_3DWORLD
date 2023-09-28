@@ -28,13 +28,19 @@ header {
     border-radius: 8px;
 } 
 .fa-user-plus, .fa-shopping-cart {
-    color: #551A8B;
+    color: #47077F;
     padding: 5px;
     margin: 2px;
     font-size: 20px;
 }
 .fa-shopping-cart {
     padding-right: 10px;
+}
+.fa-shopping-cart:hover {
+   color:  #2f0752;
+}
+.fa-user-plus:hover {
+    color:  #2f0752;
 }
 footer {
     background-color: #8373C4;
@@ -62,7 +68,13 @@ footer {
 .redes_sociales i {
     font-size: 25px;
     padding: 3%;
+    color: #47077F;
+
 }
+.redes_sociales i:hover {
+    color: #2f0752;
+}
+
 .terminos {
     display: flex;
     justify-content: center;
@@ -73,6 +85,10 @@ footer {
     padding-bottom: 5px;
     color: #ffffff;
 }
+.terminos a:hover {
+    color: #47077F;
+}
+
 .inicio {
     color: rgb(172, 46, 172); 
     padding: 15px 30px;
@@ -130,9 +146,7 @@ article div{
     width: 20%;
 }
 
-#enlaceLogin {
-    color: #551A8B;
-}
+
 
 #busquedaylupa {
     display: flex;
@@ -150,4 +164,22 @@ article div{
 #botonLupa {
     background-color: transparent;
     border: none;
+    color: #47077F;
+}
+
+@media (min-width: 767px) {
+    .logo_header{
+        height: 80% ;
+        width: auto;
+    }
+    .logo_footer {
+        height: 95% ;
+        width: auto; 
+        margin-left: 5px;
+        margin-top: 20px;
+    }
+    .redes_sociales {
+        flex-grow: 0.08;
+
+    }
 }
