@@ -296,9 +296,10 @@ main section img{
     .titulo-producto{
         font-size: 28px;
         margin-left: 8px;
+        transition: all 450ms;
     }
     .titulo-producto:hover{
-        font-size: 32px;
+        transform: scale(1.15);
     }
     .division-del-main{
         display: flex;
@@ -333,15 +334,17 @@ main section img{
     }
     .descripcion-corta{
         font-size: 24px;
+        transition: all 450ms;
     }
     .descripcion-corta:hover{
-        font-size: 30px;
+        transform: scale(1.05);
     }
     .descripcion-larga{
         font-size: 18px;
+        transition: all 450ms;
     }
     .descripcion-larga:hover{
-        font-size: 24px;
+        transform: scale(1.05);
     }
     /* .img-del-carrusel{
         border: none;
@@ -400,8 +403,13 @@ main section img{
         left: 60px;
     }
     .seleccionar-colores:hover, .seleccionar-dimensiones:hover, .boton-al-carrito:hover, .boton:hover{
-        background-color: #000000;
-        color: #8373C4;
+        transition: all 450ms;
+    }
+    .seleccionar-colores:hover, .seleccionar-dimensiones:hover, .boton-al-carrito:hover, .boton:hover{
+        transform: scale(1.05);
+        background-color: #47077F;
+        color: #FFFFFF;
+
     }
     
 } 
