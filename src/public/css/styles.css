@@ -128,15 +128,17 @@ footer {
     display: flex;
 }
 .botones {
-    flex: 1;
+    flex: 0.5;
     display: flex;
-    flex-direction: row;
+    margin-left: 2%;
+    flex-direction: column;
     justify-content: space-evenly;
     margin-top: 5%;
 }
 .carruselHome {
     display: flex;
     justify-content: center;
+    flex: 1
 }
 article div{
     display:flex;
@@ -144,7 +146,8 @@ article div{
     flex-wrap: wrap;
 }
 .img-3{
-    width: 20%;
+    width: 40%;
+    height: 80%;
 }
 
 
