@@ -10,7 +10,6 @@ app.use(express.static(path.resolve(__dirname, "public")));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-
 app.use('/', mainRoutes);
 
 app.use('/productCart', mainRoutes);

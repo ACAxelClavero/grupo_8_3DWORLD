@@ -15,11 +15,12 @@ header {
     justify-content: space-between;
 }
 .logo_header {
-    width: 25vw;
-    height: auto;
+    width: auto;
+    height: 80%;
     display: flex;
     padding: 5px;
 }
+
 .buscador{
     width: 40vw;
     padding: 5px;
