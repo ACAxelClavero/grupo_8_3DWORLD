@@ -20,6 +20,7 @@ app.use('/register', mainRoutes);
 
 app.use('/login', mainRoutes);
 
+app.use('/new-product', mainRoutes);
 
 const port=3017;
 app.listen(port, ()=>{

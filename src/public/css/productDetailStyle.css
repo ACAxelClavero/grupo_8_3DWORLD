@@ -54,7 +54,7 @@ Hex: #000000 (Texto)  */
 
 /* ESTILO DEL CARRUSEL */
 .seccion-del-carrusel{
-    border: solid 2px #8373C4;
+    border: solid 2px #47077F;
     height: 225px;
     overflow: hidden;
 }
@@ -87,7 +87,7 @@ main section img{
     padding: 10px;
 }
 .fa-arrow-alt-circle-left, .fa-arrow-alt-circle-right {
-    color: #8373C4;
+    color: #47077F;
 } 
 
  /* SECCION DE BOTONES PARA ELECCION  */
@@ -128,7 +128,7 @@ main section img{
     color: #000000;
     padding: 2px;
     margin: 2px;
-    border: 2px solid #8373C4;
+    border: 2px solid #47077F;
     border-radius: 8px;
     width: 100%;
     display: inline-block;
@@ -140,7 +140,7 @@ main section img{
     color: #000000;
     padding: 2px;
     margin: 2px;
-    border: 2px solid #8373C4;
+    border: 2px solid #47077F;
     border-radius: 8px;
     width: 100%;
     display: inline-block;
@@ -151,7 +151,7 @@ main section img{
     color: #000000;
     padding: 2px;
     margin: 2px;
-    border: 2px solid #8373C4;
+    border: 2px solid #47077F;
     border-radius: 8px;
     width: 100%;
     display: inline-block;
@@ -162,7 +162,7 @@ main section img{
     color: #000000;
     padding: 2px;
     margin: 2px;
-    border: 2px solid #8373C4;
+    border: 2px solid #47077F;
     border-radius: 8px;
     width: 100%;
     display: inline-block;
@@ -174,7 +174,7 @@ main section img{
     font-style: unset;
     padding: 2px;
     margin: 2px;
-    border: 2px solid #8373C4;
+    border: 2px solid #47077F;
     border-radius: 8px;
     text-decoration: none;
     width: 100%;
@@ -186,7 +186,7 @@ main section img{
     color: #000000;
     padding: 2px;
     margin: 2px;
-    border: 2px solid #8373C4;
+    border: 2px solid #47077F;
     border-radius: 8px;
     text-decoration: none;
     width: 30%;
@@ -252,7 +252,7 @@ main section img{
     .img-del-carrusel{
         height: 95%;
         width: 95%;
-        border: 2px solid #8373C4;
+        border: 2px solid #47077F;
     }
     main section img{
         width: 100%;
@@ -353,7 +353,7 @@ main section img{
         transition: all 450ms;
     }
     main section img:hover{
-        box-shadow: 2px 2px 10px rgb(131, 115, 196);
+        box-shadow: 2px 2px 10px #47077F;
         transform: scale(1.1);
     }
 

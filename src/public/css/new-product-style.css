@@ -1,0 +1,24 @@
+
+/* PALETA DE COLORES A UTILIZAR */
+
+/* 
+Hex: #FFFFFF (Texto)
+
+Hex: #303056 (Primario)
+
+Hex: #47077F (detalles)
+
+Hex: #6248C7 (detalles)
+
+Hex: #8373C4 (Secundario)
+
+Hex: #000000 (Texto)  */
+
+
+/* ESTILO DETALLE DEL PRODUCTO */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
