@@ -3,6 +3,7 @@ const path=require("path");
 
 const mainRoutes = require('./routes/mainRoutes');
 const usersRoutes = require('./routes/usersRoutes');
+const productRoutes = require('./routes/productRoutes');
 
 const app=express();
 
@@ -14,6 +15,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.use('/', mainRoutes);
 
 app.use('/user', usersRoutes); 
+
+app.use('/product', productRoutes);
 
 const port=3017;
 app.listen(port, ()=>{

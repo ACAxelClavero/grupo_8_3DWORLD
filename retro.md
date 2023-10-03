@@ -13,3 +13,6 @@ Perder tiempo juntandonos en grupo cuando uno solo es el que realiza esa tarea.
 
 5. Dejar de hacer. (Stop Doing)
 Esperar el momento adecuado para estar todos juntos como grupo, sabiendo que es una tarea dificil, y comenzar a realizar tareas entre menos, para luego informarle a los faltantes las decisiones tomadas como grupo.
+
+RETROSPECTIVA - SPRINT 2
+3. Continuar haciendo. (Keep Doing) 
