@@ -16,3 +16,4 @@ Esperar el momento adecuado para estar todos juntos como grupo, sabiendo que es 
 
 RETROSPECTIVA - SPRINT 2
 3. Continuar haciendo. (Keep Doing) 
+4. Hacer menos. (Less of)
