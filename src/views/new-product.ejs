@@ -12,7 +12,7 @@
 <body>
     <%- include('./partials/header.ejs')  %>
     <main>
-        <form action="/">
+        <form action="/" class="form-product">
             <label for="nombre">Nombre del producto</label>
             <input type="text" required>
             <label for="descripcion-principal">Descripcion principal</label>
@@ -38,8 +38,12 @@
                 </select>
             <label for="precio">Precio de venta</label>
             <input type= "number">
-            <button type="submit">Enviar</button>
-            <button type="reset">Deshacer</button>
+            <div class="buttons-form">
+                <button type="submit" class="button-form">Enviar</button>
+            
+                <button type="reset" class="button-form">Deshacer</button>
+            </div>
+            
         </form>
 
 

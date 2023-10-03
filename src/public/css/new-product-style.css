@@ -17,8 +17,104 @@ Hex: #000000 (Texto)  */
 
 /* ESTILO DETALLE DEL PRODUCTO */
 
-*{
+/* Estilos generales */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* Contenedor principal del formulario */
+main {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Contenedor para el formulario */
+.form-product {
+    background-color: #FFFFFF;
+    border: 5px solid #47077F;
+    border-radius: 20px;
+    padding: 20px;
+    width: 50%; /* El formulario ocupará un tercio del ancho de la página */
+    margin: 0 auto; /* Centrar horizontalmente */
+    margin-top: 50px; /* Espacio superior */
+    box-sizing: border-box; /* Incluir el borde en el ancho total */
+}
+
+/* Estilos para etiquetas y campos de entrada en el formulario */
+label {
+    display: block;
+    margin-bottom: 15px; /* Aumenta el espacio entre etiquetas */
+    text-align: start;
+    font-weight: bold; /* Hace que el texto de las etiquetas esté en negrita */
+}
+
+main form input[type="text"],
+input[type="email"],
+input[type="file"],
+input[type="password"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    background-color: #D1D1EF; /* Fondo de campos a rellenar */
+    border: 2px solid #8373C4;
+    border-radius: 12px;
+    margin-bottom: 15px; /* Aumenta el espacio entre campos */
+    color: black; /* Color de texto en campos */
+    box-sizing: border-box; /* Incluir el borde en el ancho total */
+}
+
+/* Estilos para el campo de descripción principal y secundaria */
+textarea {
+    width: 100%;
+    padding: 10px;
+    background-color: #D1D1EF;
+    border: 2px solid #8373C4;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    color: black;
+    box-sizing: border-box;
+    resize: none; /* Evita que el usuario pueda redimensionar los campos de texto */
+}
+
+/* Estilos para el botón de enviar en el formulario */
+button[type="submit"],
+button[type="reset"] {
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border: 2px solid #7E5EFF;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block; /* Para evitar que el botón se superponga con los campos */
+    margin: 0 auto; /* Centrar horizontalmente */
+}
+
+button[type="submit"]:hover,
+button[type="reset"]:hover {
+    background-color: #D1D1EF;
+}
+
+.buttons-form {
+    padding: 5%;
+    display: flex;
+    flex-direction: row;
+}
+
+/* Media queries para tamaños de pantalla */
+@media screen and (max-width: 768px) {
+    /* Estilos para tablet */
+    .form-product {
+        width: 70%; /* Cambia el ancho del formulario para tablet */
+    }
+}
+
+@media screen and (max-width: 576px) {
+    /* Estilos para celular */
+    .form-product {
+        width: 90%; /* Cambia el ancho del formulario para celular */
+    }
 }
