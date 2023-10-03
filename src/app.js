@@ -2,6 +2,7 @@ const express=require("express");
 const path=require("path");
 
 const mainRoutes = require('./routes/mainRoutes');
+const usersRoutes = require('./routes/usersRoutes');
 
 const app=express();
 
@@ -12,15 +13,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use('/', mainRoutes);
 
-app.use('/productCart', mainRoutes);
-
-app.use('/product-detail', mainRoutes);
-
-app.use('/register', mainRoutes); 
-
-app.use('/login', mainRoutes);
-
-app.use('/new-product', mainRoutes);
+app.use('/user', usersRoutes); 
 
 const port=3017;
 app.listen(port, ()=>{
