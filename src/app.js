@@ -11,16 +11,15 @@ const app=express();
 app.use(express.static(path.resolve(__dirname, "public")));
 app.use(methodOverride('_method'));
 
-//app.use((req, res, next) => { 
-//    res.status(404).render("not-found")
-//});
-
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.use('/', mainRoutes);
 app.use('/user', usersRoutes); 
 app.use('/product', productRoutes);
+app.use((req, res, next) => {
+    res.status(404).render('not-found');
+    });
 
 const port=3017;
 app.listen(port, ()=>{

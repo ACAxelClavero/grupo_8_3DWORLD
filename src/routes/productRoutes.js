@@ -6,6 +6,9 @@ const productController = require('../controllers/productController');
 //Listado de productos
 router.get('/', productController.products); 
 
+//Carrito
+router.get('/productCart', productController.productsCart)
+
 //Detalle de un producto particular
 router.get('/:id', productController.productDetail); 
 

@@ -10,6 +10,10 @@ function getProducts() {
 
 const controller = {
 
+    productsCart(req, res) {
+        res.render('productCart');
+    },
+
     products(req, res) {
         res.render('products');
     },
@@ -18,13 +22,7 @@ const controller = {
         let products = getProducts();
         const product = products.find(product => product.id == req.params.id);
         if (!product) {
-			return res.render('error', {
-				message: 'El producto no existe',
-				error: {
-					status: 404
-				},
-				path: req.url
-			});
+			return res.render('not-found');
 		}
         res.render('product-detail', { product });
     },
@@ -65,7 +63,7 @@ const controller = {
         const indexProduct = product.findIndex(product => product.id == req.params.id);
 		product.splice(indexProduct, 1);
 		fs.writeFileSync(productsFilePath, JSON.stringify(product, null, 2));
-		res.redirect('/productCart');
+		res.redirect('/products');
     },
 }
 
