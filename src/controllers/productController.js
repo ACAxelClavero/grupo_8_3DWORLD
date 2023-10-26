@@ -10,8 +10,8 @@ function getProducts() {
 
 const controller = {
 
-    productCart(req, res) {
-        res.render('productCart');
+    products(req, res) {
+        res.render('products');
     },
 
     productDetail(req, res) {
