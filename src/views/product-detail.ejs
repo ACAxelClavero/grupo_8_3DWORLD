@@ -10,8 +10,39 @@
     </head>
 <body>
 
-
     <%- include('./partials/header.ejs')  %>
+
+    <div>
+		<div>
+				<h2>Detalle del producto: <%= locals.product && product.name %></h2>
+		</div>
+		<article class="article">
+			<div>
+				<div>
+					<img src="/images/products/<%= locals.product && product.image %>" alt="product image">
+					<h2>
+						<%= locals.product && product.name %>
+                    </h2>
+				</div>
+				<div>
+					<article>
+						<p><%= locals.product && product.description %></p>
+							<p>
+								<span>$<%= locals.product && product.price %></span>
+							</p>
+						<a href="#">COMPRAR AHORA</a>
+						<hr>
+						<a href="/product/<%= product.id %>/edit-product">EDITAR PRODUCTO</a>
+						<form action="/products/<%= product.id %>?_method=DELETE" method="POST">
+							<button type="submit" >ELIMINAR</button>
+						</form>
+					</article>
+				</div>
+			</div>
+		</article>
+	</div>
+
+
 
 
     <main class="main-detalle-del-producto">

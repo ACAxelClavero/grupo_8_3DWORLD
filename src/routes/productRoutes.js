@@ -13,7 +13,7 @@ router.get('/productCart', productController.productsCart)
 router.get('/:id', productController.productDetail); 
 
 //Formulario de creación de productos
-router.get('/new-product', productController.newProduct); 
+router.get('/create', productController.create); 
 
 //Acción de creación (a donde se envía el formulario)
 router.post('/product', productController.newProductCreation)

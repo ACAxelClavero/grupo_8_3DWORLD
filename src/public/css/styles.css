@@ -3,9 +3,35 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+div{
+    display: flex;
+    flex-wrap: wrap;
+}
+.article{
+    background-color: #8373C4;
+    display: flex;
+    margin: 10px;
+    flex-direction: column;
+    border-top: solid 1px #ebebeb;
+    padding: 15px;
+    width: 90vw;
+}
+section{
+    background-color: #8373C4;
+    display: flex;
+    margin: 10px;
+    flex-direction: column;
+    border-top: solid 1px #ebebeb;
+    padding: 15px;
+    width: 23vw;
+}
+
 body {
     background-color: #303056;
 }
+
+
 header {
     background-color: #8373C4;
     width: 100%;
@@ -14,6 +40,7 @@ header {
     align-items: center;
     justify-content: space-between;
 }
+
 .logo_header {
     width: auto;
     height: 80%;

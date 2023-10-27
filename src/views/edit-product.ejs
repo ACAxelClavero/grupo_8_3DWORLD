@@ -11,6 +11,64 @@
 
 <body>
     <%- include('./partials/header.ejs')  %>
+<div>
+    <div >
+        <div >
+            <h2 style="color: white;" >Estás editando el producto: <i><%= productToEdit.name %></i></h2>
+        </div>
+    </div>
+    <div >
+        <form action="/products/<%= productToEdit.id %>?_method=PUT" method="post" class="form-product">
+            <img src="/images/products/<%= productToEdit.image %>" alt="product image">
+            <div>
+                <div>
+                    <label for="color">Color:</label>
+                    <input class="textarea" type="text" id="color" name="color" value="<%= productToEdit.color %>">
+                </div>
+                <div>
+                    <label for="material">Material:</label>
+                    <select name="material" id="material">
+                        <option value="material1">material1</option>
+                        <option value="material2">material2</option>
+                        <option value="material3">material3</option>
+                        <option value="material4">material4</option>
+                        <option value="material5">material5</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="size">Tamaño:</label>
+                    <select name="size" id="size">
+                        <option value="XS">XS</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="price">Precio del producto:</label>
+                    <input type="text" id="price" name="price" value="<%= productToEdit.price %>">
+                </div>
+                <div>
+                    <label for="image">Nueva imagen:</label>
+                    <input type="file" value="<%= productToEdit.image %>" id="image">
+                </div>
+                <div>
+                    <label for="description">Descipción:</label>
+                    <textarea name="description" id="description"><%= productToEdit.description %></textarea>
+                </div>
+                <div>
+                    <button type="submit" class="buy-now-button">Guardar producto</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+
+<!--ACA EMPIEZA LA PARTE VIEJA-->
     <main>
         <form action="/" class="form-product">
             <label for="nombre">Nombre del producto</label>

@@ -67,6 +67,17 @@ select {
 }
 
 /* Estilos para el campo de descripción principal y secundaria */
+input{
+    width: 100%;
+    padding: 10px;
+    background-color: #D1D1EF; /* Fondo de campos a rellenar */
+    border: 2px solid #8373C4;
+    border-radius: 12px;
+    margin-bottom: 15px; /* Aumenta el espacio entre campos */
+    color: black; /* Color de texto en campos */
+    box-sizing: border-box; /* Incluir el borde en el ancho total */
+}
+
 textarea {
     width: 100%;
     padding: 10px;

@@ -8,4 +8,27 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <title>3D World</title>
 </head>
-productos
+<body>
+    <%- include('./partials/header.ejs')  %>
+<div >
+    <div>
+        <% locals.products && products.forEach(product => { %>
+            <div >
+                <section >
+                    <a href="/product/<%= product.id %>">
+                        <figure >
+                            <img src="/images/products/<%= product.image %>" alt="<%= product.image %>">
+                        </figure>
+                        <article >
+                            <h2><%= product.price %></h2>
+                            <p><%=  product.name %></p>
+                        </article>
+                    </a>
+                </section>
+            </div>
+            <% }) %>
+    </div>
+</div>
+    <%- include('./partials/footer')  %>
+</body>
+</html>

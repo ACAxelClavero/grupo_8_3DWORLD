@@ -15,7 +15,8 @@ const controller = {
     },
 
     products(req, res) {
-        res.render('products');
+        const products = getProducts();
+        res.render('products', {products});
     },
 
     productDetail(req, res) {
@@ -27,7 +28,7 @@ const controller = {
         res.render('product-detail', { product });
     },
 
-    newProduct(req, res) {
+    create(req, res) {
         res.render('new-product');
     },
 
@@ -40,11 +41,13 @@ const controller = {
 		}
 		products.push(productToCreate);
 		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-		res.redirect('/products');
+		res.redirect('/');
     },
 
     editProduct (req, res) {
-        res.render('edit-product');
+        const products = getProducts();
+		const product = products.find(product => product.id == req.params.id);
+		res.render('edit-product', { productToEdit: product});
     },
 
     editProductId (req, res) {
