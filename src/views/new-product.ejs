@@ -11,6 +11,7 @@
 
 <body>
     <%- include('./partials/header.ejs')  %>
+    
     <main>
         <form action="/" class="form-product">
             <label for="nombre">Nombre del producto</label>
@@ -22,7 +23,7 @@
             <label for="imagenes">Imagenes</label>
             <input type="file"> 
             <!-- AGREGAR CANTIDAD DE ARCHIVOS -->
-            <!-- EDITAR OPCIONES  -->
+            <!-- EDITAR OPCIONES -->
             <label for="dimensiones">Categoria</label>
                 <select name="dimensiones" id="dimensiones">
                     <option value="Categoria1">Categoria1</option>
@@ -45,11 +46,9 @@
             </div>
             
         </form>
-
-
+        
 
     </main>
-
 
     <%- include('./partials/footer')  %>
 </body>

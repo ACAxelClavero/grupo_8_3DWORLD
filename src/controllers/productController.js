@@ -10,17 +10,20 @@ function getProducts() {
 
 const controller = {
 
+    // Carrito de compras
     productsCart(req, res) {
         res.render('productCart');
     },
 
+    // Mostrar todos los productos
     products(req, res) {
         const products = getProducts();
-        res.render('products', {products});
+        res.render('products', { products });
     },
 
+    // Detalle de un producto especifico
     productDetail(req, res) {
-        let products = getProducts();
+        const products = getProducts();
         const product = products.find(product => product.id == req.params.id);
         if (!product) {
 			return res.render('not-found');
@@ -28,7 +31,8 @@ const controller = {
         res.render('product-detail', { product });
     },
 
-    create(req, res) {
+    // Creacion de un nuevo producto
+    create (req, res) {
         res.render('new-product');
     },
 
@@ -36,7 +40,7 @@ const controller = {
         const products = getProducts();
 		const productToCreate = {
 			id: products[products.length - 1].id + 1,
-			image: 'default-image.png',
+			image: req.file?.filename || 'default-image.png',
 			...req.body
 		}
 		products.push(productToCreate);
@@ -44,6 +48,7 @@ const controller = {
 		res.redirect('/');
     },
 
+    // Edicion de un producto 
     editProduct (req, res) {
         const products = getProducts();
 		const product = products.find(product => product.id == req.params.id);
@@ -61,8 +66,23 @@ const controller = {
 		res.redirect('/products');
     },
 
+    update (req, res) {
+        const products = getPitchs();
+        const productIndex = products.findIndex(element => element.id == req.params.id);
+        const img = req.file?.filename || products[productIndex].img;
+        products[productIndex] = {
+            ...products[pitchIndex],   
+            img,
+            ...req.body
+        };
+        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
+        res.redirect('/')
+    },
+
+
+    // Eliminar un producto
     delete (req, res) {
-        let product = getProducts();
+        const products = getProducts();
         const indexProduct = product.findIndex(product => product.id == req.params.id);
 		product.splice(indexProduct, 1);
 		fs.writeFileSync(productsFilePath, JSON.stringify(product, null, 2));
