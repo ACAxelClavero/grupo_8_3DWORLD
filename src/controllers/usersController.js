@@ -58,7 +58,7 @@ const controller = {
                 path: req.url
             });
         }
-        res.render('users/profile', { user });
+        res.render('/users/profile', { user });
     },
 
     edit(req, res){
@@ -89,20 +89,9 @@ const controller = {
     },
 
     loginProcess(req, res){
-        const { username, password } = req.body;
-        const users = getUsers();
-        const user = users.find(u => u.username === username);
-    
-        if (!user || !bcrypt.compareSync(password, user.password)) {
-            // Credenciales inválidas, redirigir a la página de inicio de sesión con un mensaje de error.
-            return res.render('login', {
-                error: 'Credenciales inválidas',
-                oldData: req.body
-            });
-
-        }
-        res.redirect('/');
+        return res.render(req.body);
     }
 }
+
 
 module.exports = controller;
