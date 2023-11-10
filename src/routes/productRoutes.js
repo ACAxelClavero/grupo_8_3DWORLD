@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const productController = require('../controllers/productController');
 const router = express.Router();
 
 const multer = require('multer');
@@ -21,7 +22,7 @@ const productController = require('../controllers/productController');
 
 
 // Obtener listado de productos
-router.get('/', productController.products); 
+router.get('/', productController.index); 
 
 //Carrito
 router.get('/productCart', productController.productsCart)
