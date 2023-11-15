@@ -151,6 +151,41 @@ article div{
     color: #47077F;
 }
 
+/* Carrusel */
+.slider-container {
+    display: flex;
+    width: 50%;
+    height: 70vh;
+    overflow-x: scroll;
+
+  }
+  
+  .slider-container img {
+    flex: 0 0 100%;
+    width: 50%;
+    object-fit: cover;
+    animation: fade 1s ease-in-out;
+  }
+    
+    .slider-container {
+        display: flex;
+        width: 50%;
+        height: 70vh;
+        overflow-x: scroll
+      
+        scroll-snap-type, x mandatory;
+    
+      }
+      
+      .slider-container img {
+        flex: 0 0 100%;
+        width: 100%;
+        object-fit: cover;
+        animation: fade 1s ease-in-out;
+      
+        scroll-snap-align: center;
+      }
+
 @media (min-width: 767px) {
     .logo_header{
         height: 80% ;
