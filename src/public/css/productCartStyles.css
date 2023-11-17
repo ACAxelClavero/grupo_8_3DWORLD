@@ -94,7 +94,7 @@ text-align: center;
     width: 90%;
     margin: auto;
     background-color: #fff;
-    margin-bottom: 20px;    
+    margin-bottom: 150px;    
     border: solid 7px #47077F;
     border-radius: 15px;
 }
@@ -178,7 +178,8 @@ text-align: center;
     margin-right: 6%;
  }
  footer {
-    position: absolute;
+    flex-shrink: 0;
+    position: fixed;
     bottom: 0;
  }
 }

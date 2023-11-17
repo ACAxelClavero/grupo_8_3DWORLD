@@ -91,18 +91,21 @@ footer {
 }
 
 .inicio, .Trabajos, .Plasticos, .Nosotros {
-    color: rgb(172, 46, 172);
+    color:  black ;
     padding: 15px 30px;
-    border: 2px solid rgb(172, 46, 172);
+    border: 4px #47077F solid;
     border-radius: 10px;
     margin-bottom: 30px;
     cursor: pointer;
-    width: 50%;
+    width: 60%;
     font-size: 20px;
     font-weight: 600;
+    cursor: pointer;
 }
-
-
+.inicio:hover, .Trabajos:hover, .Plasticos:hover, .Nosotros:hover {
+    background-color: #47077F;
+    color: #fff;
+}
 .cuerpo{
     width: 100%;
     display: flex;
@@ -179,7 +182,6 @@ article div{
       
       .slider-container img {
         flex: 0 0 100%;
-        width: 100%;
         object-fit: cover;
         animation: fade 1s ease-in-out;
       
