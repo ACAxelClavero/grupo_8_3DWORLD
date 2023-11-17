@@ -50,6 +50,9 @@ footer {
     /* position: absolute;
     bottom: 0;
     margin-top: auto; */
+    flex-shrink: 0;
+    position: fixed;
+    bottom: 0;
 }
 .foter {
     width: 100%;
@@ -92,14 +95,14 @@ footer {
 
 .inicio, .Trabajos, .Plasticos, .Nosotros {
     color:  black ;
-    padding: 15px 30px;
+    padding: 10px 20px;
     border: 4px #47077F solid;
     border-radius: 10px;
     margin-bottom: 30px;
     cursor: pointer;
-    width: 60%;
-    font-size: 20px;
-    font-weight: 600;
+    width: 100%;
+    font-size: 1vw;
+    font-weight: 600px;
     cursor: pointer;
 }
 .inicio:hover, .Trabajos:hover, .Plasticos:hover, .Nosotros:hover {
@@ -109,14 +112,16 @@ footer {
 .cuerpo{
     width: 100%;
     display: flex;
+    justify-content: space-between;
+    margin-bottom: 6vw;
 }
 .botones {
     flex: 0.5;
     display: flex;
     margin-left: 2%;
     flex-direction: column;
-    justify-content: space-evenly;
-    margin-top: 5%;
+    justify-content: center;
+    margin-top: 3%;
 }
 .carruselHome {
     display: flex;
@@ -157,10 +162,11 @@ article div{
 /* Carrusel */
 .slider-container {
     display: flex;
-    width: 50%;
+    width: 30%;
     height: 70vh;
     overflow-x: scroll;
-
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
   }
   
   .slider-container img {
@@ -172,10 +178,10 @@ article div{
     
     .slider-container {
         display: flex;
-        width: 50%;
-        height: 70vh;
-        overflow-x: scroll
-      
+        width: 80%;
+        height: 60vh;
+        overflow-x: scroll;
+        margin-bottom: 30px;
         scroll-snap-type, x mandatory;
     
       }

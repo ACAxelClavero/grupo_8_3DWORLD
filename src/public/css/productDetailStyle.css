@@ -49,7 +49,7 @@ Hex: #000000 (Texto)  */
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
+    margin-bottom: 120px;
 }
 
 /* ESTILO DEL CARRUSEL */
