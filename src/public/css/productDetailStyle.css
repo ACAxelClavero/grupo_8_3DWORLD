@@ -97,7 +97,7 @@ main section img{
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding: 2px;
+    padding: 1px;
     flex-direction: column;
 } 
 .seccion-elecciones-de-compra div{
@@ -334,18 +334,12 @@ main section img{
     }
     .descripcion-corta{
         font-size: 24px;
-        transition: all 450ms;
     }
-    .descripcion-corta:hover{
-        transform: scale(1.05);
-    }
+  
     .descripcion-larga{
         font-size: 18px;
-        transition: all 450ms;
     }
-    .descripcion-larga:hover{
-        transform: scale(1.05);
-    }
+   
     /* .img-del-carrusel{
         border: none;
     } */
@@ -359,7 +353,7 @@ main section img{
 
     .seccion-elecciones-de-compra {
         flex-direction: column;
-        width: 27vw;
+        width: 25vw;
     }
     .seccion-elecciones-de-compra form {
         display: flex;
@@ -432,7 +426,7 @@ main section img{
 }
     .descripcion-general{
         display: flex;
-        width: 28vw;
+        width: 24vw;
         flex-direction: column;
 }
     .descripcion-corta{
@@ -443,7 +437,7 @@ main section img{
 }
     .seccion-elecciones-de-compra {
     flex-direction: column;
-    width: 30vw;
+    width: 25vw;
 }
     .seccion-elecciones-de-compra form {
     display: flex;

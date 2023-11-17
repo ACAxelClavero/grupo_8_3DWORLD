@@ -6,10 +6,10 @@ const router = express.Router();
 
 router.get('/', mainController.index);
 
-// router.get('/productCart', mainController.productCart);
+ router.get('/productCart', mainController.productCart);
 
-// router.get('/product-detail', mainController.productDetail);
+ router.get('/product-detail', mainController.productDetail);
 
-// router.get('/new-product', mainController.newProduct);
+ router.get('/new-product', mainController.newProduct);
 
 module.exports = router;
