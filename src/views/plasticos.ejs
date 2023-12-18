@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/plasticos.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <title>Plasticos</title>
+</head>
+<body>
+    <%- include('./partials/header.ejs')  %>
+        <h1>Filamentos:</h1>
+        <p  class="parrafo_">En nuestro catálogo encontrarás una variedad de materiales con propiedades únicas para tus proyectos de impresión 3D. Cada uno de estos materiales representa un mundo de posibilidades, ya que poseen características y propiedades distintas que los hacen ideales para diferentes aplicaciones.</p>
+        <div    class="plasticos_flex">
+
+        <article   class="plasticos_articulo" >
+            <img class="plasticos_imagen" src="../images/plasticos/petg.jpg" alt="petg">
+            <p>Filamento Grillon3 PETG</p>
+            <p>$18.500</p>
+        </article>
+        <article  class="plasticos_articulo"  >
+            <img class="plasticos_imagen" src="../images/plasticos/pla.jpeg" alt="pla">
+            <p>Filamento Grillon3 PLA</p>
+            <p>$15.500</p>
+        </article>
+        <article    class="plasticos_articulo">
+            <img class="plasticos_imagen" src="../images/plasticos/simpliflex.jpg" alt="simpliflex">
+            <p>Filamento Grillon3 SIMPLIFLEX</p>
+            <p>$22.500</p>
+        </article> 
+           </div>
+
+    <%- include('./partials/footer')  %>
+
+</body>
+</html>

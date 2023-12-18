@@ -161,30 +161,38 @@ article div{
 
 /* Carrusel */
 .slider-container {
-    display: flex;
+    display: flex;  
     width: 30%;
+
     height: 70vh;
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: hidden;
+    scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    margin-bottom: 30px;
+
   }
-  
+   .slider-container {
+        display: flex;
+        width: 80%;
+        height: 60vh;
+        overflow-x: auto;
+        margin-bottom: 30px;
+        -ms-overflow-style: none;
+    scrollbar-width: none;
+      }
   .slider-container img {
     flex: 0 0 100%;
     width: 50%;
     object-fit: cover;
     animation: fade 1s ease-in-out;
   }
-    
-    .slider-container {
-        display: flex;
-        width: 80%;
-        height: 60vh;
-        overflow-x: scroll;
-        margin-bottom: 30px;
-        scroll-snap-type, x mandatory;
-    
-      }
+  .slider-container::-webkit-scrollbar {
+    display: none; 
+  }
+   
       
       .slider-container img {
         flex: 0 0 100%;

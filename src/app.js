@@ -18,6 +18,10 @@ app.use('/user', usersRoutes);
 
 app.use('/product', productRoutes);
 
+app.use('/nosotros', mainRoutes);
+
+app.use('/plasticos', mainRoutes);
+
 const port=3017;
 app.listen(port, ()=>{
     console.log(`Servidor iniciado en http://localhost:${port}`);

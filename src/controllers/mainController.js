@@ -13,6 +13,12 @@ const controller = {
 
     newProduct(req, res){
         res.render('new-product');
+    },
+    nosotros(req, res) {
+        res.render('nosotros');
+    },
+    plasticos(req, res) {
+        res.render('plasticos');
     }
 }
 

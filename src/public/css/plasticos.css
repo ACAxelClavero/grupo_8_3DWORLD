@@ -1,0 +1,21 @@
+.plasticos_flex {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+    margin-bottom: 150px;
+}
+.plasticos_articulo {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    align-items: center;
+    background-color: #8373C4;
+    border: 2px solid #47077F;
+    border-radius: 8px;
+    padding: 20px;
+}
+.plasticos_imagen {
+    width: 200px;
+    height: 200px; 
+    border-radius: 5px; 
+}

@@ -12,4 +12,9 @@ router.get('/', mainController.index);
 
  router.get('/new-product', mainController.newProduct);
 
+ router.get('/nosotros', mainController.nosotros);
+
+ router.get('/plasticos', mainController.plasticos);
+
+
 module.exports = router;
