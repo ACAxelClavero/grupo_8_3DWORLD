@@ -1,8 +1,25 @@
+.fondo_plasticos {
+    background-image: url(../images/plasticos/fondo_plasticos.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.plasticos_titulo {
+    margin: 2vw;
+    color: white;
+}
+
+.parrafo_plasticos{
+    margin: 2vw;
+    color: white;
+
+}
+
 .plasticos_flex {
     display: flex;
     justify-content: space-evenly;
     gap: 20px;
-    margin-bottom: 150px;
+    margin-bottom: 100px;
 }
 .plasticos_articulo {
     display: flex;
@@ -11,11 +28,32 @@
     align-items: center;
     background-color: #8373C4;
     border: 2px solid #47077F;
-    border-radius: 8px;
     padding: 20px;
+      position: relative;
+    
 }
+
 .plasticos_imagen {
     width: 200px;
     height: 200px; 
     border-radius: 5px; 
+}
+.caja_plasticos {
+    display: none;
+    position: absolute;
+    bottom:-200;
+    left: 100;
+    transform: translateX(-50%);
+    width: 80%;
+    padding: 15px;
+    background-color: white;
+    border: 1px solid #ccc;
+    transition: opacity 0.3s, visibility 40s;
+
+}
+
+
+.contenido_plasticos:hover + .caja_plasticos {
+display: block;    
+bottom: 0;
 }

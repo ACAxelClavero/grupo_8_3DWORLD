@@ -8,30 +8,52 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <title>Plasticos</title>
 </head>
-<body>
+<body>    <div    class="fondo_plasticos">
+
     <%- include('./partials/header.ejs')  %>
-        <h1>Filamentos:</h1>
-        <p  class="parrafo_">En nuestro catálogo encontrarás una variedad de materiales con propiedades únicas para tus proyectos de impresión 3D. Cada uno de estos materiales representa un mundo de posibilidades, ya que poseen características y propiedades distintas que los hacen ideales para diferentes aplicaciones.</p>
+
+        <h1 class="plasticos_titulo">Filamentos:</h1>
+        <p  class="parrafo_plasticos">En nuestro catálogo encontrarás una variedad de materiales con propiedades únicas para tus proyectos de impresión 3D. Cada uno de estos materiales representa un mundo de posibilidades, ya que poseen características y propiedades distintas que los hacen ideales para diferentes aplicaciones.</p>
         <div    class="plasticos_flex">
 
         <article   class="plasticos_articulo" >
             <img class="plasticos_imagen" src="../images/plasticos/petg.jpg" alt="petg">
-            <p>Filamento Grillon3 PETG</p>
-            <p>$18.500</p>
+            <div    class="contenido_plasticos">
+            <p>Filamento PETG</p>
+            <p>$18.500</p>   
+            </div>
+
+            <div    class="caja_plasticos">
+              <p>buena transparencia, resistencia química y dimensional, lo que lo hace adecuado para aplicaciones que requieren durabilidad y transparencia, cuenta con una gran resistencia estructural. </p>
+            </div>
         </article>
         <article  class="plasticos_articulo"  >
             <img class="plasticos_imagen" src="../images/plasticos/pla.jpeg" alt="pla">
-            <p>Filamento Grillon3 PLA</p>
+            <div    class="contenido_plasticos">
+            <p>Filamento PLA</p>
             <p>$15.500</p>
+            </div>
+
+            <div    class="caja_plasticos">
+              <p>facilidad de impresión, baja deformación durante el proceso y su adecuada resistencia mecánica. El PLA es ideal para proyectos domésticos y educativos, pero sufre de menor resistencia al calor en comparación con otros materiales.</p>
+                    </div>
         </article>
         <article    class="plasticos_articulo">
             <img class="plasticos_imagen" src="../images/plasticos/simpliflex.jpg" alt="simpliflex">
-            <p>Filamento Grillon3 SIMPLIFLEX</p>
+          <div    class="contenido_plasticos">
+
+            <p>Filamento SIMPLIFLEX</p>
             <p>$22.500</p>
+            </div>
+
+            <div    class="caja_plasticos">
+                    <p>capacidad de doblarse y flexionarse después de impresos, lo que los hace ideales para la creación de objetos que necesitan flexibilidad y resistencia a impactos. Utilizado para la fabricación de piezas mecánicas o prototipos que requieren cierto grado de elasticidad.</p>
+            </div>
         </article> 
            </div>
 
     <%- include('./partials/footer')  %>
+    </div>
 
 </body>
 </html>

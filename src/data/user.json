@@ -1,0 +1,112 @@
+[
+    {
+        "id": 1,
+        "firstName": "interdum",
+        "lastName": "mauris",
+        "email": "dedscer0@bloglines.com",
+        "password": "jO2}>U8&X",
+        "type": "Customer",
+        "avatar": "/images/avatars/jala.jpg",
+        "address": "84 Chinook Pass",
+        "phone": "312-633-7363"
+    },
+    {
+        "id": 2,
+        "firstName": "cursus",
+        "lastName": "ultrices",
+        "email": "lmorat1@deliciousdays.com",
+        "password": "nC1?M`t|lXOR.A96",
+        "type": "Admin",
+        "avatar": "/images/avatars/tostada.jpg",
+        "address": "75 Nevada Junction",
+        "phone": "829-154-4526"
+    },
+    {
+        "id": 3,
+        "firstName": "odio justo",
+        "lastName": "cubilia",
+        "email": "pdunford2@phoca.cz",
+        "password": "kS1|+7RBKV)Q",
+        "type": "Customer",
+        "avatar": "/images/avatars/tostada.jpg",
+        "address": "10681 Bayside Street",
+        "phone": "109-451-5954"
+    },
+    {
+        "id": 4,
+        "firstName": "est phasellus",
+        "lastName": "amet",
+        "email": "ekippling3@networksolutions.com",
+        "password": "rI7%o}wWot36u",
+        "type": "Admin",
+        "avatar": "/images/avatars/pletzale.jpg",
+        "address": "363 Buena Vista Lane",
+        "phone": "895-349-0544"
+    },
+    {
+        "id": 5,
+        "firstName": "ipsum dolor",
+        "lastName": "convallis duis",
+        "email": "qhuerta4@163.com",
+        "password": "gL2\"J\".Y!",
+        "type": "Admin",
+        "avatar": "/images/avatars/jala.jpg",
+        "address": "0930 Blue Bill Park Terrace",
+        "phone": "724-434-8131"
+    },
+    {
+        "id": 6,
+        "firstName": "metus sapien",
+        "lastName": "mi",
+        "email": "scuttell5@sitemeter.com",
+        "password": "dC9@J52YKZ",
+        "type": "Admin",
+        "avatar": "/images/avatars/kipa.jpg",
+        "address": "0150 Fordem Park",
+        "phone": "825-645-0890"
+    },
+    {
+        "id": 7,
+        "firstName": "ipsum integer",
+        "lastName": "convallis nulla",
+        "email": "jsrutton6@ehow.com",
+        "password": "xT3)#+}'8k'.m%",
+        "type": "Customer",
+        "avatar": "/images/avatars/polloCorazon.jpg",
+        "address": "0 Granby Place",
+        "phone": "395-327-3152"
+    },
+    {
+        "id": 8,
+        "firstName": "aliquet",
+        "lastName": "pellentesque",
+        "email": "cdaynter7@lulu.com",
+        "password": "qM0&UvkgIoJ'E>",
+        "type": "Customer",
+        "avatar": "/images/avatars/jala.jpg",
+        "address": "4 Erie Way",
+        "phone": "720-556-3842"
+    },
+    {
+        "id": 9,
+        "firstName": "donec",
+        "lastName": "ligula",
+        "email": "vjuden8@princeton.edu",
+        "password": "aX8&|QzW",
+        "type": "Admin",
+        "avatar": "/images/avatars/tostada.jpg",
+        "address": "4918 Grasskamp Road",
+        "phone": "360-794-7539"
+    },
+    {
+        "id": 10,
+        "firstName": "vulputate",
+        "lastName": "ut suscipit",
+        "email": "econley9@google.com.hk",
+        "password": "vT2.EW$Si~BXCj",
+        "type": "Admin",
+        "avatar": "/images/avatars/tostada.jpg",
+        "address": "8648 Knutson Trail",
+        "phone": "335-414-1836"
+    }
+]
