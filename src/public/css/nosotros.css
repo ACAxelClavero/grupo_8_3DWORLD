@@ -1,12 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.titulo_nosotros {
+    margin: 2vw;
+}
+.textos_nosotros{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
 .flex_nosotros {
     display: flex;
-    margin: 2vw;
 }
 
 .parrafo_nosotros {
-
+    margin: 2vw;
 }
 
 .imagen_nosotros {
-    width: 30vw;
+    height: 50vw;    
 }

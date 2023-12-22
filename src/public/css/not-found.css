@@ -1,0 +1,8 @@
+.titulo_notfound {
+    text-align: center;
+    margin-top: 10vw;
+}
+
+.background_notfound{
+    background-image: url(../images/not-found/fondo_notfound.jpg);
+    background-color: rgba(255, 255, 255, 0.5);}
