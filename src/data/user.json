@@ -108,5 +108,13 @@
         "avatar": "/images/avatars/tostada.jpg",
         "address": "8648 Knutson Trail",
         "phone": "335-414-1836"
+    },
+    {
+        "id": 11,
+        "nombre": "Juan",
+        "apellido": "Bordon",
+        "email": "nachobordon14@gmail.com",
+        "contrasena": "nacho112233",
+        "password": "$2a$10$LM6EhKBSvCzV7CPGXENrk.RiNTdDHOXt/SRYzoqk3kuvKSmqj9/re"
     }
 ]

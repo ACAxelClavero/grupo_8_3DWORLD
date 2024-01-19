@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 
 const { validationResult } = require('express-validator');
 
-const usersFilePath = path.join(__dirname, '../data/users.json');
+const usersFilePath = path.join(__dirname, '../data/user.json');
 
 function getUsers() {
 	const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
@@ -38,7 +38,7 @@ const controller = {
             id: users[users.length - 1] ? users[users.length - 1].id + 1 : 1,
             ...req.body,
             imgPerfil : req.file?.filename,
-            password: bcrypt.hashSync(req.body.password, 10),
+            password: bcrypt.hashSync(req.body.contrasena, 10),
         };
 
         users.push(user);
@@ -89,7 +89,7 @@ const controller = {
     },
 
     loginProcess(req, res){
-        return res.render(req.body);
+        return res.redirect("/");
     }
 }
 

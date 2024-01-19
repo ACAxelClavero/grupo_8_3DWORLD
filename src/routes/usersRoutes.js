@@ -3,7 +3,9 @@ const path = require('path');
 
 const router = express.Router();
 
-const { createUserValidations } = require('../middlewares/userValidation');
+const { createUserValidation } = require('../middlewares/userValidation');
+const guestMiddleware = require('../middlewares/guestMiddleware');
+const authMiddleware = require('../middlewares/authMiddleware');
 
 
 const multer = require('multer');
@@ -32,7 +34,7 @@ router.get('/login', usersController.login);
 
 /* Crear usuario */
 router.get('/register', usersController.register);
-//router.post('/register', upload.single('imgPerfil'), createUserValidations, usersController.newUser);
+router.post('/register', upload.single('avatar'), createUserValidation, usersController.newUser);
 
 /* Editar usuario */
 router.get('/edit/:id', usersController.edit);
