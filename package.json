@@ -4,6 +4,7 @@
   "description": "Este es el repositorio del trabajo integrador del grupo 8, el cual consta de una tienda dedicada al diseño y venta de impresiones 3D.",
   "main": "src/app.js",
   "scripts": {
+    "start": "node index.js",
     "dev": "nodemon src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
