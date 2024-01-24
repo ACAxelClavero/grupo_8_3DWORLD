@@ -2,6 +2,7 @@
 const express=require("express");
 const path = require("path");
 const methodOverride = require('method-override');
+const dotenv = require('dotenv').config();
 
 // Routes require
 const mainRoutes = require('./routes/mainRoutes');
