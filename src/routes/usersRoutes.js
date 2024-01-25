@@ -4,8 +4,9 @@ const path = require('path');
 const router = express.Router();
 
 const { createUserValidation } = require('../middlewares/userValidation');
-const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
+const guestMiddleware = require('../middlewares/authMiddleware');
+const isLogged = require ('../middlewares/isLoggedValidations')
 
 
 const multer = require('multer');
@@ -27,25 +28,25 @@ const usersController = require('../controllers/usersController');
 //router.get('/', usersController.index);
 
 /* Obtener un usuario especifico */
-router.get('/profile/:id', usersController.profile);
-
-router.get('/login', usersController.login);
-
+router.get('/profile/:id', isLogged, usersController.profile);
 
 /* Crear usuario */
 router.get('/register', usersController.register);
 router.post('/register', upload.single('avatar'), createUserValidation, usersController.newUser);
 
 /* Editar usuario */
-router.get('/edit/:id', usersController.edit);
+router.get('/edit/:id', isLogged, usersController.edit);
 router.put('/:id', upload.single('imgPerfil'), usersController.update);
 
 /* Eliminar usuario */
-router.delete('/:id', usersController.delete);
+router.delete('/:id', isLogged, usersController.delete);
 
 /* Formulario login */
 router.get('/login', usersController.login);
 router.post('/login', usersController.loginProcess)
+
+/* Cerrar sesion*/
+router.get('/logout', mainController.logout);
 
 
 module.exports = router; 

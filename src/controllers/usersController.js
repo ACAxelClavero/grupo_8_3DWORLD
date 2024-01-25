@@ -12,16 +12,11 @@ function getUsers() {
 }
 
 const controller = {
-    // Inicio de sesion
-    login(req, res){
-        res.render('login');
-    },
-    
     // Registrarse
+
     register(req, res){
         res.render('register');
     },
-
 
     newUser(req, res){
         const users = getUsers();
@@ -87,10 +82,50 @@ const controller = {
         fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
         res.redirect('/user');
     },
+    
+    // Inicio de sesion
+    login(req, res){
+        res.render('login');
+    },
+    
+    loginProcess(req, res) {
+        const errors = validationResult(req);
+        const users = getUsers();
+        let loggUser = undefined;
 
-    loginProcess(req, res){
-        return res.redirect("/");
-    }
+        if(errors.isEmpty()){
+            for (let i = 0; i < users.length ; i++) {
+                if(users[i].email == req.body.email){
+                    if(bcrypt.compareSync(req.body.contrasena, users[i].password))
+                    break;
+                    loggUser = users[i];
+                }
+            }
+            if(loggUser == undefined){
+                return res.render('login', { errors: [
+                    {msg: "credenciales invalidas"}
+                ]})
+            }
+            
+            req.session.userLogged = loggUser;
+
+            if(req.body.recordarUsuario != undefined){
+                res.cookie('usuario', req.session.userLogged.name);
+            }
+
+            res.redirect('/',);
+
+        } 
+
+        res.render('login', {errors : errors.errors})
+    },
+
+    // Cerrar sesion
+    logout(req, res) {
+        req.session.user = undefined;
+        res.clearCookie('username');
+        return res.redirect('/');
+    },
 }
 
 

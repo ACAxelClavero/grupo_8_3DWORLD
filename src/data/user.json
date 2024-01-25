@@ -116,5 +116,13 @@
         "email": "nachobordon14@gmail.com",
         "contrasena": "nacho112233",
         "password": "$2a$10$LM6EhKBSvCzV7CPGXENrk.RiNTdDHOXt/SRYzoqk3kuvKSmqj9/re"
+    },
+    {
+        "id": 12,
+        "nombre": "Ruben",
+        "apellido": "Alem",
+        "email": "alem.ruben@gmail.com",
+        "contrasena": "1234",
+        "password": "$2a$10$KsAIw8HpEYm.Npx3JWIAeeLVuYRkzJhqnWnRqBz6akanL72n07jim"
     }
 ]
