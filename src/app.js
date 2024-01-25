@@ -2,12 +2,8 @@
 const express=require("express");
 const path = require("path");
 const methodOverride = require('method-override');
-<<<<<<< HEAD
 const session = require("express-session");
 
-=======
-const dotenv = require('dotenv').config();
->>>>>>> 472524a8ba784b1d7362f61c8c3cf4091d9bc0ad
 
 // Routes require
 const mainRoutes = require('./routes/mainRoutes');

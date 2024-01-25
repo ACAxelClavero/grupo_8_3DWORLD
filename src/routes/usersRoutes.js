@@ -6,7 +6,7 @@ const router = express.Router();
 const { createUserValidation } = require('../middlewares/userValidation');
 const authMiddleware = require('../middlewares/authMiddleware');
 const guestMiddleware = require('../middlewares/authMiddleware');
-const isLogged = require ('../middlewares/isLoggedValidations')
+const isLogged = require ('../middlewares/userValidation')
 
 
 const multer = require('multer');
