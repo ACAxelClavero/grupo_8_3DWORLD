@@ -1,26 +1,22 @@
 const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcryptjs');
-
+let ejs = require(('ejs'))
+const {response} = require('express')
 const { validationResult } = require('express-validator');
+const {User} = require('../../database/models');
 
-const usersFilePath = path.join(__dirname, '../data/user.json');
 
-function getUsers() {
-	const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-	return users;
-}
+
 
 const controller = {
-    // Registrarse
+   // Registrarse
 
     register(req, res){
         res.render('register');
     },
 
-    newUser(req, res){
-        const users = getUsers();
-
+    newUser: async (req, res) => {
         const errors = validationResult(req);
         if(!errors.isEmpty()){
             return res.render('register', {
@@ -29,32 +25,38 @@ const controller = {
             });
         }
 
-        const user = {
-            id: users[users.length - 1] ? users[users.length - 1].id + 1 : 1,
-            ...req.body,
-            imgPerfil : req.file?.filename,
-            password: bcrypt.hashSync(req.body.contrasena, 10),
-        };
-
-        users.push(user);
-        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 4));
+            try {
+        const user =  await User.create({
+                name: req.body.name,
+                lastname: req.body.lastname,
+                email: req.body.email,
+                password: bcrypt.hashSync(req.body.contrasena, 8),
+        });
         return res.redirect('/');
+        } catch (error) {
+            console.error('Error creating user:', error.message);
+            return res.status(500).send('Internal Server Error');
+        }
     },
+     
 
-    profile(req, res){
-        const users = getUsers();
-        const user = users.find(element => element.id === req.params.id);
+    profile: async (req, res) => {
+        try {
+            const user = await User.findByPk(req.params.id);
         if(!user){
             return res.render('error', {
                 message: 'El usuario no existe',
                 error: {
                     status: 404
-                },
+        },
                 path: req.url
             });
-        }
+    }
         res.render('/users/profile', { user });
-    },
+    } catch (error) {
+        console.error('Error fetching user:', error.message);
+            return res.status(500).send('Internal Server Error');
+     } },  
 
     edit(req, res){
         const users = getUsers();
@@ -88,45 +90,56 @@ const controller = {
         res.render('login');
     },
     
-    loginProcess(req, res) {
+    loginProcess: async (req, res) => {
         const errors = validationResult(req);
-        const users = getUsers();
-        let loggUser = undefined;
-
+        
+        try {
         if(errors.isEmpty()){
-            for (let i = 0; i < users.length ; i++) {
-                if(users[i].email == req.body.email){
-                    if(bcrypt.compareSync(req.body.contrasena, users[i].password))
-                    break;
-                    loggUser = users[i];
+            const user = await User.findByEmail(req.body.email);
+
+            if (!user) {
+                return res.render('login', {
+                    errors: [{ msg: "El correo electrónico no está registrado" }]
+                });
+            }
+            if (!isValidEmail(req.body.email)) {
+                return res.render('login', {
+                    errors: [{ msg: "Formato de correo electrónico inválido" }]
+                });
+            }   if (req.body.contrasena.length < 6) {
+                return res.render('login', {
+                    errors: [{ msg: "La contraseña es demasiado corta" }]
+                });
+            }
+            if (user && bcrypt.compareSync(req.body.contrasena, user.password)) {
+                req.session.userLogged = user;
+
+                if (req.body.recordarUsuario !== undefined) {
+                    res.cookie('usuario', req.session.userLogged.name);
                 }
+
+                return res.redirect('/');
+
+            } else {
+                return res.render('login', {
+                    errors: [{ msg: "Credenciales inválidas" }]
+                });
             }
-            if(loggUser == undefined){
-                return res.render('login', { errors: [
-                    {msg: "credenciales invalidas"}
-                ]})
-            }
-            
-            req.session.userLogged = loggUser;
-
-            if(req.body.recordarUsuario != undefined){
-                res.cookie('usuario', req.session.userLogged.name);
-            }
-
-            res.redirect('/',);
-
-        } 
-
-        res.render('login', {errors : errors.errors})
+        } else {
+            return res.render('login', { errors: errors.array() });
+        }   } catch (error) {
+            console.error('Error during login process:', error.message);
+            return res.status(500).send('Internal Server Error');
+        }
     },
+
 
     // Cerrar sesion
-    logout(req, res) {
-        req.session.user = undefined;
-        res.clearCookie('username');
+    logout: (req, res) => {
+        req.session.userLogged = undefined;
+        res.clearCookie('usuario');
         return res.redirect('/');
     },
-}
-
+};
 
 module.exports = controller;

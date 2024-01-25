@@ -124,5 +124,13 @@
         "email": "alem.ruben@gmail.com",
         "contrasena": "1234",
         "password": "$2a$10$KsAIw8HpEYm.Npx3JWIAeeLVuYRkzJhqnWnRqBz6akanL72n07jim"
+    },
+    {
+        "id": 13,
+        "nombre": "wwqwqwq",
+        "apellido": "wqwwqwq",
+        "email": "sadkdsa@gmail.com",
+        "contrasena": "wfkdfkdfkdf",
+        "password": "$2a$10$olGUpsiFeUatPKR/hELhcOBT6xTHbNHZsbudeMEwtY1YuskGCuvFG"
     }
 ]

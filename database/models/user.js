@@ -1,7 +1,6 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const {  Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/config')
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -16,6 +15,15 @@ module.exports = (sequelize, DataTypes) => {
         as: 'roles'
     });
     }
+
+    static  findByEmail(email) {
+      return User.findOne({
+        where: {
+          email: email
+        }
+      });
+    }
+
   }
   User.init({
     name: {
@@ -30,7 +38,7 @@ module.exports = (sequelize, DataTypes) => {
     type: DataTypes.TEXT,
     allowNull: false
   },
-  phone: {
+  lastname: {
     type: DataTypes.TEXT,
     allowNull: false
   },
