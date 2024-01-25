@@ -28,25 +28,25 @@ const usersController = require('../controllers/usersController');
 //router.get('/', usersController.index);
 
 /* Obtener un usuario especifico */
-router.get('/profile/:id', isLogged, usersController.profile);
+router.get('/profile/:id', authMiddleware, usersController.profile);
 
 /* Crear usuario */
 router.get('/register', usersController.register);
 router.post('/register', upload.single('avatar'), createUserValidation, usersController.newUser);
 
 /* Editar usuario */
-router.get('/edit/:id', isLogged, usersController.edit);
+router.get('/edit/:id', authMiddleware, usersController.edit);
 router.put('/:id', upload.single('imgPerfil'), usersController.update);
 
 /* Eliminar usuario */
-router.delete('/:id', isLogged, usersController.delete);
+router.delete('/:id', authMiddleware, usersController.delete);
 
 /* Formulario login */
 router.get('/login', usersController.login);
 router.post('/login', usersController.loginProcess)
 
-/* Cerrar sesion*/
-router.get('/logout', mainController.logout);
+/* Cerrar Sesioin*/
+router.get('/logout', usersController.logout);
 
 
 module.exports = router; 
