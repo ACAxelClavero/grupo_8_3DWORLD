@@ -41,11 +41,11 @@ router.put('/:id', upload.single('imgPerfil'), usersController.update);
 router.delete('/:id', authMiddleware, usersController.delete);
 
 /* Formulario login */
-router.get('/login', usersController.login);
+router.get('/login', guestMiddleware, usersController.login);
 router.post('/login', usersController.loginProcess)
 
 /* Cerrar Sesioin*/
-router.get('/logout', usersController.logout);
+router.get('/logout', authMiddleware, usersController.logout);
 
 
 module.exports = router; 
