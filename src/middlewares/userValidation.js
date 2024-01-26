@@ -1,22 +1,37 @@
 const { body } = require('express-validator');
 
-const createUserValidation = [
-    body('nombre')
-        .notEmpty().withMessage('El campo nombre es requerido!')
-        .isLength({ min: 2 }).withMessage('El nombre debe tener mas de dos caracteres'),
-    body('apellido')
-        .notEmpty().withMessage('El campo apellido es requerido!')
-        .isLength({ min: 2 }).withMessage('El apellido debe tener mas de dos caracteres'),
-    body('email')
-        .isEmail().withMessage("El email debe tener un formato abc@email.com")
-        .notEmpty().withMessage('El Campo email es requerido!'),
-    body('contrasena')
-        .notEmpty().withMessage('El campo contraseña es requerido!')
-        .isLength({ min: 2 }).withMessage('La contraseña debe tener mas de dos caracteres'),
 
-        
+const create= [
+    body('name').notEmpty().withMessage('Nombre obligatorio')
+        .isLength({min: 2}).withMessage('Longitud mínima 2 caracteres'),
+
+    body('email').notEmpty().withMessage('Email obligatorio')
+        .isEmail().withMessage('Ingrese un email correcto'),
+
+    body('password').notEmpty().withMessage('Contraseña obligatoria')
+        .isLength({min:8}).withMessage('Constraseña minimo 8 caracteres'),
+
 ];
 
-module.exports = {
-    createUserValidation
+const login= [
+    body('email').notEmpty().withMessage('Email obligatorio')
+        .isEmail().withMessage("Email invalido"),
+
+    body('password').notEmpty().withMessage('Contraseña obligatoria')
+        .isLength({min: 8}).withMessage("La constraseña debe tener 8 caracteres como minimo")	
+ ];
+
+const edit= [
+    body('name').isLength({min: 2}).withMessage('Longitud mínima 2 caracteres'),
+
+    body('email').isEmail().withMessage('Ingrese un email correcto'),
+    
+    body('password').isLength({min:8}).withMessage('Constraseña minimo 8 caracteres')
+ ]
+
+const userValidations = {
+    create,
+    login,
+    edit
 }
+module.exports = userValidations

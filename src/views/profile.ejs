@@ -4,34 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/register_form.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="css/productos.css">
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <title>3D World</title>
 </head>
-
 <body>
-    <header>
-        <img class="logo_header" src="images/logo.png" alt="Logo">
-        <div>
-            <i class="fas fa-search"></i> <!-- ICONO DE LUPA -->
-            <input class="buscador" type="search" placeholder="Que desea buscar">
-        </div>
-        <div>
-            <i class="fas fa-user-plus"></i>
-            <i class="fas fa-shopping-cart"></i>
-        </div>
-    </header>
-
-
-
-
     <main>
-
         <div id="registration-container">
-            <h2>Registro</h2>
+            <h2>Perfil</h2>
             <form action="/user/register" method="post" enctype="multipart/form-data">
                 <label for="name">Nombre:</label>
-                <input type="text" id="name" name="name" >
+                <input type="text" id="name" name="name" placeholder="<%= res.cookie.nombre %>" >
                 <% if(locals.errors?.nombre){ %>
                     <span color="red" class="form_input_alert"><%= locals.errors.nombre.msg %></span>
                   <% } %>
@@ -65,37 +50,4 @@
             </form>
         </div>
     </main>
-    
-    <footer>
-
-        <div class="foter">
-            <img class="logo_footer" src="images/logo.png" alt="Logo">
-
-            <div class="redes_sociales">
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-facebook"></i>
-                <i class="far fa-envelope"></i>
-                <i class="fab fa-whatsapp"></i>
-            </div>
-        </div>
-
-
-
-        <div class="terminos">
-            <a href="">Acerca</a>
-            <a href="">Ayuda</a>
-            <a href="">Terminos</a>
-            <a href="">Privacidad</a>
-        </div>
-
-    </footer>
-    
-    
-    
-
-    <!-- <footer>
-        <img class="logo_footer" src="images/logo.png" alt="Logo">
-    </footer> -->
 </body>
-
-</html>
