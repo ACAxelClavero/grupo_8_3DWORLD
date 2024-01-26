@@ -75,11 +75,6 @@ const controller = {
     },
 
     delete(req, res){
-        const users = getUsers();
-        const userIndex = users.findIndex(element => element.id == req.params.id);
-        users.splice(userIndex, 1);
-        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
-        res.redirect('/user');
     }, 
     
     // Inicio de sesion

@@ -22,14 +22,14 @@
             <form action="/user/register" method="post" enctype="multipart/form-data">
                 <label for="name">Nombre:</label>
                 <input type="text" id="name" name="name" >
-                <% if(locals.errors && locals.errors.nombre){ %>
-                    <span class="form_input_alert"><%= locals.errors.nombre.msg %></span>
+                <% if(locals.errors && locals.errors.name){ %>
+                    <span class="form_input_alert"><%= locals.errors.name.msg %></span>
                   <% } %>
                 
                   <label for="lastname">Apellido:</label>
                   <input type="text" id="lastname" name="lastname" >
-                  <% if(locals.errors && locals.errors.apellido){ %>
-                      <span class="form_input_alert"><%= locals.errors.apellido.msg %></span>
+                  <% if(locals.errors && locals.errors.lastname){ %>
+                      <span class="form_input_alert"><%= locals.errors.lastname.msg %></span>
                     <% } %>
 
                 
