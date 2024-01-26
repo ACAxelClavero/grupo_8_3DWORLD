@@ -15,11 +15,11 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-
-
 const productController = require('../controllers/productController');
 const authMiddleware = require('../middlewares/authMiddleware');
 const guestMiddleware = require('../middlewares/authMiddleware');
+
+const productValidator = require('../middlewares/productValidations')
 
 
 // Obtener listado de productos
@@ -33,17 +33,17 @@ router.get('/:id', productController.productDetail);
 
 /*** Crear un nuevo producto ***/
 //Formulario de creación de productos
-router.get('/create', authMiddleware, productController.create); 
+router.get('/create', productController.create); 
 
 //Acción de creación (a donde se envía el formulario)
-router.post('/', upload.single('img'), productController.newProductCreation)
+router.post('/', authMiddleware,  upload.single('img'),  productValidator.create, productController.newProductCreation)
 
 /*** Editar un producto ***/
 //Formulario de edición de productos
 router.get('/:id/edit-product', authMiddleware, productController.editProduct); 
 
 //Acción de edición (a donde se envía el formulario)
-router.put('/:id', upload.single('img'), productController.editProductId); 
+router.put('/:id', authMiddleware, upload.single('img'), productValidator.edit, productController.editProductId); 
 
 //Acción de borrado
 router.delete('/:id', authMiddleware, productController.delete);

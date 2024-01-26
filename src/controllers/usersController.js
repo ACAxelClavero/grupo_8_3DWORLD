@@ -52,7 +52,7 @@ const controller = {
 
     profile: async (req, res) => {
         try {
-            const user = await User.findByPk(req.params.id);
+            const user = await User.findByEmail(req.params.email);
         if(!user){
             return res.render('error', {
                 message: 'El usuario no existe',
@@ -69,22 +69,9 @@ const controller = {
      } },  
 
     edit(req, res){
-        const users = getUsers();
-        const user = users.find(element => element.id === req.params.id)
-        return res.render('users/editUser', { userToEdit: user });
     },
 
     update(req, res){
-        const users = getUsers();
-        const userIndex = users.findIndex(element => element.id == req.params.id);
-        const imgPerfil = req.file?.filename || users[userIndex].imgPerfil;
-        users[userIndex] = {
-            ...users[userIndex],   
-            imgPerfil,
-            ...req.body
-        };
-        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
-        res.redirect('/user')
     },
 
     delete(req, res){

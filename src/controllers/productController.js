@@ -8,17 +8,21 @@ function getProducts() {
 	return products;
 }
 
+const Product = require('../../database/models');
+
 const controller = {
     // Carrito de compras
     productCart(req, res){
         res.render('productCart');
     },
-        // Mostrar todos los productos
+
+    // Mostrar todos los productos
     products(req, res) {
-        const products = getProducts();
+        const products = Product;
         res.render('products', { products });
     },
-        // Detalle de un producto especifico
+
+    // Detalle de un producto especifico
         productDetail(req, res) {
             const products = getProducts();
             const product = products.find(product => product.id == req.params.id);
@@ -27,9 +31,10 @@ const controller = {
             }
             res.render('product-detail', { product });
         },
-         // Creacion de un nuevo producto
-    create (req, res) {
-        res.render('new-product');
+
+     // Creacion de un nuevo producto
+        create (req, res) {
+            res.render('new-product');
     },
 
     newProductCreation (req, res) {

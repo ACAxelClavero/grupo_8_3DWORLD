@@ -13,23 +13,20 @@
 <body>
     <%- include('./partials/header.ejs')  %>
 <div >
-    <div>
-        <% locals.products && products.forEach(product => { %>
-            <div >
-                <section >
-                    <a href="/product/<%= product.id %>">
-                        <figure >
-                            <img src="/images/products/<%= product.image %>" alt="<%= product.image %>">
-                        </figure>
-                        <article >
-                            <h2><%= product.price %></h2>
-                            <p><%=  product.name %></p>
-                        </article>
-                    </a>
-                </section>
-            </div>
-            <% }) %>
-    </div>
+    <body>
+        <h1>LISTADO DE PRODUCTOS</h1>
+        <ul>
+            <% for( let i = 0; i < locals.product; i++ ) { %>
+            <li>
+                <a href="/movies/detail/<%= product[i].id %>"><%= locals.product[i].name %></a>
+            </li>
+            <% } %>
+        </ul>
+        <ul>
+            <a href="/product/create" id="CrearProducgto">Crear nuevo producto</a>
+           
+        </ul>
+    </body>
 </div>
     <%- include('./partials/footer')  %>
 </body>
