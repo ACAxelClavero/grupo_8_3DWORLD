@@ -1,8 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcryptjs');
-let ejs = require(('ejs'))
-const {response} = require('express')
 const { validationResult } = require('express-validator');
 const {User} = require('../../database/models');
 
@@ -17,28 +15,40 @@ const controller = {
     },
 
     newUser: async (req, res) => {
+          try {
         const errors = validationResult(req);
         if(!errors.isEmpty()){
             return res.render('register', {
+                locals: {
+
                 errors: errors.mapped(),
                 oldData: req.body
+                }
             });
         }
 
-            try {
         const user =  await User.create({
                 name: req.body.name,
                 lastname: req.body.lastname,
                 email: req.body.email,
-                password: bcrypt.hashSync(req.body.contrasena, 8),
+                password: bcrypt.hashSync(req.body.password, 10),
+                roles_id: 2,
         });
-        return res.redirect('/');
+        return res.redirect('./login');
         } catch (error) {
             console.error('Error creating user:', error.message);
-            return res.status(500).send('Internal Server Error');
-        }
-    },
-     
+            if (error.name === 'SequelizeUniqueConstraintError') {
+                return res.render('register', {
+                  errors: {
+                    email: { msg: 'El correo electrónico ya está registrado' },
+                  },
+                  oldData: req.body,
+        })
+    }
+    return res.status(500).send('Internal Server Error');
+}
+},
+
 
     profile: async (req, res) => {
         try {
@@ -83,7 +93,7 @@ const controller = {
         users.splice(userIndex, 1);
         fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
         res.redirect('/user');
-    },
+    }, 
     
     // Inicio de sesion
     login(req, res){
@@ -96,7 +106,11 @@ const controller = {
         try {
         if(errors.isEmpty()){
             const user = await User.findByEmail(req.body.email);
+                function isValidEmail(email) {
+                    let validEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+                    return validEmail.test(email);
 
+                }
             if (!user) {
                 return res.render('login', {
                     errors: [{ msg: "El correo electrónico no está registrado" }]

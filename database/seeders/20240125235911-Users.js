@@ -12,15 +12,21 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-   
-     await queryInterface.bulkInsert('roles', [{
-       name: 'Administrador',
-     },
-    {
-      name: 'Cliente'
-    }
-    ], {});
-  },
+    const roleId = await queryInterface.rawSelect('roles', {
+      where: { name: 'Cliente' },
+    }, ['id']);
+
+    await queryInterface.bulkInsert('users', [{
+      id: '1',
+      name: 'Martin',
+      email: 'martin@gmail.com',
+      password: '12345678',
+      lastname: 'Sanchez',
+      roles_id: roleId,
+
+    }], {});
+ },
+  
 
   async down (queryInterface, Sequelize) {
     /**
@@ -29,7 +35,7 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    await queryInterface.bulkDelete('roles', null, {});
+    await queryInterface.bulkDelete('users', null, {});
 
   }
 };
