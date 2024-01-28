@@ -12,14 +12,14 @@
 <body>
     <%- include('./partials/header.ejs')  %>
     <main>
-        <form action="/" class="form-product">
+        <form action="/create" method="post" class="form-product" enctype="multipart/form-data" >
             <label for="nombre">Nombre del producto</label>
-            <input type="text" required>
+            <input type="text" name="name" required>
             <label for="descripcion-principal">Descripcion principal</label>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
+            <textarea name="descripcionPrincipal" id="" cols="30" rows="10"></textarea>
             <label for="descripcion-secundaria">Descripcion secundaria</label>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
-            <label for="imagenes">Imagenes</label>
+            <textarea name="descripcionSecundaria" id="" cols="30" rows="10"></textarea>
+           <!--  <label for="imagenes">Imagenes</label>
             <input type="file"> 
             <!-- AGREGAR CANTIDAD DE ARCHIVOS -->
             <!-- EDITAR OPCIONES  -->
@@ -37,7 +37,7 @@
                     <option value="azul">Azul</option>
                 </select>
             <label for="precio">Precio de venta</label>
-            <input type= "number">
+            <input type= "number" name="precio">
             <div class="buttons-form">
                 <button type="submit" class="button-form">Enviar</button>
             

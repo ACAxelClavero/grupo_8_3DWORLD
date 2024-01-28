@@ -13,20 +13,17 @@
 <body>
     <%- include('./partials/header.ejs')  %>
 <div >
-    <body>
         <h1>LISTADO DE PRODUCTOS</h1>
         <ul>
-            <% for( let i = 0; i < locals.product; i++ ) { %>
+            <% for( let i = 0; i < products.length; i++ ) { %>
             <li>
-                <a href="/movies/detail/<%= product[i].id %>"><%= locals.product[i].name %></a>
+                <a href="/movies/detail/<%= product[i].id %>"><%= products[i].name %></a>
             </li>
             <% } %>
         </ul>
         <ul>
-            <a href="/product/create" id="CrearProducgto">Crear nuevo producto</a>
-           
+            <a href="/products/create" id="CrearProducto">Crear nuevo producto</a>
         </ul>
-    </body>
 </div>
     <%- include('./partials/footer')  %>
 </body>

@@ -1,14 +1,8 @@
 const path = require('path');
 const fs = require('fs');
 
-const productsFilePath = path.join(__dirname, '../data/products.json');
+const { Product } = require('../../database/models')
 
-function getProducts() {
-	const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-	return products;
-}
-
-const Product = require('../../database/models');
 
 const controller = {
     // Carrito de compras
@@ -17,78 +11,121 @@ const controller = {
     },
 
     // Mostrar todos los productos
-    products(req, res) {
-        const products = Product;
-        res.render('products', { products });
+    async products(req, res) {
+        try {
+          const products = await Product.findAll();
+          res.render('products', { products });
+        } catch (error) {
+          console.error(error);
+          res.render('error');
+        }
     },
+        
 
     // Detalle de un producto especifico
-        productDetail(req, res) {
-            const products = getProducts();
-            const product = products.find(product => product.id == req.params.id);
+    async productDetail(req, res) {
+        try {
+            const productId = req.params.id;
+            const product = await Product.findByPk(productId);
+    
             if (!product) {
                 return res.render('not-found');
             }
+    
             res.render('product-detail', { product });
-        },
+        } catch (error) {
+            console.error('Error fetching product:', error);
+            res.render('error');
+        }
+    },
 
      // Creacion de un nuevo producto
-        create (req, res) {
-            res.render('new-product');
-    },
+     newProductForm(req, res) {
+        res.render('new-product');
+     },
+     async newProductCreation(req, res) {
+        try {
+          const productToCreate = {
+            name: req.body.name,
+            color: req.body.color,
+            price: req.body.price,
+            photo1: req.body.photo1,
+            photo2: req.body.photo2,
+            photo3: req.body.photo3,
+            photo4: req.body.photo4,
+            materials: req.body.materials,
+            size: req.body.size,
 
-    newProductCreation (req, res) {
-        const products = getProducts();
-		const productToCreate = {
-			id: products[products.length - 1].id + 1,
-			image: req.file?.filename || 'default-image.png',
-			...req.body
 		}
-		products.push(productToCreate);
-		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-		res.redirect('/');
-    },
-
+	
+        const newProduct = await Product.create(productToCreate);
+        res.redirect('/new-product');
+      } catch (error) {
+        console.error(error);
+        res.render('error')
+    }
+},
     // Edicion de un producto 
-    editProduct (req, res) {
-        const products = getProducts();
-		const product = products.find(product => product.id == req.params.id);
-		res.render('edit-product', { productToEdit: product});
-    },
-
-    editProductId (req, res) {
-        const products = getProducts();
-		const indexProduct = products.findIndex(product => product.id == req.params.id);
-		products[indexProduct] = {
-			...products[indexProduct],
-			...req.body
-		};
-		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-		res.redirect('/products');
-    },
-
-    update (req, res) {
-        const products = getPitchs();
-        const productIndex = products.findIndex(element => element.id == req.params.id);
-        const img = req.file?.filename || products[productIndex].img;
-        products[productIndex] = {
-            ...products[pitchIndex],   
-            img,
-            ...req.body
-        };
-        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-        res.redirect('/')
-    },
-
-
+    editProductForm(req, res) {
+        const productId = req.params.id;
+        Product.findByPk(productId)
+          .then((product) => {
+            if (!product) {
+              return res.render('not-found');
+            }
+            res.render('edit-product', { product }); 
+          })
+          .catch((error) => {
+            console.error('Error during rendering edit product form:', error);
+            res.render('error');
+          });
+      },
+    
+    editProductId: async (req, res) => {
+        try {
+          const productId = req.params.id;
+          const updatedProduct = {
+            name: req.body.name,
+            color: req.body.color,
+            price: req.body.price,
+            photo1: req.body.photo1,
+            photo2: req.body.photo2,
+            photo3: req.body.photo3,
+            photo4: req.body.photo4,
+            materials: req.body.materials,
+            size: req.body.size,
+          };
+      
+          await Product.update(updatedProduct, {
+            where: { id: productId }
+          });
+      
+          res.redirect('/products');
+        } catch (error) {
+          console.error('Error during product update by ID:', error);
+          res.render('error'); 
+        }
+      },
     // Eliminar un producto
-    delete (req, res) {
-        const products = getProducts();
-        const indexProduct = product.findIndex(product => product.id == req.params.id);
-		product.splice(indexProduct, 1);
-		fs.writeFileSync(productsFilePath, JSON.stringify(product, null, 2));
-		res.redirect('/products');
+    delete: async (req, res) => {
+        try {
+            const productId = req.params.id;
+            const product = await Product.findByPk(productId);
+    
+            if (!product) {
+                return res.render('not-found'); 
+            }
+    
+            await Product.destroy({
+                where: { id: productId }
+            });
+    
+            res.redirect('/products');
+        } catch (error) {
+            console.error('Error during product deletion by ID:', error);
+            res.render('error'); 
+        }
     },
-}
+};
 
 module.exports = controller;

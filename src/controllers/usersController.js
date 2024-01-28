@@ -36,7 +36,7 @@ const controller = {
         });
         return res.redirect('./login');
         } catch (error) {
-            console.error('Error creating user:', error.message);
+            console.error('Error creating user:', error);
             if (error.name === 'SequelizeUniqueConstraintError') {
                 return res.render('register', {
                   errors: {
@@ -94,37 +94,56 @@ const controller = {
 
                 }
             if (!user) {
+                console.log('User not found for email:', req.body.email);
+
                 return res.render('login', {
                     errors: [{ msg: "El correo electrónico no está registrado" }]
                 });
             }
             if (!isValidEmail(req.body.email)) {
+                console.log('Invalid email format:', req.body.email);
+
                 return res.render('login', {
                     errors: [{ msg: "Formato de correo electrónico inválido" }]
                 });
-            }   if (req.body.contrasena.length < 6) {
+            }   if (req.body.password.length < 6) {
+                console.log('Password too short:', req.body.password);
+
                 return res.render('login', {
                     errors: [{ msg: "La contraseña es demasiado corta" }]
                 });
             }
-            if (user && bcrypt.compareSync(req.body.contrasena, user.password)) {
-                req.session.userLogged = user;
+            console.log('Comparing passwords...');
+            console.log('User input password:', req.body.password);
+            console.log('Stored hashed password:', user.password);
+            
+       
+            const passwordMatch = bcrypt.compareSync(req.body.password, user.password);               
+                    if (passwordMatch) {
+                        req.session.userLogged = user;
 
-                if (req.body.recordarUsuario !== undefined) {
+
+                if (req.body.rememberme !== undefined) {
                     res.cookie('usuario', req.session.userLogged.name);
                 }
 
                 return res.redirect('/');
 
             } else {
+                console.log('Passwords do not match!');
+
                 return res.render('login', {
                     errors: [{ msg: "Credenciales inválidas" }]
                 });
-            }
+            } 
         } else {
+            console.log('Validation errors:', errors.array());
+
             return res.render('login', { errors: errors.array() });
-        }   } catch (error) {
-            console.error('Error during login process:', error.message);
+        }  
+     } catch (error) {
+            
+            console.error('Error during login process:', error);
             return res.status(500).send('Internal Server Error');
         }
     },
