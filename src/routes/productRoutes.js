@@ -1,11 +1,16 @@
 const express = require('express');
 const path = require('path');
 const router = express.Router();
-
+const authMiddleware = require('../middlewares/authMiddleware');
+const productController = require('../controllers/productController');
+const guestMiddleware = require('../middlewares/guestMiddleware');
+const productValidator = require('../middlewares/productValidations')
+const {body} = require('express-validator')
 const multer = require('multer');
+
 const storage = multer.diskStorage({
     destination : (req, file, cb) =>  {
-        cb(null, path.join(__dirname, '../public/img/pitchs'));
+        cb(null,  '/public/images/productos');
     },
     filename : (req, file, cb) => {
         let imageName = 'pitch-' + Date.now() + path.extname(file.originalname);
@@ -15,10 +20,6 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-const productController = require('../controllers/productController');
-const authMiddleware = require('../middlewares/authMiddleware');
-const guestMiddleware = require('../middlewares/guestMiddleware');
-const productValidator = require('../middlewares/productValidations')
 
 
 // Obtener listado de productos
@@ -32,7 +33,7 @@ router.get('/:id', productController.productDetail);
 
 /*** Crear un nuevo producto ***/
 //Formulario de creación de productos
-router.get('/create', productController.newProductForm); 
+router.get('/new-product', productController.newProductForm); 
 
 //Acción de creación (a donde se envía el formulario)
 router.post('/create', authMiddleware,  upload.single('img'),  productValidator.create, productController.newProductCreation)

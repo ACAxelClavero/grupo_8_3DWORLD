@@ -16,6 +16,9 @@ const controller = {
           const products = await Product.findAll();
           res.render('products', { products });
         } catch (error) {
+          console.error(`Error fetching product: ${error.message}`);
+          console.error(error.stack);
+          res.render('error');
           console.error(error);
           res.render('error');
         }
@@ -35,6 +38,9 @@ const controller = {
             res.render('product-detail', { product });
         } catch (error) {
             console.error('Error fetching product:', error);
+            console.error(`Error fetching product: ${error.message}`);
+            console.error(error.stack);
+            res.render('error');
             res.render('error');
         }
     },
@@ -42,27 +48,36 @@ const controller = {
      // Creacion de un nuevo producto
      newProductForm(req, res) {
         res.render('new-product');
+        
      },
      async newProductCreation(req, res) {
+      console.log('Ruta de creación de producto alcanzada');
+
         try {
+          console.log('Contenido de req.body:', req.body);
+          console.log('Contenido de req.files:', req.files);
           const productToCreate = {
             name: req.body.name,
             color: req.body.color,
             price: req.body.price,
-            photo1: req.body.photo1,
-            photo2: req.body.photo2,
-            photo3: req.body.photo3,
-            photo4: req.body.photo4,
+            photo1: req.files[0].filename,
+            photo2: req.files[1].filename,
+            photo3: req.files[2].filename,
+            photo4: req.files[3].filename,
             materials: req.body.materials,
             size: req.body.size,
 
 		}
-	
+
         const newProduct = await Product.create(productToCreate);
-        res.redirect('/new-product');
+        res.redirect('/products');
       } catch (error) {
+        console.error(`Error fetching product: ${error.message}`);
+        console.error(error.stack);
+        res.render('error');
         console.error(error);
-        res.render('error')
+        res.status(500).render('error', { error });
+        res.render('/error')
     }
 },
     // Edicion de un producto 
@@ -76,6 +91,9 @@ const controller = {
             res.render('edit-product', { product }); 
           })
           .catch((error) => {
+            console.error(`Error fetching product: ${error.message}`);
+            console.error(error.stack);
+            res.render('error');
             console.error('Error during rendering edit product form:', error);
             res.render('error');
           });
@@ -88,10 +106,10 @@ const controller = {
             name: req.body.name,
             color: req.body.color,
             price: req.body.price,
-            photo1: req.body.photo1,
-            photo2: req.body.photo2,
-            photo3: req.body.photo3,
-            photo4: req.body.photo4,
+            photo1: req.files[0].photo1,
+            photo2: req.files[1].photo2,
+            photo3: req.files[2].photo3,
+            photo4: req.files[3].photo4,
             materials: req.body.materials,
             size: req.body.size,
           };
@@ -102,6 +120,9 @@ const controller = {
       
           res.redirect('/products');
         } catch (error) {
+          console.error(`Error fetching product: ${error.message}`);
+          console.error(error.stack);
+          res.render('error');
           console.error('Error during product update by ID:', error);
           res.render('error'); 
         }
@@ -122,6 +143,9 @@ const controller = {
     
             res.redirect('/products');
         } catch (error) {
+          console.error(`Error fetching product: ${error.message}`);
+          console.error(error.stack);
+          res.render('error');
             console.error('Error during product deletion by ID:', error);
             res.render('error'); 
         }

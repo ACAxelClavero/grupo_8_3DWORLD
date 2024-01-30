@@ -117,8 +117,8 @@ const controller = {
             console.log('User input password:', req.body.password);
             console.log('Stored hashed password:', user.password);
             
-       
-            const passwordMatch = bcrypt.compareSync(req.body.password, user.password);               
+            console.log('Usuario recuperado de la base de datos:', user);
+            const passwordMatch = bcrypt.compare(req.body.password, user.password);               
                     if (passwordMatch) {
                         req.session.userLogged = user;
 

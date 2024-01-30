@@ -2,7 +2,7 @@ function guestMiddleware(req, res, next) {
     if(req.session.userLogged == undefined){
         next();
     }else {
-        res.render('/');
+        res.render('/views/user/login.ejs');
     }
 }
 
