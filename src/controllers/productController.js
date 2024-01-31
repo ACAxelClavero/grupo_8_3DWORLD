@@ -28,7 +28,7 @@ const controller = {
     // Detalle de un producto especifico
     async productDetail(req, res) {
         try {
-            const productId = req.params.id;
+            const productId = parseInt(req.params.id, 10);
             const product = await Product.findByPk(productId);
     
             if (!product) {
@@ -40,7 +40,6 @@ const controller = {
             console.error('Error fetching product:', error);
             console.error(`Error fetching product: ${error.message}`);
             console.error(error.stack);
-            res.render('error');
             res.render('error');
         }
     },
@@ -68,14 +67,11 @@ const controller = {
             size: req.body.size,
 
 		}
-
         const newProduct = await Product.create(productToCreate);
         res.redirect('/products');
       } catch (error) {
         console.error(`Error fetching product: ${error.message}`);
         console.error(error.stack);
-        res.render('/error');
-        console.error(error);
         res.status(500).render('error', { error });
         res.render('/error')
     }
@@ -106,10 +102,10 @@ const controller = {
             name: req.body.name,
             color: req.body.color,
             price: req.body.price,
-            photo1: req.files[0].photo1,
-            photo2: req.files[1].photo2,
-            photo3: req.files[2].photo3,
-            photo4: req.files[3].photo4,
+            photo1: req.files[0].filename,
+            photo2: req.files[1].filename,
+            photo3: req.files[2].filename,
+            photo4: req.files[3].filename,
             materials: req.body.materials,
             size: req.body.size,
           };
@@ -120,7 +116,7 @@ const controller = {
       
           res.redirect('/products');
         } catch (error) {
-          console.error(`Error fetching product: ${error.message}`);
+          console.error(`Error updating product: ${error.message}`);
           console.error(error.stack);
           res.render('error');
           console.error('Error during product update by ID:', error);
