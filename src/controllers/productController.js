@@ -74,7 +74,7 @@ const controller = {
       } catch (error) {
         console.error(`Error fetching product: ${error.message}`);
         console.error(error.stack);
-        res.render('error');
+        res.render('/error');
         console.error(error);
         res.status(500).render('error', { error });
         res.render('/error')
