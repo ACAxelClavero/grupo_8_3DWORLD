@@ -3,7 +3,8 @@ const path = require('path');
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const {User} = require('../../database/models');
-
+const { where } = require('sequelize');
+const session = require("express-session")
 
 
 
@@ -50,23 +51,11 @@ const controller = {
 },
 
 
-    profile: async (req, res) => {
-        try {
-            const user = await User.findByEmail(req.params.email);
-        if(!user){
-            return res.render('error', {
-                message: 'El usuario no existe',
-                error: {
-                    status: 404
-        },
-                path: req.url
-            });
-    }
-        res.render('/users/profile', { user });
-    } catch (error) {
-        console.error('Error fetching user:', error.message);
-            return res.status(500).send('Internal Server Error');
-     } },  
+    profile (req, res) {
+        const user = req.session.user
+        console.log({user})
+        res.render('profile', { user });
+    }, 
 
     edit(req, res){
     },
@@ -79,7 +68,7 @@ const controller = {
     
     // Inicio de sesion
     login(req, res){
-        res.render('login');
+        res.render('login', {errors});
     },
     
     loginProcess: async (req, res) => {
@@ -120,14 +109,13 @@ const controller = {
             console.log('Usuario recuperado de la base de datos:', user);
             const passwordMatch = bcrypt.compare(req.body.password, user.password);               
                     if (passwordMatch) {
-                        req.session.userLogged = user;
-
+                        req.session.user = user;
 
                 if (req.body.rememberme !== undefined) {
-                    res.cookie('usuario', req.session.userLogged.name);
+                    res.cookie('nombre', user.name);
                 }
 
-                return res.redirect('/');
+                return res.redirect('profile');
 
             } else {
                 console.log('Passwords do not match!');
@@ -150,8 +138,8 @@ const controller = {
 
 
     // Cerrar sesion
-    logout: (req, res) => {
-        req.session.userLogged = undefined;
+    logout (req, res) {
+        req.session.user = undefined;
         res.clearCookie('usuario');
         return res.redirect('/');
     },

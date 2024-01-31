@@ -1,12 +1,13 @@
+
+
 function authMiddleware(req, res, next) {
+    
     console.log('Middleware de autenticación ejecutado');
 
-    if(req.session.userLogged != undefined){
-        next();
-    } else {
-
-            res.redirect ('/user/login');
-
+    if(req.session.user !== undefined){
+        console.log("Ya estas logueado")
+        res.redirect ('/')
     }
+    next();
 }
 module.exports = authMiddleware;

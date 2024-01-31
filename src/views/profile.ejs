@@ -6,47 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="css/productos.css">
+    <link rel="stylesheet" href="/css/register_form.css">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <title>3D World</title>
 </head>
 <body>
+    
     <main>
         <div id="registration-container">
-            <h2>Perfil</h2>
+            <h2>Tu perfil <%= user.name + " " + user.lastname%></h2>
             <form action="/user/register" method="post" enctype="multipart/form-data">
                 <label for="name">Nombre:</label>
-                <input type="text" id="name" name="name" placeholder="<%= res.cookie.nombre %>" >
-                <% if(locals.errors?.nombre){ %>
-                    <span color="red" class="form_input_alert"><%= locals.errors.name.msg %></span>
+                <input type="text" id="name" name="name" value="<%= user.name %>">
+                <% if(locals.errors && locals.errors.name){ %>
+                    <span style="color : red" class="form_input_alert"><%= locals.errors.name.msg %></span>
                   <% } %>
                 
                   <label for="lastname">Apellido:</label>
-                  <input type="text" id="lastname" name="lastname" >
-                  <% if(locals.errors?.apellido){ %>
-                      <span color="red" class="form_input_alert"><%= locals.errors.lastname.msg %></span>
+                  <input type="text" id="lastname" name="lastname" value= "<%= user.lastname %>">
+                  <% if(locals.errors && locals.errors.lastname){ %>
+                      <span style="color : red" class="form_input_alert"><%= locals.errors.lastname.msg %></span>
                     <% } %>
 
                 
                 <label for="email">Email:</label>
-                <input type="text" id="email" name="email" >
-                <% if(locals.errors?.email){ %>
-                    <span color="red" class="form_input_alert"><%= locals.errors.email.msg %></span>
+                <input type="text" id="email" name="email" value="<%= user.email %>" >
+                <% if(locals.errors && locals.errors.email){ %>
+                    <span style="color : red" class="form_input_alert"><%= locals.errors.email.msg %></span>
                   <% } %>
 
-                <label for="password">Contraseña:</label>
-                <input type="password" id="password" name="password" >
-                <% if(locals.errors?.password){ %>
-                    <span color="red" class="form_input_alert"><%= locals.errors.password.msg %></span>
-                  <% } %>
-
-                <label for="avatar">Imagen de perfil:</label>
-                <input type="file" id="avatar" name="avatar" >
-                <% if(locals.errors?.avatar){ %>
-                    <span color="red" class="form_input_alert"><%= locals.errors.avatar.msg %></span>
-                  <% } %>
-
-                <button type="submit">Enviar</button>
+                <button type="submit">Guardar Cambios</button>
             </form>
         </div>
     </main>
