@@ -41,20 +41,16 @@
                     <% if(locals.errors && locals.errors.password){ %>
                       <span style="color : red" class="form_input_alert"><%= locals.errors.password.msg %></span>
                     <% } %>
-
-                    <label for="password1">Repetir Contraseña:</label>
-                <input type="password" id="password1" name="password1" >
-                <% if(locals.errors && locals.errors.password){ %>
-                    <span style="color : red" class="form_input_alert"><%= locals.errors.password1.msg %></span>
-                  <% } %>
+                    
 
                 <button type="submit">Guardar Cambios</button>
+
                 <button type="button"><a href="/user/logout">Cerrar Sesion</a></button>
 
 
                 <form action="/user/delete" method="POST" onsubmit="return confirm('¿Estás seguro de que quieres eliminar tu cuenta?')">
                     <input type="hidden" name="_method" value="DELETE"> <!-- Campo oculto para indicar el método DELETE -->
-                    <button type="submit">Eliminar Cuenta</button>
+                    <button type="button">Eliminar Cuenta</button>
                 </form>
 
 

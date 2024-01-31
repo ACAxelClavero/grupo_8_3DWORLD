@@ -13,7 +13,8 @@
     <title>3D World</title>
 </head>
 <body>
-    <%- include('./partials/header.ejs')  %>
+    <!--   agregar el header -->
+
 <div >
         <h1>LISTADO DE PRODUCTOS</h1>
             <% for( let i = 0; i < products.length; i++ ) { %>
@@ -33,8 +34,9 @@
         </article>
      <% } %>
         <ul>
-            <a href="/new-product" id="CrearProducto">Crear nuevo producto</a>
+            <a href="/new-product"  id="CrearProducto">Crear nuevo producto</a>
         </ul>
+       
 </div>
     <%- include('./partials/footer')  %>
 </body>

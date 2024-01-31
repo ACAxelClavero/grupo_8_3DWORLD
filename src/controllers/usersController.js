@@ -68,15 +68,13 @@ const controller = {
         }
     },
 
-    delete(req, res){
-        db.User.destroy({
-            where: { 
-                id : req.session.user.id
-            }
-        })
-        req.session.user = undefined;
-        res.clearCookie('usuario');
-        return res.redirect('/');
+    async delete (req, res){
+        try {
+            await db.User.delete({ where: { id : req.session.user.id } });
+            req.session.user = undefined;
+            res.clearCookie('usuario');
+            return res.redirect('/');
+        }finally{}
     }, 
     
     // Inicio de sesion

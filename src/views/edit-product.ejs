@@ -10,47 +10,47 @@
 </head>
 
 <body>
-    <%- include('./partials/header.ejs')  %>
-    <main>
-        <form action="/" class="form-product">
+<main>
+        <form action="/products/<%= product.id %>" method="post" class="form-product" enctype="multipart/form-data">
             <label for="nombre">Nombre del producto</label>
-            <input type="text" required>
+            <input type="text" name="name" required>
             <label for="descripcion-principal">Descripcion principal</label>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
-            <label for="descripcion-secundaria">Descripcion secundaria</label>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
-            <label for="imagenes">Imagenes</label>
-            <input type="file"> 
+            <textarea name="description" id="" cols="30" rows="10"></textarea>
+            <label for="size">tamaño</label>
+                <select name="size" id="size">
+                    <option value="Categoria1">Small</option>
+                    <option value="Categoria2">Medium</option>
+                    <option value="Categoria3">Large</option>
+                    <option value="Categoria4">Exta Large</option>
+                </select>
             <!-- AGREGAR CANTIDAD DE ARCHIVOS -->
             <!-- EDITAR OPCIONES  -->
-            <label for="dimensiones">Categoria</label>
-                <select name="dimensiones" id="dimensiones">
-                    <option value="Categoria1">Categoria1</option>
-                    <option value="Categoria2">Categoria2</option>
-                    <option value="Categoria3">Categoria3</option>
-                    <option value="Categoria4">Categoria4</option>
-                </select>
-            <label for="cantidad">Color</label>
-                <select name="cantidad" id="cantidad">
-                    <option value="negro">Negro</option>
-                    <option value="blanco">Blanco</option>
-                    <option value="azul">Azul</option>
-                </select>
-            <label for="precio">Precio de venta</label>
-            <input type= "number">
+            <label for="color">Color</label>
+            <select name="color" id="color">
+                <option value="negro">Negro</option>
+                <option value="blanco">Blanco</option>
+                <option value="azul">Azul</option>
+            </select>
+        <label for="price">Precio de venta</label>
+        <input type= "number" name="price">
+           <label for="imagenesProducts">Imagenes</label>
+            <input type="file" id="imagenesProducts" name="imagenesProducts" multiple > 
+            
             <div class="buttons-form">
-                <button type="submit" class="button-form">Enviar</button>
-            
-                <button type="reset" class="button-form">Deshacer</button>
-            </div>
-            
-        </form>
+          
+       
+         
+            <button type="submit" class="button-form">Editar</button>
+        
+            <button type="reset" class="button-form">Deshacer</button>
+        </div>
+        
+    </form>
 
 
 
-    </main>
+</main>
 
 
-    <%- include('./partials/footer')  %>
 </body>
 </html>
