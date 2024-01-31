@@ -1,4 +1,5 @@
 const express = require('express');
+const methodOverride = require('method-override');
 const path = require('path');
 const router = express.Router();
 const authMiddleware = require('../middlewares/authMiddleware');
@@ -22,14 +23,12 @@ const upload = multer({ storage }).array('imagenesProducts');;
 
 
 
-// Obtener listado de productos
-router.get('/', productController.products); 
-
-//Carrito
-router.get('/productCart', productController.productCart)
-
-//Detalle de un producto particular
-router.get('/:id', productController.productDetail); 
+router.use('/:id/edit-product', (req, res, next) => {
+    console.log('Middleware de depuración ejecutado para la ruta de edición');
+    console.log('Parámetros de la solicitud:', req.params);
+    // Puedes imprimir más información sobre la solicitud si es necesario
+    next();
+});
 
 /*** Crear un nuevo producto ***/
 //Formulario de creación de productos
@@ -40,7 +39,7 @@ router.post('/create', authMiddleware, upload,  productValidator.create, product
 
 /*** Editar un producto ***/
 //Formulario de edición de productos
-router.get('/:id/edit-product', authMiddleware, productController.editProductForm); 
+router.get('/edit-product', authMiddleware, productController.editProductForm); 
 
 //Acción de edición (a donde se envía el formulario)
 router.put('/:id', authMiddleware, upload, productValidator.edit, productController.editProductId); 
@@ -48,7 +47,14 @@ router.put('/:id', authMiddleware, upload, productValidator.edit, productControl
 //Acción de borrado
 router.delete('/:id', authMiddleware, productController.delete);
 
+// Obtener listado de productos
+router.get('/', productController.products); 
 
+//Carrito
+router.get('/productCart', productController.productCart)
+
+//Detalle de un producto particular
+router.get('/:id', productController.productDetail); 
 module.exports = router;
 
 

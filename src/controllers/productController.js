@@ -7,11 +7,13 @@ const { Product } = require('../../database/models')
 const controller = {
     // Carrito de compras
     productCart(req, res){
+
         res.render('productCart');
     },
 
     // Mostrar todos los productos
     async products(req, res) {
+
         try {
           const products = await Product.findAll();
           res.render('products', { products });
@@ -78,6 +80,8 @@ const controller = {
 },
     // Edicion de un producto 
     editProductForm(req, res) {
+      console.log('Entré al controlador editProductForm');
+
         const productId = req.params.id;
         Product.findByPk(productId)
           .then((product) => {
@@ -90,14 +94,15 @@ const controller = {
             console.error(`Error fetching product: ${error.message}`);
             console.error(error.stack);
             res.render('error');
-            console.error('Error during rendering edit product form:', error);
-            res.render('error');
+
           });
       },
     
     editProductId: async (req, res) => {
         try {
           const productId = req.params.id;
+          console.log('Product ID:', productId);
+
           const updatedProduct = {
             name: req.body.name,
             color: req.body.color,
@@ -116,6 +121,7 @@ const controller = {
       
           res.redirect('/products');
         } catch (error) {
+
           console.error(`Error updating product: ${error.message}`);
           console.error(error.stack);
           res.render('error');
