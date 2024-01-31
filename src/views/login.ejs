@@ -22,9 +22,15 @@
             <form action="/user/login" method="post" >
                 <label for="email">Email:</label>
                 <input type="text" id="email" name="email">
+                <% if(locals.errors && locals.errors.email){ %>
+                    <span style="color : red" class="form_input_alert"><%= locals.errors.email.msg %></span>
+                  <% } %>
 
                 <label for="password">Contraseña:</label>
                 <input type="password" id="password" name="password" >
+                <% if(locals.errors && locals.errors.email){ %>
+                    <span style="color : red" class="form_input_alert"><%= locals.errors.email.msg %></span>
+                  <% } %>
 
                 <input type="checkbox" name="rememberme" id="rememberme">
                 <label id="rememberme" for="rememberme">Recordarme</label>

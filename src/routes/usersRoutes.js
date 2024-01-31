@@ -26,26 +26,26 @@ const upload = multer({ storage });
 /* Obtener usuarios */
 //router.get('/', usersController.index);
 
-/* Obtener un usuario especifico */
-router.get('/profile/:id', authMiddleware, usersController.profile);
+/*Perfil de ususario*/
+router.get('/profile', guestMiddleware, usersController.profile);
 
 /* Crear usuario */
-router.get('/register', usersController.register);
-router.post('/register', upload.single('avatar'), userValidation.create, usersController.newUser);
+router.get('/register', authMiddleware, usersController.register);
+router.post('/register', authMiddleware, upload.single('avatar'), userValidation.create, usersController.newUser);
 
 /* Editar usuario */
-router.get('/edit/:id', authMiddleware, usersController.edit);
-router.put('/:id', upload.single('avatar'), userValidation.edit, usersController.update);
+router.get('/edit', guestMiddleware, usersController.edit);
+router.put('/edit', guestMiddleware, upload.single('avatar'), userValidation.edit, usersController.update);
 
 /* Eliminar usuario */
-router.delete('/:id', authMiddleware, usersController.delete);
+router.delete('/:id', guestMiddleware, usersController.delete);
 
 /* Formulario login */
-router.get('/login', guestMiddleware, usersController.login);
+router.get('/login', authMiddleware, usersController.login);
 router.post('/login', userValidation.login, usersController.loginProcess)
 
-/* Cerrar Sesioin*/
-router.get('/logout', authMiddleware, usersController.logout);
+/* Cerrar Sesion*/
+router.get('/logout', guestMiddleware, usersController.logout);
 
 
 module.exports = router; 
