@@ -19,10 +19,12 @@ const controller = {
         res.render('new-product', {user});
     },
     nosotros(req, res) {
-        res.render('nosotros');
+        const user = req.session.user
+        res.render('nosotros', {user});
     },
     plasticos(req, res) {
-        res.render('plasticos');
+        const user = req.session.user
+        res.render('plasticos', {user});
     }
 }
 
