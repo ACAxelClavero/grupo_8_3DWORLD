@@ -34,11 +34,10 @@ router.get('/register', authMiddleware, usersController.register);
 router.post('/register', authMiddleware, upload.single('avatar'), userValidation.create, usersController.newUser);
 
 /* Editar usuario */
-router.get('/edit', guestMiddleware, usersController.edit);
 router.put('/edit', guestMiddleware, upload.single('avatar'), userValidation.edit, usersController.update);
 
 /* Eliminar usuario */
-router.delete('/:id', guestMiddleware, usersController.delete);
+router.delete('/delete', usersController.delete);
 
 /* Formulario login */
 router.get('/login', authMiddleware, usersController.login);

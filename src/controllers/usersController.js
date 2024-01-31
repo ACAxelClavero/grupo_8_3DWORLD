@@ -1,10 +1,11 @@
 const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcryptjs');
-const { validationResult } = require('express-validator');
+const { validationResult, Result } = require('express-validator');
 const {User} = require('../../database/models');
 const { where } = require('sequelize');
-const session = require("express-session")
+const session = require("express-session");
+const db = require('../../database/models');
 
 
 
@@ -52,18 +53,30 @@ const controller = {
 
 
     profile (req, res) {
-        const user = req.session.user
-        console.log({user})
-        res.render('profile', { user });
+        res.render('profile');
     }, 
 
-    edit(req, res){
-    },
-
     update(req, res){
+        db.User.update({
+            name: req.body.name,
+            lastname: req.body.lastname,
+            email: req.body.email,
+            password: bcrypt.hashSync(req.body.password, 10),
+        })
+        where : {
+            id : req.session.user.id
+        }
     },
 
     delete(req, res){
+        db.User.destroy({
+            where: { 
+                id : req.session.user.id
+            }
+        })
+        req.session.user = undefined;
+        res.clearCookie('usuario');
+        return res.redirect('/');
     }, 
     
     // Inicio de sesion

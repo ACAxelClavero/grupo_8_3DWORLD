@@ -33,20 +33,20 @@ router.get('/:id', productController.productDetail);
 
 /*** Crear un nuevo producto ***/
 //Formulario de creación de productos
-router.get('/new-product', productController.newProductForm); 
+router.get('/new-product', guestMiddleware , productController.newProductForm); 
 
 //Acción de creación (a donde se envía el formulario)
-router.post('/create', authMiddleware, upload,  productValidator.create, productController.newProductCreation)
+router.post('/create', guestMiddleware, upload,  productValidator.create, productController.newProductCreation)
 
 /*** Editar un producto ***/
 //Formulario de edición de productos
-router.get('/:id/edit-product', authMiddleware, productController.editProductForm); 
+router.get('/:id/edit-product', guestMiddleware, productController.editProductForm); 
 
 //Acción de edición (a donde se envía el formulario)
-router.put('/:id', authMiddleware, upload, productValidator.edit, productController.editProductId); 
+router.put('/:id', guestMiddleware, upload, productValidator.edit, productController.editProductId); 
 
 //Acción de borrado
-router.delete('/:id', authMiddleware, productController.delete);
+router.delete('/:id', guestMiddleware, productController.delete);
 
 
 module.exports = router;

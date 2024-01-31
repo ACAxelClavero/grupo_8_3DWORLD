@@ -8,10 +8,10 @@
 </div>
 <div>
     <div>
-        <% if (user == undefined) {%>
+        <% if (locals.user == undefined) {%>
         <a href="/user/login" id="enlaceLogin"><i class="fas fa-user-plus"></i></a>
         <% } else { %> 
-            <p>Bienvenido <%= user.name %></p>
+            <p>Bienvenido <%= locals.user.name %>!</p>
         <a href="/user/profile">Perfil</a>
         <a href="/user/logout">Cerrar sesion</a>
         <% } %>

@@ -1,30 +1,24 @@
 const controller = {
     index(req, res){
-        const user = req.session.user
-        res.render('index', {user});
+        res.render('index');
     },
     
     productCart(req, res){
-        const user = req.session.user
-        res.render('productCart', {user});
+        res.render('productCart');
     },
 
     productDetail(req, res){
-        const user = req.session.user
-        res.render('product-detail', {user});
+        res.render('product-detail');
     },
 
     newProduct(req, res){
-        const user = req.session.user
-        res.render('new-product', {user});
+        res.render('new-product');
     },
     nosotros(req, res) {
-        const user = req.session.user
-        res.render('nosotros', {user});
+        res.render('nosotros');
     },
     plasticos(req, res) {
-        const user = req.session.user
-        res.render('plasticos', {user});
+        res.render('plasticos');
     }
 }
 

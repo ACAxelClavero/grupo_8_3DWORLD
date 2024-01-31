@@ -14,6 +14,8 @@ const create= [
     body('password').notEmpty().withMessage('Contraseña obligatoria')
         .isLength({min:8}).withMessage('Constraseña minimo 8 caracteres'),
 
+    body("password1"),
+
 ];
 
 const login= [
