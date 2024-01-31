@@ -68,6 +68,8 @@ const controller = {
     
     // Inicio de sesion
     login(req, res){
+        const errors = validationResult (req)
+
         res.render('login', {errors});
     },
     
