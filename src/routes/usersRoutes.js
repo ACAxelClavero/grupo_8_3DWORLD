@@ -23,9 +23,6 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
  
-/* Obtener usuarios */
-//router.get('/', usersController.index);
-
 /*Perfil de ususario*/
 router.get('/profile', guestMiddleware, usersController.profile);
 
@@ -34,10 +31,11 @@ router.get('/register', authMiddleware, usersController.register);
 router.post('/register', authMiddleware, upload.single('avatar'), userValidation.create, usersController.newUser);
 
 /* Editar usuario */
-router.put('/edit', guestMiddleware, upload.single('avatar'), userValidation.edit, usersController.update);
+router.get('/edit', guestMiddleware, usersController.edit)
+router.put('/edit', upload.single('avatar'), userValidation.edit, usersController.update);
 
 /* Eliminar usuario */
-router.delete('/delete', usersController.delete);
+router.delete('/profile', guestMiddleware, usersController.delete);
 
 /* Formulario login */
 router.get('/login', authMiddleware, usersController.login);

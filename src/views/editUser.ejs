@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="css/productos.css">
+    <link rel="stylesheet" href="/css/register_form.css">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <title>3D World</title>
+</head>
+<body>
+    
+    <main>
+        <% include('./partials/header.ejs')  %>
+
+        <div id="registration-container">
+            <h2>Estas editando tu perfil <%= locals.user.name + " " + locals.user.lastname%>!</h2>
+
+            <form action="/user/edit?_method=PUT" method="post" enctype="multipart/form-data">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" placeholder="<%= locals.user.name %>">
+                <% if(locals.errors && locals.errors.name){ %>
+                    <span style="color : red" class="form_input_alert"><%= locals.errors.name.msg %></span>
+                  <% } %>
+                
+                  <label for="lastname">Apellido:</label>
+                  <input type="text" id="lastname" name="lastname" placeholder= "<%= locals.user.lastname %>">
+                  <% if(locals.errors && locals.errors.lastname){ %>
+                      <span style="color : red" class="form_input_alert"><%= locals.errors.lastname.msg %></span>
+                    <% } %>
+
+                
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" placeholder="<%= locals.user.email %>" >
+                <% if(locals.errors && locals.errors.email){ %>
+                    <span style="color : red" class="form_input_alert"><%= locals.errors.email.msg %></span>
+                  <% } %>
+
+                <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" >
+                    <% if(locals.errors && locals.errors.password){ %>
+                      <span style="color : red" class="form_input_alert"><%= locals.errors.password.msg %></span>
+                    <% } %>
+                    
+
+                <button type="submit">Guardar Cambios</button>
+
+                <button type="button"><a href="/user/logout">Cerrar Sesion</a></button>
+
+                <button type="button"><a href="/">Volver a la pagina principal</a></button>
+
+                </form>
+
+
+                <form method="POST" action="/user/profile?_method=DELETE">
+                    <button type="submit">Eliminar usuario</button>
+                </form>
+        </div>
+    </main>
+</body>

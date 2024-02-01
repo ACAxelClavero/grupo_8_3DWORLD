@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="css/productos.css">
-    <link rel="stylesheet" href="/css/register_form.css">
+    <link rel="stylesheet" href="../css/profile.css">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <title>3D World</title>
@@ -14,48 +12,27 @@
 <body>
     
     <main>
+        <% include('./partials/header.ejs')  %>
+
         <div id="registration-container">
             <h2>Tu perfil <%= locals.user.name + " " + locals.user.lastname%></h2>
-            <form action="/user/register" method="post" enctype="multipart/form-data">
+
+            
                 <label for="name">Nombre:</label>
-                <input type="text" id="name" name="name" value="<%= locals.user.name %>">
-                <% if(locals.errors && locals.errors.name){ %>
-                    <span style="color : red" class="form_input_alert"><%= locals.errors.name.msg %></span>
-                  <% } %>
+                <h1><%= locals.user.name %></h1>
                 
                   <label for="lastname">Apellido:</label>
-                  <input type="text" id="lastname" name="lastname" value= "<%= locals.user.lastname %>">
-                  <% if(locals.errors && locals.errors.lastname){ %>
-                      <span style="color : red" class="form_input_alert"><%= locals.errors.lastname.msg %></span>
-                    <% } %>
+                  <h1><%= locals.user.lastname %></h1>
 
                 
                 <label for="email">Email:</label>
-                <input type="text" id="email" name="email" value="<%= locals.user.email %>" >
-                <% if(locals.errors && locals.errors.email){ %>
-                    <span style="color : red" class="form_input_alert"><%= locals.errors.email.msg %></span>
-                  <% } %>
+                <h1><%= locals.user.email %></h1>
 
-                <label for="password">Contraseña:</label>
-                    <input type="password" id="password" name="password" >
-                    <% if(locals.errors && locals.errors.password){ %>
-                      <span style="color : red" class="form_input_alert"><%= locals.errors.password.msg %></span>
-                    <% } %>
-                    
-
-                <button type="submit">Guardar Cambios</button>
+                <button type="button"><a href="/user/edit">Editar tu perfil</a></button>
 
                 <button type="button"><a href="/user/logout">Cerrar Sesion</a></button>
 
-
-                <form action="/user/delete" method="POST" onsubmit="return confirm('¿Estás seguro de que quieres eliminar tu cuenta?')">
-                    <input type="hidden" name="_method" value="DELETE"> <!-- Campo oculto para indicar el método DELETE -->
-                    <button type="button">Eliminar Cuenta</button>
-                </form>
-
-
                 <button type="button"><a href="/">Volver a la home</a></button>
-            </form>
         </div>
     </main>
 </body>

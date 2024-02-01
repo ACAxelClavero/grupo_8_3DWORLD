@@ -36,7 +36,7 @@ const controller = {
                 password: bcrypt.hashSync(req.body.password, 10),
                 roles_id: 2,
         });
-         res.redirect('/login');
+         res.redirect('/user/login');
         } catch (error) {
             console.error('Error creating user:', error);
             if (error.name === 'SequelizeUniqueConstraintError') {
@@ -56,29 +56,43 @@ const controller = {
         res.render('profile');
     }, 
 
-    update: async (req, res) => {
-        try{
+    edit (req, res) {
+        res.render('editUser')
+    },
 
-         await db.User.update({
-            name: req.body.name,
-            lastname: req.body.lastname,
-            email: req.body.email,
-            password: bcrypt.hashSync(req.body.password, 10),
-        }, {
-        where: {
-            id : req.session.user.id
-        }    
-    });
-    return res.redirect('/profile');
-} catch (error) {
-    console.error('Error updating user:', error);
-    return res.status(500).send('Internal Server Error');
-}
-},
+    async update(req, res) {
+        try {
+            if (!req.session.user) {
+                res.redirec('login');
+            }
+            console.log('Datos recibidos en la solicitud:', req.body);
+            console.log('Usuario antes de la actualización:', req.session.user);
+
+            await db.User.update({
+                name: req.body.name,
+                lastname: req.body.lastname,
+                email: req.body.email,
+                password: bcrypt.hashSync(req.body.password, 10)
+            },
+            {
+                where: {id: req.session.user.id}
+            })
+            
+            const user = await db.User.findByPk(req.session.user.id);
+    
+            req.session.user = user
+            console.log('Usuario después de la actualización:', req.session.user);
+            res.redirect('/user/profile');
+            
+            
+        } catch (error) {
+            return res.status(500).send(error);
+        }
+    },
     
     async delete (req, res){
         try {
-            await db.User.delete({ where: { id : req.session.user.id } });
+            await db.User.destroy({ where: { id : req.session.user.id } });
             req.session.user = undefined;
             res.clearCookie('usuario');
             return res.redirect('/');
@@ -87,8 +101,7 @@ const controller = {
     
     // Inicio de sesion
     login(req, res){
-        const errors = validationResult (req)
-        res.render('login', {errors});
+        res.render('login')
     },
     
     loginProcess: async (req, res) => {
@@ -135,7 +148,7 @@ const controller = {
                     res.cookie('nombre', user.name);
                 }
 
-                return res.redirect('profile');
+                return res.redirect('/');
 
             } else {
                 console.log('Passwords do not match!');

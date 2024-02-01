@@ -25,13 +25,18 @@ const login= [
  ];
 
 const edit= [
-    body('name').isLength({min: 2}).withMessage('Longitud mínima 2 caracteres'),
+    body('name').notEmpty().withMessage('Nombre obligatorio').isLength({min: 2})
+        .withMessage('Longitud mínima 2 caracteres'),
 
-    body('lastname').isLength({min: 2}).withMessage('Longitud minima 2 caracteres'),
+    body('lastname').notEmpty().withMessage('Apellido obligatorio')
+        .isLength({min: 2}).withMessage('Longitud mínima 2 caracteres'),
 
-    body('email').isEmail().withMessage('Ingrese un email correcto'),
-    
-    body('password').isLength({min:8}).withMessage('Constraseña minimo 8 caracteres')
+    body('email').notEmpty().withMessage('Email obligatorio')
+        .isEmail().withMessage('Ingrese un email correcto'),
+
+    body('password').notEmpty().withMessage('Contraseña obligatoria')
+        .isLength({min:8}).withMessage('Constraseña minimo 8 caracteres')
+
  ]
 
 const userValidations = {
