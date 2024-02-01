@@ -1,17 +1,10 @@
-
-
-function guestMiddleware(req, res, next) {
-
-    console.log('Middleware de autenticación ejecutado');
-
-    if(req.session.user == undefined){
-        console.log("Debes loguearte primero")
-        res.redirect('login');
+const guestMiddleware = (req, res, next) => {
+    if (!req.session.user) {
+      return res.redirect('/user/login'); // O a la página de inicio de sesión
     }
     next();
-    
-}
-
+  };
+  
 module.exports = guestMiddleware;
 
 

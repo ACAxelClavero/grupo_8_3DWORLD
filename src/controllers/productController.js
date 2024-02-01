@@ -80,8 +80,9 @@ const controller = {
 },
     // Edicion de un producto 
     editProductForm(req, res) {
-      console.log('Entré al controlador editProductForm');
-
+      if (!req.session.user) {
+        return res.redirect('user/login');
+      }
         const productId = req.params.id;
         Product.findByPk(productId)
           .then((product) => {
@@ -94,7 +95,6 @@ const controller = {
             console.error(`Error fetching product: ${error.message}`);
             console.error(error.stack);
             res.render('error');
-
           });
       },
     

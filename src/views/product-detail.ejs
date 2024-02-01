@@ -11,6 +11,7 @@
 <body>
 
     <!-- agregar header-->
+    <%- include('./partials/header.ejs')  %>
 
 
     <main class="main-detalle-del-producto">
@@ -92,7 +93,7 @@
             <a class="boton" href="">Devolucion</a>
             <a class="boton" href="">Compartir</a>
             <ul>
-                <a href="/<%= product.id %>/edit-product"  id="editarProducto">editar Producto </a>
+                <a href="/product/<%= product.id %>/edit-product"  id="editarProducto">editar Producto </a>
             </ul>
             <ul>
             </ul>

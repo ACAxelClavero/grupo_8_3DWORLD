@@ -36,7 +36,7 @@ const controller = {
                 password: bcrypt.hashSync(req.body.password, 10),
                 roles_id: 2,
         });
-        return res.redirect('./login');
+         res.redirect('/login');
         } catch (error) {
             console.error('Error creating user:', error);
             if (error.name === 'SequelizeUniqueConstraintError') {
@@ -56,18 +56,26 @@ const controller = {
         res.render('profile');
     }, 
 
-    update(req, res){
-        db.User.update({
+    update: async (req, res) => {
+        try{
+
+         await db.User.update({
             name: req.body.name,
             lastname: req.body.lastname,
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password, 10),
-        })
-        where : {
+        }, {
+        where: {
             id : req.session.user.id
-        }
-    },
-
+        }    
+    });
+    return res.redirect('/profile');
+} catch (error) {
+    console.error('Error updating user:', error);
+    return res.status(500).send('Internal Server Error');
+}
+},
+    
     async delete (req, res){
         try {
             await db.User.delete({ where: { id : req.session.user.id } });

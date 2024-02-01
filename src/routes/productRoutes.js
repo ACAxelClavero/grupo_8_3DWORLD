@@ -28,7 +28,7 @@ router.use('/:id/edit-product', (req, res, next) => {
     console.log('Parámetros de la solicitud:', req.params);
     // Puedes imprimir más información sobre la solicitud si es necesario
     next();
-});
+  });
 
 /*** Crear un nuevo producto ***/
 //Formulario de creación de productos
@@ -39,7 +39,7 @@ router.post('/create', guestMiddleware, upload,  productValidator.create, produc
 
 /*** Editar un producto ***/
 //Formulario de edición de productos
-router.get('/edit-product', guestMiddleware, productController.editProductForm);
+router.get('/:id/edit-product', guestMiddleware, productController.editProductForm);
 
 //Acción de edición (a donde se envía el formulario)
 router.put('/:id', guestMiddleware, upload, productValidator.edit, productController.editProductId); 

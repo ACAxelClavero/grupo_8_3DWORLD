@@ -25,7 +25,10 @@ app.use(express.static(path.resolve(__dirname, "public")));
 app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({ extended: false }));
-app.use(session({secret: "3DWorld"}));
+app.use(session({secret: "3DWorld",
+                 resave: false,
+                 saveUninitialized: false
+                }));
 app.use(cookieParser());
 app.use(sessionMiddleware);
 
