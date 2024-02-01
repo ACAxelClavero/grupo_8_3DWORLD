@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="css/productos.css">
-    <link rel="stylesheet" href="/css/register_form.css">
+    <link rel="stylesheet" href="../css/editUser.css">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <title>3D World</title>
@@ -48,16 +46,20 @@
 
                 <button type="submit">Guardar Cambios</button>
 
-                <button type="button"><a href="/user/logout">Cerrar Sesion</a></button>
+                <a href="/user/logout"><button type="button">Cerrar Sesion</button></a>
 
-                <button type="button"><a href="/">Volver a la pagina principal</a></button>
+                <a href="/"><button type="button">Volver a la pagina principal</button></a>
 
                 </form>
-
-
                 <form method="POST" action="/user/profile?_method=DELETE">
-                    <button type="submit">Eliminar usuario</button>
+                    <button type="submit">Eliminar tu cuenta</button>
                 </form>
+                <script>
+                    function confirmDelete() {
+                        var result = confirm("¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer.");
+                        return result;
+                    }
+                </script>
         </div>
     </main>
 </body>

@@ -77,7 +77,7 @@ const controller = {
             {
                 where: {id: req.session.user.id}
             })
-            
+
             const user = await db.User.findByPk(req.session.user.id);
     
             req.session.user = user
@@ -145,7 +145,7 @@ const controller = {
                         req.session.user = user;
 
                 if (req.body.rememberme !== undefined) {
-                    res.cookie('nombre', user.name);
+                    res.cookie('rememberme', user.email, { maxAge:60 * 1000 }); // cookie de 60 segundos
                 }
 
                 return res.redirect('/');
@@ -173,7 +173,7 @@ const controller = {
     // Cerrar sesion
     logout (req, res) {
         req.session.user = undefined;
-        res.clearCookie('usuario');
+        res.clearCookie('rememberme')
         return res.redirect('/');
     },
 };

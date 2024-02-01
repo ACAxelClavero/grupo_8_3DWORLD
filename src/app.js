@@ -4,6 +4,7 @@ const path = require("path");
 const methodOverride = require('method-override');
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
+const cookieMiddleware = require ('../src/middlewares/cookieMiddleware')
 const sessionMiddleware = require('../src/middlewares/sessionMiddleware');
 
 
@@ -30,6 +31,7 @@ app.use(session({secret: "3DWorld",
                  saveUninitialized: false
                 }));
 app.use(cookieParser());
+app.use(cookieMiddleware);
 app.use(sessionMiddleware);
 
 //Rutas

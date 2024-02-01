@@ -19,9 +19,8 @@ main {
     padding: 20px;
 }
 
-
 /* Contenedor para el formulario */
-#login-container {
+#registration-container {
     background-color: #FFFFFF;
     border: 5px solid #47077F;
     border-radius: 20px;
@@ -32,9 +31,10 @@ main {
     box-sizing: border-box; /* Incluir el borde en el ancho total */
 }
 
-#login-container h2 {
+#registration-container h2 {
     color: #47077F;
 }
+
 /* Estilos para etiquetas y campos de entrada en el formulario */
 label {
     display: block;
@@ -42,9 +42,7 @@ label {
     text-align: start;
 }
 
-
 input[type="text"],
-input[type="email"],
 input[type="password"] {
     width: 100%;
     padding: 10px;
@@ -56,9 +54,9 @@ input[type="password"] {
     box-sizing: border-box; /* Incluir el borde en el ancho total */
 }
 
-
 /* Estilos para el botón de enviar en el formulario */
-button[type="submit"], button[type="button"] {
+button[type="submit"],
+button[type="button"] {
     background-color: white;
     color: black;
     padding: 10px 20px;
@@ -66,42 +64,27 @@ button[type="submit"], button[type="button"] {
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
-    display: block; /* Para evitar que el botón se superponga con los campos */
-    margin: 0 auto; /* Centrar horizontalmente */
+    display: inline-block;
+    margin-right: 10px;
+    text-decoration: none !important; /* Quitar subrayado enlaces */
 }
 
-button[type="submit"]:hover {
-    background-color: #D1D1EF;
-}
+button[type="submit"]:hover,
 button[type="button"]:hover {
     background-color: #D1D1EF;
 }
 
-.botones {
-    width: 100%;
-    display: flex;
-    justify-content: space-between; /* Distribuir equitativamente los botones */
-    align-items: center; /* Centrar verticalmente los botones */
+/* Estilos adicionales para el formulario de eliminación */
+form:last-child {
+    margin-top: 20px;
 }
 
-#enlaceRegistrarse {
-    color: #000000;
-}
-#enlaceRegistrarse:link {
-    text-decoration: none;
+form:last-child button[type="submit"] {
+    background-color: #FF5959; /* Color rojo para el botón de eliminar */
+    border: 2px solid #FF0000;
 }
 
-/* Media queries para tamaños de pantalla*/
-@media screen and (max-width: 768px) {
-    /* Estilos para tablet */
-    #login-container {
-        width: 70%; /* Cambia el ancho del formulario para tablet */
-    }
-}
-
-@media screen and (max-width: 576px) {
-    /* Estilos para celular */
-    #login-container {
-        width: 90%; /* Cambia el ancho del formulario para celular */
-    }
+form:last-child button[type="submit"]:hover {
+    background-color: #FF0000;
+    color: white;
 }
