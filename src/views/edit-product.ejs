@@ -13,6 +13,7 @@
 <main>
         <form action="/product/<%= product.id %>" method="post" class="form-product" enctype="multipart/form-data">
             <label for="nombre">Nombre del producto</label>
+            <input type="hidden" name="productId" value="<%= product.id %>">
             <input type="text" name="name" value="<%= product.name %>" required>
             <label for="descripcion-principal">Descripcion principal</label>
             <textarea name="description" id="" cols="30" rows="10"><%= product.description %></textarea>
@@ -52,7 +53,7 @@
          
             <button type="submit" class="button-form">Actualizar producto</button>
         
-            <button type="reset" class="button-form">Deshacer</button>
+            <button type="reset" class="button-form" onclick="undoEdit()">Deshacer</button>
         </div>
         
     </form>
@@ -61,6 +62,11 @@
 
 </main>
 
-
+<script>
+    function undoEdit() {
+        const productId = document.querySelector('input[name="productId"]').value;
+        window.location.href = `/product/${productId}`;
+    }
+</script>
 </body>
 </html>

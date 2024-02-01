@@ -168,6 +168,7 @@ const controller = {
           res.render('error'); 
         }
       },
+
     // Eliminar un producto
     delete: async (req, res) => {
         try {
