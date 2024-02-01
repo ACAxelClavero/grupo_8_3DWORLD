@@ -107,6 +107,13 @@ const controller = {
     loginProcess: async (req, res) => {
         const errors = validationResult(req);
         
+        if (!req.body.email) {
+            errors.errors.push({ param: 'email_empty', msg: 'El campo de email es obligatorio' });
+        }
+        if (!req.body.password) {
+            errors.errors.push({ param: 'password_empty', msg: 'El campo de contraseña es obligatorio' });
+        }
+
         try {
         if(errors.isEmpty()){
             const user = await User.findByEmail(req.body.email);
