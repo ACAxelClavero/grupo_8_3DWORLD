@@ -86,7 +86,7 @@
         </section>
         <div class="contenedor-botones-abajo">
         <div class="contenedor-boton-agregar-al-carrito">
-            <a class="boton-al-carrito" href="/product/productCart">Agregar a la bolsa de compras</a>
+            <a class="boton-al-carrito" href="/add-to-cart/<%= product.id %>">Agregar a la bolsa de compras</a>
         </div>
         <section class="seccion-detalles-de-compra">
             <a class="boton" href="">Medios de pago</a>
@@ -95,7 +95,12 @@
             <ul>
                 <a href="/product/<%= product.id %>/edit-product"  id="editarProducto">editar Producto </a>
             </ul>
-            <ul>
+            <ul>                
+                <form action="/products/<%= product.id %>/delete" method="POST" id="deleteForm">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" id="delete">Eliminar Producto</button>
+                </form>
+                </form>
             </ul>
         </section>
         </div>

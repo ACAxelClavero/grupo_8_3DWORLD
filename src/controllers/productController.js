@@ -45,7 +45,30 @@ const controller = {
             res.render('error');
         }
     },
+    // Añadir producto al carrito
+    addToCart(req, res) {
+      const productId = req.params.id;
+      Product.findByPk(productId)
+      .then((product) => {
+        if (!product) {
+          return res.render('not-found');
+        }
 
+        req.session.cart = req.session.cart || [];
+
+        req.session.cart.push({
+          id: product.id,
+          name: product.name,
+          price: product.price,
+        });
+        res.redirect('/productCart');
+      })
+      .catch((error) => {
+        console.error(`Error fetching product: ${error.message}`);
+        console.error(error.stack);
+        res.render('error');
+      });
+  },
      // Creacion de un nuevo producto
      newProductForm(req, res) {
         res.render('new-product');
@@ -80,9 +103,11 @@ const controller = {
 },
     // Edicion de un producto 
     editProductForm(req, res) {
+
       if (!req.session.user) {
         return res.redirect('user/login');
       }
+
         const productId = req.params.id;
         Product.findByPk(productId)
           .then((product) => {
@@ -102,6 +127,8 @@ const controller = {
         try {
           const productId = req.params.id;
           console.log('Product ID:', productId);
+    
+          const existingProduct = await Product.findByPk(productId);
 
           const updatedProduct = {
             name: req.body.name,
@@ -114,7 +141,19 @@ const controller = {
             materials: req.body.materials,
             size: req.body.size,
           };
-      
+          
+          if (req.files && req.files.length > 0) {
+            updatedProduct.photo1 = req.files[0].filename;
+            updatedProduct.photo2 = req.files[1].filename;
+            updatedProduct.photo3 = req.files[2].filename;
+            updatedProduct.photo4 = req.files[3].filename;
+          } else {
+            updatedProduct.photo1 = existingProduct.photo1;
+            updatedProduct.photo2 = existingProduct.photo2;
+            updatedProduct.photo3 = existingProduct.photo3;
+            updatedProduct.photo4 = existingProduct.photo4;
+          }
+
           await Product.update(updatedProduct, {
             where: { id: productId }
           });
@@ -132,6 +171,7 @@ const controller = {
     // Eliminar un producto
     delete: async (req, res) => {
         try {
+          console.log('Llegó a la función de eliminación');
             const productId = req.params.id;
             const product = await Product.findByPk(productId);
     
@@ -142,13 +182,11 @@ const controller = {
             await Product.destroy({
                 where: { id: productId }
             });
-    
+            console.log('Producto eliminado exitosamente');
             res.redirect('/products');
         } catch (error) {
-          console.error(`Error fetching product: ${error.message}`);
+        console.error(`Error during product deletion by ID: ${error.message}`);
           console.error(error.stack);
-          res.render('error');
-            console.error('Error during product deletion by ID:', error);
             res.render('error'); 
         }
     },

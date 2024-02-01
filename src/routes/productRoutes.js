@@ -45,13 +45,14 @@ router.get('/:id/edit-product', guestMiddleware, productController.editProductFo
 router.put('/:id', guestMiddleware, upload, productValidator.edit, productController.editProductId); 
 
 //Acción de borrado
-router.delete('/:id', guestMiddleware, productController.delete);
+router.delete('/:id/delete', authMiddleware, productController.delete);
 
 // Obtener listado de productos
 router.get('/', productController.products); 
 
 //Carrito
 router.get('/productCart', productController.productCart)
+router.get('/add-to-cart/:id', authMiddleware, productController.addToCart);
 
 //Detalle de un producto particular
 router.get('/:id', productController.productDetail); 

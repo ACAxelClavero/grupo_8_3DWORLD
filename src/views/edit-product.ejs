@@ -13,9 +13,9 @@
 <main>
         <form action="/product/<%= product.id %>" method="post" class="form-product" enctype="multipart/form-data">
             <label for="nombre">Nombre del producto</label>
-            <input type="text" name="name" required>
+            <input type="text" name="name" value="<%= product.name %>" required>
             <label for="descripcion-principal">Descripcion principal</label>
-            <textarea name="description" id="" cols="30" rows="10"></textarea>
+            <textarea name="description" id="" cols="30" rows="10"><%= product.description %></textarea>
             <label for="size">tamaño</label>
                 <select name="size" id="size">
                     <option value="Categoria1">Small</option>
@@ -32,15 +32,25 @@
                 <option value="azul">Azul</option>
             </select>
         <label for="price">Precio de venta</label>
-        <input type= "number" name="price">
-           <label for="imagenesProducts">Imagenes</label>
-            <input type="file" id="imagenesProducts" name="imagenesProducts" multiple > 
+        <input type="number" name="price" value="<%= product.price %>">
+        <label for="imagenesProducts">Imagen 1</label>
+<input type="file" id="imagen1" name="imagenesProducts">
+
+<label for="imagenesProducts">Imagen 2</label>
+<input type="file" id="imagen2" name="imagenesProducts">
+
+<label for="imagenesProducts">Imagen 3</label>
+<input type="file" id="imagen3" name="imagenesProducts">
+
+<label for="imagenesProducts">Imagen 4</label>
+<input type="file" id="imagen4" name="imagenesProducts">
+
             
             <div class="buttons-form">
           
        
          
-            <button type="submit" class="button-form">Editar</button>
+            <button type="submit" class="button-form">Actualizar producto</button>
         
             <button type="reset" class="button-form">Deshacer</button>
         </div>
