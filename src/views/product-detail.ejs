@@ -99,11 +99,16 @@
             </button>
             
             <ul>                
-                <form action="/products/<%= product.id %>/delete" method="POST" id="deleteForm">
-                    <input type="hidden" name="_method" value="DELETE">
+                <form action="/product/<%= product.id %>/delete?_method=DELETE" method="POST">
+                   
                     <button type="submit" id="delete">Eliminar Producto</button>
                 </form>
-                </form>
+                <script>
+                    function confirmDelete() {
+                        var result = confirm("¿Estás seguro de que deseas eliminar este producto? Esta acción no se puede deshacer.");
+                        return result;
+                    }
+                </script>
             </ul>
         </section>
         </div>

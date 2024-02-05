@@ -44,11 +44,16 @@ router.get('/:id/edit-product', guestMiddleware, productController.editProductFo
 //Acción de edición (a donde se envía el formulario)
 router.put('/:id', guestMiddleware, upload, productValidator.edit, productController.editProductId); 
 
-//Acción de borrado
-router.delete('/:id/delete', authMiddleware, productController.delete);
+
 
 // Obtener listado de productos
 router.get('/', productController.products); 
+
+router.get('/product', (req, res) => {
+    res.redirect('/');
+  });
+  //Acción de borrado
+router.delete('/:id/delete', authMiddleware, productController.deleteProduct);
 
 //Carrito
 router.get('/productCart', productController.productCart)

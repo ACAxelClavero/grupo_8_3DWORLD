@@ -93,7 +93,7 @@ const controller = {
 
 		}
         const newProduct = await Product.create(productToCreate);
-        res.redirect('/products');
+        res.redirect('/product');
       } catch (error) {
         console.error(`Error fetching product: ${error.message}`);
         console.error(error.stack);
@@ -158,7 +158,7 @@ const controller = {
             where: { id: productId }
           });
       
-          res.redirect('/products');
+          res.redirect('/product');
         } catch (error) {
 
           console.error(`Error updating product: ${error.message}`);
@@ -170,21 +170,16 @@ const controller = {
       },
 
     // Eliminar un producto
-    delete: async (req, res) => {
+    deleteProduct: async (req, res) => {
         try {
           console.log('Llegó a la función de eliminación');
             const productId = req.params.id;
             const product = await Product.findByPk(productId);
-    
-            if (!product) {
-                return res.render('not-found'); 
-            }
-    
-            await Product.destroy({
+    await Product.destroy({
                 where: { id: productId }
-            });
-            console.log('Producto eliminado exitosamente');
-            res.redirect('/products');
+            });         
+               console.log('Producto eliminado exitosamente');
+            res.redirect('/');
         } catch (error) {
         console.error(`Error during product deletion by ID: ${error.message}`);
           console.error(error.stack);
