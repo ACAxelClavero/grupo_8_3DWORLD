@@ -61,6 +61,8 @@ const controller = {
           name: product.name,
           price: product.price,
         });
+        console.log('Producto agregado al carrito:', product.name);
+
         res.redirect('/productCart');
       })
       .catch((error) => {
@@ -71,7 +73,8 @@ const controller = {
   },
      // Creacion de un nuevo producto
      newProductForm(req, res) {
-        res.render('new-product');
+      const product = {};
+        res.render('new-product', { product });
         
      },
      async newProductCreation(req, res) {
@@ -82,6 +85,7 @@ const controller = {
           console.log('Contenido de req.files:', req.files);
           const productToCreate = {
             name: req.body.name,
+            description: req.body.description,
             color: req.body.color,
             price: req.body.price,
             photo1: req.files[0].filename,
@@ -132,6 +136,7 @@ const controller = {
 
           const updatedProduct = {
             name: req.body.name,
+            description: req.body.description,
             color: req.body.color,
             price: req.body.price,
             photo1: req.files[0].filename,

@@ -3,11 +3,12 @@ const methodOverride = require('method-override');
 const path = require('path');
 const router = express.Router();
 const authMiddleware = require('../middlewares/authMiddleware');
-const productController = require('../controllers/productController');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const productValidator = require('../middlewares/productValidations')
 const {body} = require('express-validator')
 const multer = require('multer');
+const cartMiddleware = require('../middlewares/cartMiddleware');
+const productController = require('../controllers/productController');
 
 const storage = multer.diskStorage({
     destination : (req, file, cb) =>  {
@@ -57,7 +58,7 @@ router.delete('/:id/delete', authMiddleware, productController.deleteProduct);
 
 //Carrito
 router.get('/productCart', productController.productCart)
-router.get('/add-to-cart/:id', authMiddleware, productController.addToCart);
+router.get('/add-to-cart/:id', cartMiddleware, productController.addToCart);
 
 //Detalle de un producto particular
 router.get('/:id', productController.productDetail); 

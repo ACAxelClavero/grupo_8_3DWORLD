@@ -15,7 +15,7 @@
 
 
     <main class="main-detalle-del-producto">
-        <h2 class="titulo-producto">Soporte Plegable</h2>
+        <h2 class="titulo-producto"><%= product.name %></h2>
         <div class="division-del-main">    
         <section class="seccion-del-carrusel">    
         <div class="contenedor-img-del-carrusel" id="imagen1">
@@ -57,11 +57,8 @@
     </section>
     <div class="descripcion-general">
     <section class="descripcion-corta">
-        <p>Soporte ergonómico, ajustable y regulable para notebook.</p>
-    </section>
-    <section class="descripcion-larga">   
-        <p>No solo es funcional, sino que también es elegante y amigable con el medio ambiente, gracias a su construcción en plástico PLA, un material biodegradable y sostenible.  </p>
-    </section>  
+        <p><%= product.description %></p>
+    </section> 
     </div>  
     <section class="seccion-elecciones-de-compra">
         <form action="">
@@ -86,7 +83,7 @@
         </section>
         <div class="contenedor-botones-abajo">
         <div class="contenedor-boton-agregar-al-carrito">
-            <a class="boton-al-carrito" href="/add-to-cart/<%= product.id %>">Agregar a la bolsa de compras</a>
+            <a class="boton-al-carrito" href="/product/add-to-cart/<%= product.id %>">Agregar a la bolsa de compras</a>
         </div>
         <section class="seccion-detalles-de-compra">
             <a class="boton" href="">Medios de pago</a>

@@ -6,6 +6,7 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const cookieMiddleware = require ('../src/middlewares/cookieMiddleware')
 const sessionMiddleware = require('../src/middlewares/sessionMiddleware');
+const cartMiddleware = require('./middlewares/cartMiddleware');
 
 
 // Routes require
@@ -32,6 +33,7 @@ app.use(session({secret: "3DWorld",
                 }));
 app.use(cookieParser());
 app.use(cookieMiddleware);
+app.use(cartMiddleware);
 app.use(sessionMiddleware);
 
 //Rutas

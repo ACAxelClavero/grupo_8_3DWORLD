@@ -14,7 +14,21 @@
         <h1 class="titular">Productos:</h1>
         <div class="lista_productos" >
 
-      
+            <div class="productos-en-carrito">
+                <h2>Productos en tu carrito:</h2>
+                <% if (typeof cart !== 'undefined' && cart.length > 0) { %>
+                    <% cart.forEach(product => { %>
+                        <div class="producto-en-carrito">
+                            <img src="/images/productos/<%= product.photo %>" alt="<%= product.name %>">
+                            <h3><%= product.name %></h3>
+                            <p>Precio: $<%= product.price %></p>
+                            <!-- Agrega más detalles si es necesario -->
+                        </div>
+                    <% }); %>
+                <% } else { %>
+                    <p>Tu carrito está vacío.</p>
+                <% } %>
+            </div>
         <div class="producto">
  
         <img class="carrusel" src="../images/carrusel/carrusel_1.png" alt="carrusel">
