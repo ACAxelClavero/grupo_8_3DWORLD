@@ -38,10 +38,15 @@
                 <% } else if (locals.errors && locals.errors.some(error => error.param === 'password_empty')) { %>
                     <span style="color: red" class="form_input_alert"><%= locals.errors.find(error => error.param === 'password_empty').msg %></span>
                 <% } %>
-                <input type="checkbox" name="rememberme" id="rememberme">
-                <label id="rememberme" for="rememberme">Recordarme</label>
+
+                <div>
+                <input type="checkbox" name="rememberme" id="rememberme"
+                label id="rememberme" for="rememberme">Recordarme</label> 
+                </div>
+           
 
 
+                
                 <div class="botones">
                     <button type="submit">Enviar</button>
                     <button type="button"><a href="/user/register" id="enlaceRegistrarse">Crear usuario</a></button></a>

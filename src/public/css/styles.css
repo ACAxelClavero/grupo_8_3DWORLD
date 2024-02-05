@@ -90,17 +90,20 @@ footer {
 .terminos a:hover {
     color: #47077F;
 }
-
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
 .inicio, .Trabajos, .Plasticos, .Nosotros {
     color:  black ;
     padding: 10px 20px;
     border: 4px #47077F solid;
     border-radius: 10px;
-    margin-bottom: 30px;
     cursor: pointer;
     width: 100%;
     font-size: 1vw;
-    font-weight: 600px;
+    font-weight: 600;
     cursor: pointer;
 }
 .inicio:hover, .Trabajos:hover, .Plasticos:hover, .Nosotros:hover {
@@ -108,34 +111,53 @@ footer {
     color: #fff;
 }
 .cuerpo{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 6vw;
+    flex: 1;
+    position: relative;
+    overflow: hidden;
 }
+
+
 .botones {
-    flex: 0.5;
+    position: absolute;
+    bottom: 18vh;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    margin-left: 2%;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 3%;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    z-index: 1;
 }
-.carruselHome {
-    display: flex;
-    justify-content: center;
-    flex: 1
-}
+
+
 article div{
     display:flex;
     flex-direction:column;
     flex-wrap: wrap;
 }
 .img-3{
-    width: 40%;
+    width: 100%;
     height: 80%;
 }
+.texto-bienvenida {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    z-index: 2; 
+}
 
+.texto-bienvenida h1 {
+    font-size: 10vh;
+    margin-bottom: 10px;
+}
+
+.texto-bienvenida p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
 
 
 #busquedaylupa {
@@ -159,46 +181,48 @@ article div{
 
 /* Carrusel */
 .slider-container {
-    display: flex;  
-    width: 30%;
-
-    height: 70vh;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    margin-bottom: 30px;
-
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    overflow: hidden;
   }
-   .slider-container {
-        display: flex;
-        width: 80%;
-        height: 60vh;
-        overflow-x: auto;
-        margin-bottom: 30px;
-        -ms-overflow-style: none;
-    scrollbar-width: none;
-      }
+.slider-container ul {
+    display: flex;
+    padding: 0;
+    width: 500%;
+    animation: slide 20s infinite alternate ease-in-out;
+}
+.slider-container li {
+    width: 100%;
+    list-style: none;
+    position: relative;
+}
   .slider-container img {
     flex: 0 0 100%;
-    width: 50%;
     object-fit: cover;
     animation: fade 1s ease-in-out;
+    scroll-snap-align: center;
+    width: 100%;
+    height: 100vh;
   }
-  .slider-container::-webkit-scrollbar {
-    display: none; 
-  }
+ @keyframes slide {
+    0% {margin-left: 0% ;}
+    20% {margin-left: 0% ;}
+
+    25% {margin-left: -100% ;}
+    45% {margin-left: -100% ;}
+
+    50% {margin-left: -200% ;}
+    70% {margin-left: -200% ;}
+    
+    75% {margin-left: -300% ;}
+    100% {margin-left: -300% ;}
+ }
    
       
-      .slider-container img {
-        flex: 0 0 100%;
-        object-fit: cover;
-        animation: fade 1s ease-in-out;
-      
-        scroll-snap-align: center;
-      }
+
 
 @media (min-width: 767px) {
     .logo_header{

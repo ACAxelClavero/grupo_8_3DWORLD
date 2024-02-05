@@ -17,12 +17,14 @@
     <%- include('./partials/header.ejs')  %>
 
 <div >
-        <h1>LISTADO DE PRODUCTOS</h1>
+        
+                <h1        class="titulo_producto"> >LISTADO DE PRODUCTOS</h1>
+
             <% for( let i = 0; i < products.length; i++ ) { %>
             
         <article  class="plasticos_articulo"  >
             <a href="/product/<%= products[i].id %>"><%= products[i].name %></a>
-
+            
             <img class="plasticos_imagen" src="/images/productos/<%= products[i].photo1 %>" alt="<%= products[i].name %><%= products[i].name %>">
             <div    class="contenido_plasticos">
             <p>/product/<%= products[i].id %></p>
@@ -34,9 +36,11 @@
                     </div>
         </article>
      <% } %>
-        <ul>
-            <a href="/new-product"  id="CrearProducto">Crear nuevo producto</a>
-        </ul>
+        <button class="button_createProducto">
+                        <a href="/new-product"  id="CrearProducto">Crear nuevo producto</a>
+
+        </button>
+        
 </div>
     <%- include('./partials/footer')  %>
 </body>

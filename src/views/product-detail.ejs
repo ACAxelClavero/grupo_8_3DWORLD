@@ -92,9 +92,12 @@
             <a class="boton" href="">Medios de pago</a>
             <a class="boton" href="">Devolucion</a>
             <a class="boton" href="">Compartir</a>
-            <ul>
-                <a href="/product/<%= product.id %>/edit-product"  id="editarProducto">editar Producto </a>
-            </ul>
+            
+            <button class="boton-al-carrito">
+                                <a href="/product/<%= product.id %>/edit-product"  id="editarProducto">editar Producto </a>
+
+            </button>
+            
             <ul>                
                 <form action="/products/<%= product.id %>/delete" method="POST" id="deleteForm">
                     <input type="hidden" name="_method" value="DELETE">

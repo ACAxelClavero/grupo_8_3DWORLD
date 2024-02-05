@@ -6,13 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
     <title>3D World</title>
 </head>
 
 <body>
     <%- include('./partials/header.ejs')  %>
-    <article class = "cuerpo">
-        <div class = "botones">
+
+
+     <div class="contenedor"> 
+      <article class = "cuerpo">
+        <div class="slider-container">  
+      <ul>
+          <li>
+              <img
+              class="slider-item"  src="../images/plasticos/home1.jpg"/>
+          </li>  
+          <li>
+              <img
+              class="slider-item" src="../images/plasticos/home2.jpg"/>
+          </li>
+          <li>
+            <img class="slider-item" src="../images/plasticos/home3.jpg"/>
+          </li>
+          <li>
+            <img class="slider-item"src="../images/plasticos/home4.jpg"/>
+          </li>
+          <li>
+            <img class="slider-item" src="../images/plasticos/home5.jpg"/>
+          </li>
+       </div>  
+           </ul>   
+           <div class="texto-bienvenida">
+            <h1>Bienvenido a 3D World</h1>
+            <p>Explora nuestro fascinante mundo de llaveros. Te ofrecemos una amplia variedad de llaveros impresos 3D únicos y personalizados adaptandonos perfectamente a tu estilo.</p>
+        </div>
+   <div class = "botones">
             <p>
                 <a href=""><button class="inicio">Inicio</button></a>
             </p>
@@ -28,42 +57,12 @@
             <p>
                 <a href="/nosotros"><button class="Nosotros">Nosotros</button></a>
             </p>
-        </div>
-        <div class="slider-container">  
-            <img
-              class="slider-item"
-              src="../images/carrusel/carrusel_1.png"
-            />
-            <img
-              class="slider-item"
-              src="../images/carrusel/carrusel_2.webp"
-            />
-            <img
-              class="slider-item"
-              src="../images/carrusel/carrusel_1.png"
-            />
-            <img
-              class="slider-item"
-              src="../images/carrusel/carrusel_2.webp"
-            />
-            <img
-              class="slider-item"
-              src="../images/carrusel/carrusel_1.png"
-            />
-          </div>  
-        
+  </div>      
     </article>
 
-    
-    
+    </div>
     <%- include('./partials/footer')  %>
-    <main>
 
-    </main>
-
-    <!-- <footer>
-        <img class="logo_footer" src="images/logo.png" alt="Logo">
-    </footer> -->
 </body>
 
 </html>

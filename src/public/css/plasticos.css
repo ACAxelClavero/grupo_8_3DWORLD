@@ -31,7 +31,7 @@
     border: 2px solid #47077F;
     padding: 20px;
       position: relative;
-    
+    margin: 18px;
 }
 
 .plasticos_imagen {
@@ -57,4 +57,22 @@
 .contenido_plasticos:hover + .caja_plasticos {
 display: block;    
 bottom: 0;
+}
+
+.button_createProducto {
+    color: black;
+    padding: 10px 20px;
+    border: 4px #47077F solid;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1vw;
+    font-weight: 600;
+}
+
+
+.titulo_producto {
+    text-align: center;
+    margin-bottom: 20px;
 }
