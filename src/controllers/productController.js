@@ -7,7 +7,6 @@ const { Product } = require('../../database/models')
 const controller = {
     // Carrito de compras
     productCart(req, res){
-
         res.render('productCart');
     },
 
@@ -49,27 +48,30 @@ const controller = {
     addToCart(req, res) {
       const productId = req.params.id;
       Product.findByPk(productId)
-      .then((product) => {
-        if (!product) {
-          return res.render('not-found');
-        }
+          .then((product) => {
+              if (!product) {
+                  return res.render('not-found');
+              }
 
-        req.session.cart = req.session.cart || [];
+              req.session.cart = req.session.cart || [];
+  
+              req.session.cart.push({
+                  id: product.id,
+                  name: product.name,
+                  price: product.price,
+                  photo: product.photo1,
+              });
+              console.log('Producto agregado al carrito:', product.name);
 
-        req.session.cart.push({
-          id: product.id,
-          name: product.name,
-          price: product.price,
-        });
-        console.log('Producto agregado al carrito:', product.name);
-
-        res.redirect('/productCart');
-      })
-      .catch((error) => {
-        console.error(`Error fetching product: ${error.message}`);
-        console.error(error.stack);
-        res.render('error');
-      });
+              req.session.save(() => {
+                res.render('productCart', { cart: req.session.cart });
+              });
+        })
+          .catch((error) => {
+              console.error(`Error fetching product: ${error.message}`);
+              console.error(error.stack);
+              return res.status(500).render('error', { error }); // Cambiado aquí
+            });
   },
      // Creacion de un nuevo producto
      newProductForm(req, res) {

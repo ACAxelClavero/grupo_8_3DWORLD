@@ -29,7 +29,7 @@ app.use(methodOverride('_method'));
 app.use(express.urlencoded({ extended: false }));
 app.use(session({secret: "3DWorld",
                  resave: false,
-                 saveUninitialized: false
+                 saveUninitialized: true
                 }));
 app.use(cookieParser());
 app.use(cookieMiddleware);

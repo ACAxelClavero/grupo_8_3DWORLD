@@ -11,17 +11,16 @@
 <body>
   <%- include('./partials/header.ejs')  %>
 <main>
-        <h1 class="titular">Productos:</h1>
+        <h1 class="titular">Productos en tu carrito:</h1>
         <div class="lista_productos" >
 
             <div class="productos-en-carrito">
-                <h2>Productos en tu carrito:</h2>
                 <% if (typeof cart !== 'undefined' && cart.length > 0) { %>
                     <% cart.forEach(product => { %>
                         <div class="producto-en-carrito">
-                            <img src="/images/productos/<%= product.photo %>" alt="<%= product.name %>">
-                            <h3><%= product.name %></h3>
+                            <h3 class="titular_producto"><%= product.name %></h3>
                             <p>Precio: $<%= product.price %></p>
+                            <img class="carrusel" src="/images/productos/<%= product.photo %>" alt="img-2">
                             <!-- Agrega más detalles si es necesario -->
                         </div>
                     <% }); %>

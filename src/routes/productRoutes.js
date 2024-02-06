@@ -45,7 +45,9 @@ router.get('/:id/edit-product', guestMiddleware, productController.editProductFo
 //Acción de edición (a donde se envía el formulario)
 router.put('/:id', guestMiddleware, upload, productValidator.edit, productController.editProductId); 
 
-
+//Carrito
+router.get('/productCart', productController.productCart)
+router.get('/add-to-cart/:id', cartMiddleware, productController.addToCart);
 
 // Obtener listado de productos
 router.get('/', productController.products); 
@@ -56,9 +58,7 @@ router.get('/product', (req, res) => {
   //Acción de borrado
 router.delete('/:id/delete', authMiddleware, productController.deleteProduct);
 
-//Carrito
-router.get('/productCart', productController.productCart)
-router.get('/add-to-cart/:id', cartMiddleware, productController.addToCart);
+
 
 //Detalle de un producto particular
 router.get('/:id', productController.productDetail); 
