@@ -59,7 +59,7 @@ router.get('/product', (req, res) => {
 router.delete('/:id/delete', authMiddleware, productController.deleteProduct);
 
 //Eliminar producto de carrito 
-router.get('/remove-from-cart/:id', productController.deleteFromCart);
+router.delete('/:id/remove-from-cart', productController.deleteFromCart);
 
 
 

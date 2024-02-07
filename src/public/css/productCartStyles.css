@@ -22,12 +22,12 @@
 .producto {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin: 20px;
     margin-bottom: 30px;
 }
 .carrusel {
-    width: 50vw;
+    width: 30vw;
     height: auto;
     border: solid 4px #47077F;
 
@@ -41,9 +41,9 @@ text-align: center;
     display: flex;
     flex-direction: column;
     padding: 10px;
-    justify-content: center
-
-
+    justify-content: center;
+    width: 50%;
+    margin-left: 20px;
 }
 .select {
     margin: 10px;
@@ -160,7 +160,7 @@ text-align: center;
 
  }
  .carrusel {
-    height: 50vh;
+    height: 30vh;
     width: auto;
     margin-left: 8%;
  }

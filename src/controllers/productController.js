@@ -60,6 +60,8 @@ const controller = {
                   name: product.name,
                   price: product.price,
                   photo: product.photo1,
+                  color: product.color,
+                  size: product.size
               });
               console.log('Producto agregado al carrito:', product.name);
 
@@ -197,16 +199,17 @@ const controller = {
     // eliminar producto de carrito 
     deleteFromCart: (req, res) => {
       try {
-      const productId = req.params.id;
-      const cart = req.session.cart || [];
-
-      const updatedCart = cart.filter(product => product.id !== productId);
-
-      req.session.cart = updatedCart;
-
-        console.log('Producto eliminado exitosamente del carrito');
-
-        res.redirect('/productCart');
+          const productId = req.params.id;
+          const cart = req.session.cart || [];
+  
+          // Filtra el producto del carrito que coincide con el productId
+          const updatedCart = cart.filter(product => product.id !== productId);
+  
+          req.session.cart = updatedCart; // Actualiza el carrito en la sesión
+  
+          console.log('Producto eliminado exitosamente del carrito');
+  
+          res.redirect('/productCart');
       } catch (error) {
           console.error(`Error durante la eliminación del producto del carrito: ${error.message}`);
           console.error(error.stack);

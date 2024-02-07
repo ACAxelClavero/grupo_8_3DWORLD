@@ -17,104 +17,44 @@
             <div class="productos-en-carrito">
                 <% if (typeof cart !== 'undefined' && cart.length > 0) { %>
                     <% cart.forEach(product => { %>
-                        <div class="producto-en-carrito">
-                            <h3 class="titular_producto"><%= product.name %></h3>
+                        <div class="producto-en-carrito producto">
+                  <a href="/product/<%= product.id %>">    <img class="carrusel" src="/images/productos/<%= product.photo %>" alt="img-2"></a>
+                     <div   class="especificaciones"> 
+                           <h3 class="titular_producto"><%= product.name %></h3>
                             <p>Precio: $<%= product.price %></p>
-                            <img class="carrusel" src="/images/productos/<%= product.photo %>" alt="img-2">
-                            <a class="trash" href="/remove-from-cart/<%= product.id %>">   <i class="fas fa-trash"></i> </a>
+                            <form method="POST" action="/product/<%= product.id %>/remove-from-cart?_method=DELETE" id="deleteForm_<%= product.id %>">
+                                <button type="submit" class="trash"><i class="fas fa-trash"></i></button>
+                                <input type="hidden" name="id" value="<%= product.id %>">
+                            </form>
+                            <select class="select" name="dimensiones">
+                                <option value="s" <%= product.size === 's' ? 'selected' : '' %>>Small</option>
+                                <option value="m" <%= product.size === 'm' ? 'selected' : '' %>>Medium</option>
+                                <option value="l" <%= product.size === 'l' ? 'selected' : '' %>>Large</option>
+                                <option value="xl" <%= product.size === 'xl' ? 'selected' : '' %>>XLarge</option>
+                            </select>
 
-                            <!-- Agrega más detalles si es necesario -->
-                        </div>
+
+                            <select class="select" name="cantidad">
+                                <% for (var i = 1; i <= 5; i++) { %>
+                                    <option value="<%= i %>" <%= product.quantity === i ? 'selected' : '' %>><%= i %></option>
+                                <% } %>
+                            </select>
+                    
+
+                            <select class="select" name="color">
+                                <option value="yellow" <%= product.color === 'yellow' ? 'selected' : '' %>>Amarillo</option>
+                                <option value="red" <%= product.color === 'red' ? 'selected' : '' %>>Rojo</option>
+                                <option value="blue" <%= product.color === 'blue' ? 'selected' : '' %>>Azul</option>
+                                <option value="orange" <%= product.color === 'orange' ? 'selected' : '' %>>Naranja</option>
+                                <option value="brown" <%= product.color === 'brown' ? 'selected' : '' %>>Marron</option>
+                            </select>
+                        </div></div>
                     <% }); %>
                 <% } else { %>
                     <p>Tu carrito está vacío.</p>
                 <% } %>
             </div>
-        <div class="producto">
- 
-        <img class="carrusel" src="../images/carrusel/carrusel_1.png" alt="carrusel">
-            <div    class="especificaciones">
-                <h3 class="titular_producto">Soporte notebook</h3>
-        <select class="select" name="dimensiones" id="dimensiones">
-            <option value="s">Small</option>
-            <option value="m">Medium</option>
-            <option value="l">Large</option>
-            <option value="xl">XLarge</option>
-        </select>
-        <select class="select" name="cantidad" id="cantidad">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="3">4</option>
-            <option value="3">5</option>
-        </select>
-        <select class="select" name="color" id="color">
-            <option value="yellow">Amarillo</option>
-            <option value="red">Rojo</option>
-            <option value="blue">Azul</option>
-            <option value="orange">Naranja</option>
-            <option value="brown">Marron</option>
-        </select>
-     <a class="trash" href="">  <i class="fas fa-trash" ></i></a> 
-    </div>
-     </div>
-     <div class="producto">
- 
-        <img class="carrusel" src="../images/carrusel/carrusel_1.png" alt="carrusel">
-            <div    class="especificaciones">
-                <h3 class="titular_producto">Soporte notebook</h3>
-        <select class="select" name="dimensiones" id="dimensiones">
-            <option value="s">Small</option>
-            <option value="m">Medium</option>
-            <option value="l">Large</option>
-            <option value="xl">XLarge</option>
-        </select>
-        <select class="select" name="cantidad" id="cantidad">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="3">4</option>
-            <option value="3">5</option>
-        </select>
-        <select class="select" name="color" id="color">
-            <option value="yellow">Amarillo</option>
-            <option value="red">Rojo</option>
-            <option value="blue">Azul</option>
-            <option value="orange">Naranja</option>
-            <option value="brown">Marron</option>
-        </select>
-      <a class="trash" href=""> <i class="fas fa-trash" ></i></a> 
-    </div>
-     </div>
-     <div class="producto">
- 
-        <img class="carrusel" src="../images/carrusel/carrusel_1.png" alt="carrusel">
-            <div    class="especificaciones">
-                <h3 class="titular_producto">Soporte notebook</h3>
-        <select class="select" name="dimensiones" id="dimensiones">
-            <option value="s">Small</option>
-            <option value="m">Medium</option>
-            <option value="l">Large</option>
-            <option value="xl">XLarge</option>
-        </select>
-        <select class="select" name="cantidad" id="cantidad">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="3">4</option>
-            <option value="3">5</option>
-        </select>
-        <select class="select" name="color" id="color">
-            <option value="yellow">Amarillo</option>
-            <option value="red">Rojo</option>
-            <option value="blue">Azul</option>
-            <option value="orange">Naranja</option>
-            <option value="brown">Marron</option>
-        </select>
-     <a class="trash" href="">   <i class="fas fa-trash"></i> </a>
-    </div>
-     </div>  
-    </div>
+        </div>
             <div    class="botones_compra">
                 <a href="/product" ><button class="boton">Seguir comprando</button></a>
                         <button class="boton">Actualizar compra </button>
@@ -143,7 +83,6 @@
       <main>
 
       </main>
-  
     
     <!-- <footer>
         <img class="logo_footer" src="images/logo.png" alt="Logo">

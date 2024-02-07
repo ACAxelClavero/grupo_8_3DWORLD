@@ -19,30 +19,31 @@
         <div class="division-del-main">    
         <section class="seccion-del-carrusel">    
         <div class="contenedor-img-del-carrusel" id="imagen1">
-            <div class="img-del-carrusel" id="imagen1">
-             <a href="imagen1">   <img src="/images/productos/<%= product.photo1 %>" alt="img-1"></a>
+            <div class="contenedor-img-del-carrusel">
+                <div class="img-del-carrusel">
+                    <img src="/images/productos/<%= product.photo1 %>" alt="img-1" onclick="openModal('/images/productos/<%= product.photo1 %>')">
+                </div>
             </div>
-           
-        </div>
-        <div class="contenedor-img-del-carrusel" id="imagen2">
-            <div class="img-del-carrusel" id="imagen2">
-                <a href="imagen2">    <img src="/images/productos/<%= product.photo2 %>" alt="img-2"></a>
+            <div class="contenedor-img-del-carrusel">
+                <div class="img-del-carrusel">
+                    <img src="/images/productos/<%= product.photo2 %>" alt="img-2" onclick="openModal('/images/productos/<%= product.photo2 %>')">
+                </div>
             </div>
-            
-        </div>
-        <div class="contenedor-img-del-carrusel" id="imagen3">
-            <div class="img-del-carrusel" id="imagen3">
-                <a href="imagen3">     <img src="/images/productos/<%= product.photo3 %>" alt="img-3"></a>
+            <div class="contenedor-img-del-carrusel">
+                <div class="img-del-carrusel">
+                    <img src="/images/productos/<%= product.photo3 %>" alt="img-3" onclick="openModal('/images/productos/<%= product.photo3 %>')">
+                </div>
             </div>
-           
-        </div>
-        <div class="contenedor-img-del-carrusel" id="imagen4">
-            <div class="img-del-carrusel" id="imagen4">
-                <a href="imagen4">     <img src="/images/productos/<%= product.photo4 %>" alt="imagen4"></a>
+            <div class="contenedor-img-del-carrusel">
+                <div class="img-del-carrusel">
+                    <img src="/images/productos/<%= product.photo4 %>" alt="img-4" onclick="openModal('/images/productos/<%= product.photo4 %>')">
+                </div>
             </div>
-        </div>
     </section>
-        
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
 
     <div class="descripcion-general">
     <section class="descripcion-corta">
@@ -132,5 +133,7 @@
     </main>
 
     <%- include('./partials/footer')  %>
+
+    
 </body>
 </html>
