@@ -16,32 +16,38 @@
     <!--   agregar el header -->
     <%- include('./partials/header.ejs')  %>
 
-<div >
-        
-                <h1        class="titulo_producto"> LISTADO DE PRODUCTOS</h1>
-
+    <div class="productos-container">
+        <h1 class="titulo_listado"> LISTADO DE PRODUCTOS:</h1>
+            <div class="productos" >
             <% for( let i = 0; i < products.length; i++ ) { %>
-            
-        <article  class="plasticos_articulo"  >
-            <a href="/product/<%= products[i].id %>"><%= products[i].name %></a>
-            
-            <img class="plasticos_imagen" src="/images/productos/<%= products[i].photo1 %>" alt="<%= products[i].name %><%= products[i].name %>">
-            <div    class="contenido_plasticos">
-            <p>/product/<%= products[i].id %></p>
-            <p>/product/<%= products[i].price %></p>
+                <article  class="plasticos_articulo"   >
+             <a  href="/product/<%= products[i].id %>">  <div class="titulo_producto"><%= products[i].name %> </div>
+                 <img id="imagen<%= i %>" class="plasticos_imagen" src="/images/productos/<%= products[i].photo1 %>" alt="<%= products[i].name %><%= products[i].name %>"
+                 data-img1="/images/productos/<%= products[i].photo1 %>"
+                 data-img2="/images/productos/<%= products[i].photo2 %>"
+                 data-img3="/images/productos/<%= products[i].photo3 %>"
+                 data-img4="/images/productos/<%= products[i].photo4 %>"
+                 
+                 >
+                    <div    class="contenido_plasticos">
+                <p>/product/<%= products[i].id %></p>
+                <p>/product/<%= products[i].price %></p>
             </div>
 
             <div    class="caja_plasticos">
               <p>facilidad de impresión, baja deformación durante el proceso y su adecuada resistencia mecánica. El PLA es ideal para proyectos domésticos y educativos, pero sufre de menor resistencia al calor en comparación con otros materiales.</p>
                     </div>
-        </article>
-     <% } %>
+                </a>
+               </article>
+             <% } %>
+          </div>
+    </div>
         <button class="button_createProducto">
-                        <a href="/new-product"  id="CrearProducto">Crear nuevo producto</a>
-
+                <a href="/new-product"  id="CrearProducto">Crear nuevo producto</a>
         </button>
         
-</div>
     <%- include('./partials/footer')  %>
+
+    <script src="script/products.js"></script>
 </body>
 </html>

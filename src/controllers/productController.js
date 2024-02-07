@@ -193,6 +193,26 @@ const controller = {
             res.render('error'); 
         }
     },
+    
+    // eliminar producto de carrito 
+    deleteFromCart: (req, res) => {
+      try {
+      const productId = req.params.id;
+      const cart = req.session.cart || [];
+
+      const updatedCart = cart.filter(product => product.id !== productId);
+
+      req.session.cart = updatedCart;
+
+        console.log('Producto eliminado exitosamente del carrito');
+
+        res.redirect('/productCart');
+      } catch (error) {
+          console.error(`Error durante la eliminación del producto del carrito: ${error.message}`);
+          console.error(error.stack);
+          res.render('error');
+      }
+  }
 };
 
 module.exports = controller;

@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 .cuerpo {
-    color: white;
+    color: #f2e3ff;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,7 +13,7 @@
 
 
 .titular {
-    color: white;
+    color: #f2e3ff;
     font-size: 40px;
     margin: 20px;
     margin-left: 32px;

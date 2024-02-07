@@ -21,6 +21,8 @@
                             <h3 class="titular_producto"><%= product.name %></h3>
                             <p>Precio: $<%= product.price %></p>
                             <img class="carrusel" src="/images/productos/<%= product.photo %>" alt="img-2">
+                            <a class="trash" href="/remove-from-cart/<%= product.id %>">   <i class="fas fa-trash"></i> </a>
+
                             <!-- Agrega más detalles si es necesario -->
                         </div>
                     <% }); %>
@@ -114,8 +116,8 @@
      </div>  
     </div>
             <div    class="botones_compra">
-        <button class="boton">Seguir comprando</button>
-        <button class="boton">Actualizar compra </button>
+                <a href="/product" ><button class="boton">Seguir comprando</button></a>
+                        <button class="boton">Actualizar compra </button>
             </div>
 
       

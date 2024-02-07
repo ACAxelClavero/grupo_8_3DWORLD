@@ -47,7 +47,7 @@ router.put('/:id', guestMiddleware, upload, productValidator.edit, productContro
 
 //Carrito
 router.get('/productCart', productController.productCart)
-router.get('/add-to-cart/:id', cartMiddleware, productController.addToCart);
+router.get('/add-to-cart/:id', cartMiddleware,authMiddleware , productController.addToCart);
 
 // Obtener listado de productos
 router.get('/', productController.products); 
@@ -57,6 +57,9 @@ router.get('/product', (req, res) => {
   });
   //Acción de borrado
 router.delete('/:id/delete', authMiddleware, productController.deleteProduct);
+
+//Eliminar producto de carrito 
+router.get('/remove-from-cart/:id', productController.deleteFromCart);
 
 
 
