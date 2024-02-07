@@ -21,7 +21,6 @@ const controller = {
           console.error(error.stack);
           res.render('error');
           console.error(error);
-          res.render('error');
         }
     },
         
@@ -81,27 +80,49 @@ const controller = {
         res.render('new-product', { product });
         
      },
+
+     // Accion de creacion
      async newProductCreation(req, res) {
       console.log('Ruta de creación de producto alcanzada');
 
         try {
           console.log('Contenido de req.body:', req.body);
           console.log('Contenido de req.files:', req.files);
-          const productToCreate = {
-            name: req.body.name,
-            description: req.body.description,
-            color: req.body.color,
-            price: req.body.price,
-            photo1: req.files[0].filename,
-            photo2: req.files[1].filename,
-            photo3: req.files[2].filename,
-            photo4: req.files[3].filename,
-            materials: req.body.materials,
-            size: req.body.size,
 
-		}
+          let filenames = []; // Array para almacenar los nombres de los archivos
+
+          if (req.files && req.files.length > 0) {
+              // Si req.files está definido y tiene al menos 1 elemento
+  
+              // Iterar sobre los archivos en req.files
+              for (let i = 0; i < 4; i++) {
+                  // Si hay un archivo en la posición i, obtener su nombre, de lo contrario, usar la imagen predeterminada
+                  const filename = req.files[i] ? req.files[i].filename : '../../images/logo.png';
+                  filenames.push(filename); // Agregar el nombre del archivo al array
+              }
+          } else {
+              // Si no se subieron archivos, llenar el array con la imagen predeterminada
+              for (let i = 0; i < 4; i++) {
+                  filenames.push('../../images/logo.png');
+              }
+          }
+  
+          const productToCreate = {
+              name: req.body.name,
+              description: req.body.description,
+              color: req.body.color,
+              price: req.body.price,
+              photo1: filenames[0],
+              photo2: filenames[1],
+              photo3: filenames[2],
+              photo4: filenames[3],
+              materials: req.body.materials,
+              size: req.body.size,
+          };
+
         const newProduct = await Product.create(productToCreate);
         res.redirect('/product');
+
       } catch (error) {
         console.error(`Error fetching product: ${error.message}`);
         console.error(error.stack);
@@ -188,7 +209,7 @@ const controller = {
                 where: { id: productId }
             });         
                console.log('Producto eliminado exitosamente');
-            res.redirect('/');
+            res.redirect('/product');
         } catch (error) {
         console.error(`Error during product deletion by ID: ${error.message}`);
           console.error(error.stack);
