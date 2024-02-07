@@ -7,7 +7,7 @@
 
 .plasticos_titulo {
     margin: 2vw;
-    color: white;
+    color: #f2e3ff;
 }
 
 .parrafo_plasticos{
@@ -25,7 +25,7 @@
 .plasticos_articulo {
     display: flex;
     flex-direction: column;
-    width: 250px;
+    width: 340px;
     align-items: center;
     background-color: #8373C4;
     border: 2px solid #47077F;
@@ -34,10 +34,19 @@
     margin: 18px;
 }
 
+.plasticos_articulo a {
+    text-decoration: none;
+}
+
 .plasticos_imagen {
-    width: 200px;
-    height: 200px; 
+    width: 300px;
+    height: 300px; 
     border-radius: 5px; 
+    transition: transform 0.3 ease;
+}
+.plasticos_imagen:hover {
+    transform: scale(1.32);
+
 }
 .caja_plasticos {
     display: none;
@@ -53,7 +62,11 @@
 
 }
 
+.contenido_plasticos {
+    font-size: 18px;
+    color: #1a0030;
 
+}
 .contenido_plasticos:hover + .caja_plasticos {
 display: block;    
 bottom: 0;
@@ -72,7 +85,24 @@ bottom: 0;
 }
 
 
-.titulo_producto {
+.titulo_listado {
     text-align: center;
     margin-bottom: 20px;
+    color: #f2e3ff;
+    margin: 1vw;
+    margin-left: 4vw;
+}
+.productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.titulo_producto {
+    text-align: center;
+    color: #f2e3ff;
+    font-size: 22px;
+}
+.productos-container {
+    text-decoration: none;
+
 }
