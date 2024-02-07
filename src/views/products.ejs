@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="css/productos.css">
-    <link rel="stylesheet" href="css/plasticos.css">
+    <link rel="stylesheet" href="../css/styles.css"> <!-- style css -->
+    <link rel="stylesheet" href="css/productos.css"> <!-- productos -->
+    <link rel="stylesheet" href="css/plasticos.css"> <!-- plasticos -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
@@ -18,28 +18,42 @@
 
 <div >
         
-                <h1        class="titulo_producto"> LISTADO DE PRODUCTOS</h1>
+                <h1        class="titulo_producto"> PRODUCTOS DISPONIBLES</h1>
 
             <% for( let i = 0; i < products.length; i++ ) { %>
             
         <article  class="plasticos_articulo"  >
-            <a href="/product/<%= products[i].id %>"><%= products[i].name %></a>
+            <a href="/product/<%= products[i].id %>"><%= products[i].name %>
             
-            <img class="plasticos_imagen" src="/images/productos/<%= products[i].photo1 %>" alt="<%= products[i].name %><%= products[i].name %>">
+                <img class="plasticos_imagen" src="/images/productos/<%= products[i].photo1 %>" alt="<%= products[i].name %><%= products[i].name %>">
+
+            </a>
             <div    class="contenido_plasticos">
-            <p>/product/<%= products[i].id %></p>
-            <p>/product/<%= products[i].price %></p>
+                <p>Producto N°: <%= products[i].id %></p>
+                <p>Precio: $<%= products[i].price %></p>
+                <% if (locals.user){%>
+                    <form action="/product/<%= products[i].id %>/delete?_method=DELETE" method="POST">
+                    
+                        <button type="submit" id="delete">Eliminar este producto</button>
+                    </form>
+                <%}%>
             </div>
 
             <div    class="caja_plasticos">
-              <p>facilidad de impresión, baja deformación durante el proceso y su adecuada resistencia mecánica. El PLA es ideal para proyectos domésticos y educativos, pero sufre de menor resistencia al calor en comparación con otros materiales.</p>
-                    </div>
+              <p><%=products[i].description%></p>
+            </div>
         </article>
      <% } %>
-        <button class="button_createProducto">
-                        <a href="/new-product"  id="CrearProducto">Crear nuevo producto</a>
 
-        </button>
+     <% if (locals.user){%>
+        <article  class="plasticos_articulo"  >
+            <a href="/product/new-product" id="CrearProducto">
+                <p>  </p>
+                <img class="plasticos_imagen" src="/images/new-product.png" alt="new-product.png">
+                <p>Crear Nuevo Producto</p>
+            </a>
+        </article>
+    <%}%>
         
 </div>
     <%- include('./partials/footer')  %>

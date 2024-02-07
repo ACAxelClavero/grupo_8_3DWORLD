@@ -56,7 +56,7 @@ router.get('/product', (req, res) => {
     res.redirect('/');
   });
   //Acción de borrado
-router.delete('/:id/delete', authMiddleware, productController.deleteProduct);
+router.delete('/:id/delete', guestMiddleware, productController.deleteProduct);
 
 
 
