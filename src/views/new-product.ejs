@@ -5,17 +5,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/styles.css">
         <link rel="stylesheet" href="../css/new-product-style.css">
+
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <title>Cargar nuevo producto</title>
 </head>
 
 <body>
+
+
     <main>
         <form action="/product/create" method="post" class="form-product" enctype="multipart/form-data" >
+            <h1>Nuevo producto</h1>
+            <div class="errores">
+                <ul>
+
+                </ul>
+            </div>
             <label for="nombre">Nombre del producto</label>
-            <input type="text" name="name" required>
+            <input type="text" name="name" class="name">
             <label for="description">Descripción principal</label>
-            <textarea name="description" id="" cols="30" rows="10"></textarea>
+            <textarea name="description" id="" cols="30" class="description" rows="10"></textarea>
             <label for="size">tamaño</label>
                 <select name="size" id="size">
                     <option value="Categoria1">Small</option>
@@ -23,14 +32,14 @@
                     <option value="Categoria3">Large</option>
                     <option value="Categoria4">Exta Large</option>
                 </select>
-            <label for="color">Color</label>
-                <select name="color" id="color">
-                    <option value="negro">Negro</option>
-                    <option value="blanco">Blanco</option>
-                    <option value="azul">Azul</option>
+            <label for="models">modelo</label>
+                <select name="models" id="models">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
                 </select>
-            <label for="price">Precio de venta</label>
-            <input type= "number" name="price">
+            <label for="price">Precio</label>
+            <input type= "number" class="price" name="price">
                <label for="imagenesProducts">Imagenes</label>
                 <input type="file" id="imagenesProducts" name="imagenesProducts" multiple > 
                 
@@ -40,7 +49,7 @@
              
                 <button type="submit" class="button-form">Enviar</button>
             
-                <button type="reset" class="button-form">Deshacer</button>
+                <button type="reset" class="button-form" onclick="undoEdit()">Deshacer</button>
             </div>
             
         </form>
@@ -49,6 +58,45 @@
 
     </main>
 
+       <script>
+        function undoEdit() {
+            window.location.href = '/product'; 
+        }
 
+        window.addEventListener('load', function () {
+        let formulario = document.querySelector('form');
+        formulario.addEventListener('submit', function (e) {
+            let errores = [];
+            let campoNombre = document.querySelector('input[name="name"]');
+            if (campoNombre.value == '') {
+                errores.push('El campo de nombre tiene que estar completo')
+            }
+            let campoDescription = document.querySelector('textarea[name="description"]');
+    
+    if (campoDescription.value == '') {
+        errores.push('El campo de description tiene que estar completo')
+    }
+    let campoPrice = document.querySelector('input[name="price"]');
+    
+    if (campoPrice.value == '') {
+        errores.push('El campo de precio tiene que estar completo')
+    }
+    let campoImages = document.querySelector('input[name="imagenesProducts"]');
+    
+    if (campoImages.value == '') {
+        errores.push('El campo de imagenes tiene que estar completo')
+    }
+    if (errores.length > 0) {
+                e.preventDefault()
+            let ulErrores = document.querySelector('div.errores ul')
+            ulErrores.innerHTML = ''    
+            for (let i = 0; i < errores.length; i++) {                
+                    
+                    ulErrores.innerHTML += '<li>' + errores[i] + '</li>'
+                }
+            }
+        })
+    })
+    </script>
 </body>
 </html>

@@ -41,12 +41,11 @@
                             </select>
                     
 
-                            <select class="select" name="color">
-                                <option value="yellow" <%= product.color === 'yellow' ? 'selected' : '' %>>Amarillo</option>
-                                <option value="red" <%= product.color === 'red' ? 'selected' : '' %>>Rojo</option>
-                                <option value="blue" <%= product.color === 'blue' ? 'selected' : '' %>>Azul</option>
-                                <option value="orange" <%= product.color === 'orange' ? 'selected' : '' %>>Naranja</option>
-                                <option value="brown" <%= product.color === 'brown' ? 'selected' : '' %>>Marron</option>
+                            <select class="select" name="models">
+                                <option value="1" <%= product.color === '1' ? 'selected' : '' %>>1</option>
+                                <option value="2" <%= product.color === '2' ? 'selected' : '' %>>2</option>
+                                <option value="3" <%= product.color === '3' ? 'selected' : '' %>>3</option>
+                                <option value="4" <%= product.color === '4' ? 'selected' : '' %>>4</option>
                             </select>
                         </div></div>
                     <% }); %>
@@ -80,9 +79,7 @@
         <%- include('./partials/footer')  %>
 
       </main>
-      <main>
-
-      </main>
+   
     
     <!-- <footer>
         <img class="logo_footer" src="images/logo.png" alt="Logo">

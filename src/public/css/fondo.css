@@ -1,0 +1,32 @@
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+.efecto {
+    position: relative;
+    display: flex;
+}
+.efecto img {
+    position: relative;
+    width: 100px;
+    height: 60px;
+    margin: 0 4px;
+    border-radius: 50% ;
+    box-shadow: 0 0 0 ;
+    animation: animate 15s linear infinite;
+    animation-duration: calc(125s / var(--i));
+    
+}
+.efecto img:nth-child(even) {
+
+}
+@keyframes animate {
+    0% {
+        transform: translateY(100vh) scale(0.4);
+    }
+    100% {
+        transform: translateY(-10vh) scale(1.5);
+    }
+}

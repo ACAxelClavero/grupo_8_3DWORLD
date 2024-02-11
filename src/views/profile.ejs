@@ -10,9 +10,12 @@
     <title>3D World</title>
 </head>
 <body>
-    
+    <div class="background-container">
+            <%- include('./fondo.ejs')  %>
+    </div>
+
+
     <main>
-        <% include('./partials/header.ejs')  %>
 
         <div id="registration-container">
             <h2>Tu perfil <%= locals.user.name + " " + locals.user.lastname%></h2>
@@ -35,4 +38,5 @@
                 <a href="/"><button type="button">Volver página principal</button></a>
         </div>
     </main>
+
 </body>

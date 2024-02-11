@@ -55,16 +55,18 @@ router.get('/', productController.products);
 router.get('/product', (req, res) => {
     res.redirect('/');
   });
+  // buscador
+
+router.get('/search', productController.search);
   //Acción de borrado
 router.delete('/:id/delete', guestMiddleware, productController.deleteProduct);
 
 //Eliminar producto de carrito 
 router.delete('/:id/remove-from-cart', productController.deleteFromCart);
 
-
-
 //Detalle de un producto particular
 router.get('/:id', productController.productDetail); 
+
+
+
 module.exports = router;
-
-

@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/styles.css"> <!-- style css -->
-    <link rel="stylesheet" href="css/productos.css"> <!-- productos -->
-    <link rel="stylesheet" href="css/plasticos.css"> <!-- plasticos -->
+    <link rel="stylesheet" href="/css/styles.css"> <!-- style css -->
+    <link rel="stylesheet" href="/css/plasticos.css"> <!-- plasticos -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
@@ -15,44 +14,54 @@
 <body>
     <!--   agregar el header -->
     <%- include('./partials/header.ejs')  %>
+    <main>
 
-<div >
-        
-                <h1        class="titulo_producto"> PRODUCTOS DISPONIBLES</h1>
+    <div class="productos-container">
+        <h1 class="titulo_listado"> LISTADO DE PRODUCTOS:</h1> 
+          
+        <% if (locals.user){%> 
+      <div  contenedor_general>
+        <a href="/product/new-product" id="CrearProducto" class="enlace_producto">
+        <article  class="producto_crear"  >
+            <img class="crear_imagen" src="../images/mas-sin-fondo.png" alt="new-product.png">
+                <p>Crear Nuevo Producto</p>   
+        </article> 
+               </a>
+      </div>
 
-            <% for( let i = 0; i < products.length; i++ ) { %>
-            
-        <article  class="plasticos_articulo"  >
-            <a href="/product/<%= products[i].id %>"><%= products[i].name %>
-            
-                <img class="plasticos_imagen" src="/images/productos/<%= products[i].photo1 %>" alt="<%= products[i].name %><%= products[i].name %>">
-
-            </a>
-            <div    class="contenido_plasticos">
-                <p>Producto N°: <%= products[i].id %></p>
-                <p>Precio: $<%= products[i].price %></p>
-                <% if (locals.user){%>
-                    <form action="/product/<%= products[i].id %>/delete?_method=DELETE" method="POST">
-                    
-                        <button type="submit" id="delete">Eliminar este producto</button>
-                    </form>
-                <%}%>
-            </div>
-
-            
-        </article>
-     <% } %>
-
-     <% if (locals.user){%>
-        <article  class="plasticos_articulo"  >
-            <a href="/product/new-product" id="CrearProducto">
-                <p>  </p>
-                <img class="plasticos_imagen" src="../images/new-product.png" alt="new-product.png">
-                <p>Crear Nuevo Producto</p>
-            </a>
-        </article>
     <%}%>
-        
+            <div class="productos" >
+                <% for( let i = 0; i < products.length; i++ ) { %>
+            
+                    <article  class="plasticos_articulo"   >
+                        <a  href="/product/<%= products[i].id %>">  <div class="titulo_producto"><%= products[i].name %> </div>
+                            <img id="imagen<%= i %>" class="plasticos_imagen" src="/images/productos/<%= products[i].photo1 %>" alt="<%= products[i].name %><%= products[i].name %>"
+                            data-img1="/images/productos/<%= products[i].photo1 %>"
+                            data-img2="/images/productos/<%= products[i].photo2 %>"
+                            data-img3="/images/productos/<%= products[i].photo3 %>"
+                            data-img4="/images/productos/<%= products[i].photo4 %>"
+                            
+                            >
+                               <div    class="contenido_plasticos">
+                           <p>/product/<%= products[i].id %></p>
+                           <p>/product/<%= products[i].price %></p>
+                           <% if (locals.user){%>
+                            <form action="/product/<%= products[i].id %>/delete?_method=DELETE" method="POST" class="eliminar_producto_form">
+                                    
+                                <button type="submit" class="eliminar_producto_button" id="delete">
+                                   <img class="cruz" src="../images/cruz-sin-fondo.png" alt="cruz"> 
+                                   Eliminar este producto
+                                </button>
+                            </form>   <% } %>
+                        </a>
+            </article>
+          <% } %> 
+       </div>
+    </div>
+    <main>
+
+ 
+       
     <%- include('./partials/footer')  %>
 
     <script src="script/products.js"></script>

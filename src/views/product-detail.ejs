@@ -41,6 +41,12 @@
                 <a href="imagen4">     <img src="/images/productos/<%= product.photo4 %>" alt="imagen4"></a>
             </div>
         </div>
+        <div id="myModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="img01">
+            <a class="prev" id="prev">&#10094;</a>
+            <a class="next" id="next">&#10095;</a>
+        </div>
     </section>
     <div id="myModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
@@ -64,11 +70,13 @@
                 </select>
             </div>
             <div class="contenedor-botones-color">
-                <label class="boton-colores" for="cantidad">Color</label>
+                <label class="boton-colores" for="cantidad">modelo</label>
                 <select class="seleccionar-colores" name="cantidad" id="cantidad">
-                    <option value="negro">Negro</option>
-                    <option value="blanco">Blanco</option>
-                    <option value="azul">Azul</option>
+                    <option value="negro">1</option>
+                    <option value="blanco">2</option>
+                    <option value="azul">3</option>
+                    <option value="azul">4</option>
+
                 </select>
             </div>
             </form>
@@ -92,12 +100,7 @@
                    
                     <button type="submit" id="delete">Eliminar Producto</button>
                 </form>
-                <script>
-                    function confirmDelete() {
-                        var result = confirm("¿Estás seguro de que deseas eliminar este producto? Esta acción no se puede deshacer.");
-                        return result;
-                    }
-                </script>
+
             </ul>
         </section>
 
@@ -105,6 +108,6 @@
 
     <%- include('./partials/footer')  %>
 
-    
+    <script></script>
 </body>
 </html>

@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
         imagen.addEventListener("mouseover", function() {
             let counter = 1;
             intervalId = setInterval(() => {
+                debugger
                 const nextImage = imagen.dataset[`img${counter}`];
                 if (nextImage) {
                     imagen.src = nextImage;
@@ -17,7 +18,8 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 
         imagen.addEventListener("mouseout", function() {
-            clearInterval(intervalId);
+            clearInterval(intervalId); 
+            debugger
             imagen.src = imagen.dataset.img1;
         });
     });

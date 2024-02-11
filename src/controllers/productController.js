@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 
 const { Product } = require('../../database/models')
+const { Op } = require('sequelize');
 
 
 const controller = {
@@ -59,7 +60,7 @@ const controller = {
                   name: product.name,
                   price: product.price,
                   photo: product.photo1,
-                  color: product.color,
+                  models: product.models,
                   size: product.size
               });
               console.log('Producto agregado al carrito:', product.name);
@@ -110,7 +111,7 @@ const controller = {
           const productToCreate = {
               name: req.body.name,
               description: req.body.description,
-              color: req.body.color,
+              models: req.body.models,
               price: req.body.price,
               photo1: filenames[0],
               photo2: filenames[1],
@@ -158,31 +159,26 @@ const controller = {
           console.log('Product ID:', productId);
     
           const existingProduct = await Product.findByPk(productId);
+          console.log('Existing Product Photos:', existingProduct.photos);
 
           const updatedProduct = {
             name: req.body.name,
             description: req.body.description,
             color: req.body.color,
             price: req.body.price,
-            photo1: req.files[0].filename,
-            photo2: req.files[1].filename,
-            photo3: req.files[2].filename,
-            photo4: req.files[3].filename,
+
             materials: req.body.materials,
             size: req.body.size,
           };
-          
+          updatedProduct.photos = [
+            existingProduct.photo1,
+            existingProduct.photo2,
+            existingProduct.photo3,
+            existingProduct.photo4
+        ];
           if (req.files && req.files.length > 0) {
-            updatedProduct.photo1 = req.files[0].filename;
-            updatedProduct.photo2 = req.files[1].filename;
-            updatedProduct.photo3 = req.files[2].filename;
-            updatedProduct.photo4 = req.files[3].filename;
-          } else {
-            updatedProduct.photo1 = existingProduct.photo1;
-            updatedProduct.photo2 = existingProduct.photo2;
-            updatedProduct.photo3 = existingProduct.photo3;
-            updatedProduct.photo4 = existingProduct.photo4;
-          }
+            updatedProduct.photos = req.files.map(file => file.filename);
+          } 
 
           await Product.update(updatedProduct, {
             where: { id: productId }
@@ -194,8 +190,6 @@ const controller = {
           console.error(`Error updating product: ${error.message}`);
           console.error(error.stack);
           res.render('error');
-          console.error('Error during product update by ID:', error);
-          res.render('error'); 
         }
       },
 
@@ -221,22 +215,39 @@ const controller = {
     deleteFromCart: (req, res) => {
       try {
           const productId = req.params.id;
+
           const cart = req.session.cart || [];
   
           // Filtra el producto del carrito que coincide con el productId
           const updatedCart = cart.filter(product => product.id !== productId);
   
           req.session.cart = updatedCart; // Actualiza el carrito en la sesión
-  
+           
           console.log('Producto eliminado exitosamente del carrito');
-  
-          res.redirect('/productCart');
       } catch (error) {
           console.error(`Error durante la eliminación del producto del carrito: ${error.message}`);
           console.error(error.stack);
           res.render('error');
       }
-  }
+  },
+  //buscador
+  async search(req, res) {
+    try {
+        const searchTerm = req.query.searchTerm;
+        const products = await Product.findAll({
+            where: {
+                name: {
+                    [Op.like]: `%${searchTerm}%`
+                }
+            }
+        });
+        res.render('products', { products }); 
+      } catch (error) {
+        console.error(`Error searching products: ${error.message}`);
+        console.error(error.stack);
+        res.render('not-found');
+        }
+    },
 };
 
 module.exports = controller;

@@ -32,6 +32,7 @@ main {
 
 /* Contenedor para el formulario */
 .form-product {
+    position: relative;
     background-color: #FFFFFF;
     border: 5px solid #47077F;
     border-radius: 20px;
@@ -40,6 +41,7 @@ main {
     margin: 0 auto; /* Centrar horizontalmente */
     margin-top: 50px; /* Espacio superior */
     box-sizing: border-box; /* Incluir el borde en el ancho total */
+    z-index: 1;
 }
 
 /* Estilos para etiquetas y campos de entrada en el formulario */

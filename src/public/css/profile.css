@@ -4,7 +4,7 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #8373C4; /* Fondo de color cuando se muestra el formulario */
+    background-color: #303056;
     color: #000000;
 }
 
@@ -13,10 +13,20 @@ header, footer {
     display: none;
 }
 
+.background-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-size: cover;
+}
 /* Contenedor principal del formulario */
 main {
+    position: relative;
     text-align: center;
     padding: 20px;
+
+    z-index: 1;
 }
 
 /* Contenedor para el formulario */
@@ -27,7 +37,6 @@ main {
     padding: 20px;
     width: 33%; /* El formulario ocupará un tercio del ancho de la página */
     margin: 0 auto; /* Centrar horizontalmente */
-    margin-top: 50px; /* Espacio superior */
     box-sizing: border-box; /* Incluir el borde en el ancho total */
 }
 
@@ -66,6 +75,7 @@ button[type="submit"] {
     transition: background-color 0.3s;
     display: block; /* Para evitar que el botón se superponga con los campos */
     margin: 0 auto; /* Centrar horizontalmente */
+    margin-bottom: 10px;
     text-decoration: none !important; /* Agregamos !important para asegurar que se aplique */
 }
 
@@ -94,6 +104,7 @@ button[type="button"] {
     transition: background-color 0.3s;
     display: inline-block;
     margin-right: 10px;
+    margin-bottom: 10px;
     text-decoration: none !important; /* Agregamos !important para asegurar que se aplique */
 }
 

@@ -6,17 +6,24 @@
         <link rel="stylesheet" href="/css/styles.css">
         <link rel="stylesheet" href="/css/new-product-style.css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-    <title>Cargar nuevo producto</title>
+    <title>Editar producto</title>
 </head>
 
 <body>
-<main>
-        <form action="/product/<%= product.id %>?_method=PUT" method="post" class="form-product" enctype="multipart/form-data">
-            <label for="nombre">Nombre del producto</label>
-            <input type="hidden" name="productId" value="<%= product.id %>">
-            <input type="text" name="name" value="<%= product.name %>" required>
+<main>  
+   
+    <form action="/product/<%= product.id %>?_method=PUT" method="post" class="form-product" enctype="multipart/form-data">
+           <h1 class="titulo"> Editar producto</h1>
+    <div class="errores">
+        <ul>
+
+        </ul>
+    </div>   
+        <label for="nombre">Nombre del producto</label>
+            <input type="hidden" name="productId" class="name" value="<%= product.id %>">
+            <input type="text" class="name" name="name" value="<%= product.name %>" >
             <label for="description">Descripción principal</label>
-            <textarea name="description" id="" cols="30" rows="10"><%= product.description %></textarea>
+            <textarea class="description"  name="description" id="" cols="30" rows="10"><%= product.description %></textarea>
             <label for="size">tamaño</label>
                 <select name="size" id="size">
                     <option value="Categoria1">Small</option>
@@ -26,11 +33,13 @@
                 </select>
             <!-- AGREGAR CANTIDAD DE ARCHIVOS -->
             <!-- EDITAR OPCIONES  -->
-            <label for="color">Color</label>
-            <select name="color" id="color">
-                <option value="negro">Negro</option>
-                <option value="blanco">Blanco</option>
-                <option value="azul">Azul</option>
+            <label for="models">modelo</label>
+            <select name="models" id="models">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="3">4</option>
+
             </select>
         <label for="price">Precio de venta</label>
         <input type="number" name="price" value="<%= product.price %>">
@@ -58,6 +67,34 @@
         const productId = document.querySelector('input[name="productId"]').value;
         window.location.href = `/product/${productId}`;
     }
+
+
+
+    window.addEventListener('load', function () {
+        let formulario = document.querySelector('form');
+        formulario.addEventListener('submit', function (e) {
+            let errores = [];
+            let campoNombre = document.querySelector('input[name="name"]');
+            if (campoNombre.value == '') {
+                errores.push('El campo de nombre tiene que estar completo')
+            }
+            let campoDescription = document.querySelector('textarea[name="description"]');
+    
+    if (campoDescription.value == '') {
+        errores.push('El campo de description tiene que estar completo')
+    }
+    if (errores.length > 0) {
+                e.preventDefault()
+            let ulErrores = document.querySelector('div.errores ul')
+            ulErrores.innerHTML = ''    
+            for (let i = 0; i < errores.length; i++) {                
+                    
+                    ulErrores.innerHTML += '<li>' + errores[i] + '</li>'
+                }
+            }
+        })
+    })
+            
 </script>
 </body>
 </html>

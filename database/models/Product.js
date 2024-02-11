@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
   description: {
     type: DataTypes.TEXT
   },
-  color: {
+  models: {
     type: DataTypes.TEXT
   },
   price: {

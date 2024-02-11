@@ -1,9 +1,9 @@
 <header>
     <a href="/" class="logo_header"><img  src="/images/logo.png" alt="Logo"></a>
     <div>
-        <form id="busquedaylupa">
-            <input class="buscador" type="text" placeholder="Que desea buscar">
-            <button id="botonLupa"><i class="fas fa-search"></i> <!-- ICONO DE LUPA --></button>
+        <form id="busquedaylupa" action="/product/search" method="GET">
+            <input class="buscador" type="text" name="searchTerm" placeholder="Qué desea buscar">
+            <button id="botonLupa" type="submit"><i class="fas fa-search"></i></button>
         </form>
 </div>
 <div>
