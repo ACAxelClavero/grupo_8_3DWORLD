@@ -8,11 +8,17 @@ const cookieMiddleware = require ('../src/middlewares/cookieMiddleware')
 const sessionMiddleware = require('../src/middlewares/sessionMiddleware');
 const cartMiddleware = require('./middlewares/cartMiddleware');
 
+const cors = require('cors');
+
 
 // Routes require
 const mainRoutes = require('./routes/mainRoutes');
 const usersRoutes = require('./routes/usersRoutes');
 const productRoutes = require('./routes/productRoutes');
+
+//Api routes
+const apiProductsRoutes = require('./apis/apiRoutes/apiProductsRoutes');
+const apiUsersRoutes = require('./apis/apiRoutes/apiUsersRoutes');
 
 // Express
 const app = express();
@@ -36,10 +42,16 @@ app.use(cookieMiddleware);
 app.use(cartMiddleware);
 app.use(sessionMiddleware);
 
+app.use(cors({ origin: 'http://localhost:5174' }));
+
 //Rutas
 app.use('/', mainRoutes);
 app.use('/user', usersRoutes);
 app.use('/product', productRoutes);
+
+//Apis
+app.use('/api/users', apiUsersRoutes);
+app.use('/api/products', apiProductsRoutes);
 
 app.use((req, res, next) => {
     res.status(404).render('not-found');
