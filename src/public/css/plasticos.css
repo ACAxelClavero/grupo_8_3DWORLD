@@ -162,7 +162,7 @@ bottom: 0;
 
 .producto_crear p {
     margin: 0;
-    font-size: 1.6em;
+    font-size: 3vh;
 }
 .enlace_producto:hover .producto_crear {
     background-color: #47077F;
