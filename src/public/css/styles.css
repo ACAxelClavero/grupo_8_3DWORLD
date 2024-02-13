@@ -141,21 +141,26 @@ article div{
 }
 .texto-bienvenida {
     position: absolute;
-    top: 20%;
+    top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     color: #fff;
     z-index: 2; 
+    text-shadow: 
+    2px 2px 0 #3f036a,  
+     2px 2px 0 #3f036a,
+    2px  2px 0 #3f036a,
+     2px  2px 0 #3f036a;
 }
 
 .texto-bienvenida h1 {
-    font-size: 10vh;
-    margin-bottom: 10px;
+    font-size: 4.5vw;
+    margin-bottom: 2vw;
 }
 
 .texto-bienvenida p {
-    font-size: 1.5em;
+    font-size: 2.5vw;
     margin-bottom: 20px;
 }
 
@@ -238,5 +243,31 @@ article div{
     .redes_sociales {
         flex-grow: 0.08;
 
+    }
+}
+
+@media (max-width: 800px) {
+    .texto-bienvenida {
+        width: 80%;
+    }
+    .texto-bienvenida h1 {
+        font-size: 8vw;
+        margin-bottom: 3vw;
+    }
+    
+    .texto-bienvenida p {
+        font-size: 4vw;
+    }
+
+    .botones {
+        bottom: 5vw;
+        flex-direction: column;
+        align-items: stretch;
+        align-content: space-around;
+    }
+    .inicio, .Trabajos, .Plasticos, .Nosotros {
+        font-size: 3vw;
+        margin-bottom: 20px;
+        width: 100%;
     }
 }
