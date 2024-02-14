@@ -1,3 +1,8 @@
+*{
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+}
 .fondo_plasticos {
     background-image: url(../images/plasticos/fondo_plasticos.jpg);
     background-position: center;
@@ -25,13 +30,12 @@
 .plasticos_articulo {
     display: flex;
     flex-direction: column;
-    width: 340px;
+    width: 27vw;
     align-items: center;
     background-color: #8373C4;
     border: 2px solid #47077F;
     padding: 20px;
-      position: relative;
-    margin: 18px;
+    margin: 15px;
 }
 
 .plasticos_articulo a {
@@ -39,13 +43,13 @@
 }
 
 .plasticos_imagen {
-    width: 300px;
-    height: 300px; 
+    width: 23vw;
+    height: 23vw; 
     border-radius: 5px; 
     transition: transform 0.3 ease;
 }
 .plasticos_imagen:hover {
-    transform: scale(1.32);
+    transform: scale(1.40);
 
 }
 .caja_plasticos {
@@ -72,25 +76,14 @@ display: block;
 bottom: 0;
 }
 
-.button_createProducto {
-    color: black;
-    padding: 10px 20px;
-    border: 4px #47077F solid;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 1vw;
-    font-weight: 600;
-}
 
 
 .titulo_listado {
-    text-align: center;
     margin-bottom: 20px;
     color: #f2e3ff;
     margin: 1vw;
-    margin-left: 4vw;
+    margin-left: 8vw;
+    font-size: 6vh;
 }
 .productos {
     display: flex;
@@ -104,10 +97,11 @@ bottom: 0;
 }
 .productos-container {
     text-decoration: none;
-
+    position: relative;
 }
 .contenedor_general {
     position: relative;
+    margin-bottom: 100px;
 }
 
 .eliminar_producto_form {
@@ -140,33 +134,73 @@ bottom: 0;
 
 }
 .producto_crear {
-    position: absolute;
     display: flex;
     align-items: center;
     background-color: #d3cfe2;
     border: 2px solid #47077F;
-    border-radius: 15px;
+    border-radius: 40px;
     padding: 5px;
-    width: calc(20vw - 20px);
-    height: 6vw;
+    width: 90%;
+    max-width: 300px;
+    height: 20vw;
+    max-height: 80px;
     margin-bottom: 20px;
-    margin-left: 20px;
+    margin-left: 30%;
 }
 
 .crear_imagen {
-    width: 6vw ;
+    width: 30% ;
+    max-width: 100px;
     height: auto ;
     flex-shrink: 0;
-    margin-right: 10px;
+    margin-right: 5%;
 }
 
 .producto_crear p {
     margin: 0;
-    font-size: 3vh;
+    font-size: 2.8vh;
 }
 .enlace_producto:hover .producto_crear {
     background-color: #47077F;
 }
 .producto_crear p:last-child {
     margin-left: auto;
+}
+
+@media (max-width: 800px) {
+    .titulo_listado {
+        font-size: 28px;
+        text-align: center;
+        margin-left: 0;
+    }
+    .producto_crear {
+    margin: auto;
+    }
+
+    @media (max-width: 700px) {
+        .plasticos_articulo {
+            width: 100%;
+            height: auto;
+            margin: 0px 4vw 10px 4vw  
+
+        }
+        
+    .plasticos_imagen {
+        width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+        height: auto; /* La altura se ajusta automáticamente */
+    }
+
+    .contenido_plasticos {
+        font-size: 14px; /* Reduce el tamaño de fuente */
+    }
+    .titulo_producto {
+        font-size: 26px; /* Ajusta el tamaño del título del producto */
+    }
+    .contenido_plasticos {
+        font-size: 22px; /* Ajusta el tamaño del texto del contenido */
+    }
+    .eliminar_producto_button {
+        font-size: 22px; /* Ajusta el tamaño del botón de eliminar */
+    }
+    }
 }

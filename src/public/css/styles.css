@@ -104,6 +104,7 @@ footer {
     width: 100%;
     font-size: 1vw;
     font-weight: 600;
+    margin-bottom: 30px;
     cursor: pointer;
 }
 .inicio:hover, .Trabajos:hover, .Plasticos:hover, .Nosotros:hover {
