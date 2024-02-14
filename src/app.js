@@ -42,7 +42,7 @@ app.use(cookieMiddleware);
 app.use(cartMiddleware);
 app.use(sessionMiddleware);
 
-app.use(cors({ origin: 'http://localhost:5174' }));
+app.use(cors({ origin: 'http://localhost:5173' }));
 
 //Rutas
 app.use('/', mainRoutes);
