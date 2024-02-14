@@ -56,16 +56,18 @@ input[type="password"] {
 
 /* Estilos para el botón de enviar en el formulario */
 button[type="submit"],
-button[type="button"] {
-    background-color: white;
+button[type="button"],
+.button
+{
+    background-color: #D1D1EF;
     color: black;
     padding: 10px 20px;
     border: 2px solid #7E5EFF;
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
-    display: inline-block;
-    margin-right: 10px;
+    display: block;
+    margin-right: 10px auto;
     text-decoration: none !important; /* Quitar subrayado enlaces */
 }
 
@@ -86,5 +88,5 @@ form:last-child button[type="submit"] {
 
 form:last-child button[type="submit"]:hover {
     background-color: #FF0000;
-    color: white;
+    color: #D1D1EF;
 }

@@ -52,58 +52,72 @@
         <span class="close" onclick="closeModal()">&times;</span>
         <img class="modal-content" id="img01">
     </div>
+<div class="segundaColumna"> 
+  <section class="seccion-elecciones-de-compra">
+        <form action="">
+           
+            <div class="contenedor-botones-color">
+                <select class="seleccionar-dimensiones" name="cantidad">
+                    <% for (var i = 1; i <= 5; i++) { %>
+                        <option value="<%= i %>" <%= product.quantity === i ? 'selected' : '' %>><%= i %></option>
+                    <% } %>
+                </select>
+            </div>
+
+                <div class="contenedor-botones-color">
+                    <select class="seleccionar-dimensiones" name="dimensiones">
+                        <option value="s" <%= product.size === 's' ? 'selected' : '' %>>Small</option>
+                        <option value="m" <%= product.size === 'm' ? 'selected' : '' %>>Medium</option>
+                        <option value="l" <%= product.size === 'l' ? 'selected' : '' %>>Large</option>
+                        <option value="xl" <%= product.size === 'xl' ? 'selected' : '' %>>XLarge</option>
+                    </select>
+                </div>
+                <div class="contenedor-botones-color">
+
+                    <select  class="seleccionar-dimensiones" class="select" name="models">
+                        <option value="1" <%= product.color === '1' ? 'selected' : '' %>>1</option>
+                        <option value="2" <%= product.color === '2' ? 'selected' : '' %>>2</option>
+                        <option value="3" <%= product.color === '3' ? 'selected' : '' %>>3</option>
+                        <option value="4" <%= product.color === '4' ? 'selected' : '' %>>4</option>
+                    </select>
+            </div>
+            </form>
+        </section>
+
+
 
     <div class="descripcion-general">
     <section class="descripcion-corta">
         <p><%= product.description %></p>
     </section> 
-    </div>  
-    <section class="seccion-elecciones-de-compra">
-        <form action="">
-            <div class="contenedor-botones-dimensiones">
-                <label class="boton-dimensiones" for="dimensiones">Dimensiones</label>
-                <select class="seleccionar-dimensiones" name="dimensiones" id="dimensiones">
-                    <option value="s">Small</option>
-                    <option value="m">Medium</option>
-                    <option value="l">Large</option>
-                    <option value="xl">XLarge</option>
-                </select>
-            </div>
-            <div class="contenedor-botones-color">
-                <label class="boton-colores" for="cantidad">modelo</label>
-                <select class="seleccionar-colores" name="cantidad" id="cantidad">
-                    <option value="negro">1</option>
-                    <option value="blanco">2</option>
-                    <option value="azul">3</option>
-                    <option value="azul">4</option>
-
-                </select>
-            </div>
-            </form>
-        </section>
-        <div class="contenedor-botones-abajo">
-        <div class="contenedor-boton-agregar-al-carrito">
+    </div>   
+     <div class="contenedor-boton-agregar-al-carrito">
             <a class="boton-al-carrito" href="/product/add-to-cart/<%= product.id %>">Agregar a la bolsa de compras</a>
         </div>
+  </div>
+        <div class="contenedor-botones-abajo">
+      
         <section class="seccion-detalles-de-compra">
             <a class="boton" href="">Medios de pago</a>
             <a class="boton" href="">Devolucion</a>
             <a class="boton" href="">Compartir</a>
-            
-            <button class="boton-al-carrito">
-                                <a href="/product/<%= product.id %>/edit-product"  id="editarProducto">editar Producto </a>
+                        <% if (locals.user){%> 
+
+            <button class="boton">
+                                <a  href="/product/<%= product.id %>/edit-product"  id="editarProducto">editar Producto </a>
 
             </button>
-            
             <ul>                
                 <form action="/product/<%= product.id %>/delete?_method=DELETE" method="POST">
                    
-                    <button type="submit" id="delete">Eliminar Producto</button>
+                    <button class="boton" type="submit" id="delete">Eliminar Producto</button>
                 </form>
 
             </ul>
-        </section>
+            <%}%>
 
+        </section>
+        </div>
     </main>
 
     <%- include('./partials/footer')  %>

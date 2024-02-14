@@ -47,7 +47,7 @@ router.put('/:id', guestMiddleware, upload, productValidator.edit, productContro
 
 //Carrito
 router.get('/productCart', productController.productCart)
-router.get('/add-to-cart/:id', cartMiddleware,authMiddleware , productController.addToCart);
+router.get('/add-to-cart/:id', cartMiddleware , productController.addToCart);
 
 // Obtener listado de productos
 router.get('/', productController.products); 

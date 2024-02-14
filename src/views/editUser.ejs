@@ -48,15 +48,17 @@
                     <% } %>
                     
 
-                <button type="submit">Guardar Cambios</button>
+                <button  class="button" type="submit">Guardar Cambios</button>
+                 <div>
+                    <a href="/user/logout"><button type="button">Cerrar Sesion</button></a>
 
-                <a href="/user/logout"><button type="button">Cerrar Sesion</button></a>
-
+                </div>
+            
                 <a href="/"><button type="button">Volver a la pagina principal</button></a>
 
                 </form>
                 <form method="POST" action="/user/profile?_method=DELETE">
-                    <button type="submit">Eliminar tu cuenta</button>
+                    <button class="button" type="submit">Eliminar tu cuenta</button>
                 </form>
                 <script>
                     function confirmDelete() {

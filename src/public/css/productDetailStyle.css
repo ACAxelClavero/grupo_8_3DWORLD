@@ -49,7 +49,6 @@ Hex: #000000 (Texto)  */
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 120px;
 }
 
 /* ESTILO DEL CARRUSEL */
@@ -60,7 +59,7 @@ Hex: #000000 (Texto)  */
 }
 
 .contenedor-img-del-carrusel{
-    width: 60vw;
+    width: 100vw;
     height: 100%;
     justify-content: center;
     position: relative;
@@ -105,10 +104,11 @@ main section img{
     margin: 2px;
 }
 .seccion-detalles-de-compra{
-    display: none;
-    padding: 2px;
-    margin: 3px;
+    display: flex;
+    padding: 4px;
+    margin: 5px;
     justify-content: space-between;
+    width: 75vw;
 }
 /* CONTENEDORES DE BOTONES  */
 
@@ -156,7 +156,11 @@ main section img{
     width: 100%;
     display: inline-block;
     text-align: center;
-}
+}  
+.boton a {
+        text-decoration: none;
+        color: #000;
+    }
 .seleccionar-colores{
     background-color: #FFFFFF;
     color: #000000;
@@ -316,13 +320,7 @@ main section img{
     .flechas-carrusel{
         display: none;
     }
-    .seccion-detalles-de-compra{
-        display: flex;
-        padding: 4px;
-        margin: 5px;
-        justify-content: space-between;
-        width: 75vw;
-    }
+
     .descripcion-corta{
         font-size: 20px;
     }
@@ -345,13 +343,13 @@ main section img{
 
 /* 2DA MEDIA QUERIES */
 @media (min-width: 1024px){
+ 
     .main-detalle-del-producto{
         align-items: start;
     }
     .titulo-producto{
-        font-size: 28px;
-        margin-left: 8px;
-        transition: all 450ms;
+        font-size: 30px;
+        margin-left: 12px;
     }
 
     .division-del-main{
@@ -363,78 +361,79 @@ main section img{
         height: auto;
         flex-wrap: wrap;
     }
+    .segundaColumna {
+    margin: auto;  
+         }
     .seccion-del-carrusel{
-        height: 45vh;
+        height: auto;
         display: flex;
-        width: 35vw;
+        width: 42vw;
         flex-direction: row;
         flex-wrap: wrap;
-        align-content: space-evenly;
         align-items: center;
-        margin-left: 8px;
+        justify-content: center;
+        margin-left: 0px;
+        margin-right: 0px;
+
+
     }
     .contenedor-img-del-carrusel{
-        width: 48%;
-        height: 48%;
+        width: 42%;
+        height: 42%;
         justify-content: center;
         position: relative;
-        margin: 1px;
     }
     .descripcion-general{
         display: flex;
-        width: 35vw;
+        width: 30vw;
         flex-direction: column;
     }
     .descripcion-corta{
-        font-size: 24px;
+        font-size: 20px;
     }
   
-    .descripcion-larga{
-        font-size: 18px;
-    }
-   
-    /* .img-del-carrusel{
-        border: none;
-    } */
-    main section img{
-        transition: all 450ms;
-    }
- 
 
     .seccion-elecciones-de-compra {
         flex-direction: column;
         width: 25vw;
+        
+    }
+    .seccion-elecciones-de-compra div{
+        padding: 0px;
+        margin: 0px;
     }
     .seccion-elecciones-de-compra form {
         display: flex;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         width: 100%;
         justify-content: space-evenly
     }
     
     .seccion-detalles-de-compra{
         display: flex;
-        padding: 4px;
-        margin: 5px;
+        flex-direction: column;
+        padding: 8px;
         justify-content: space-between;
-        width: 75vw;
-        display: flex;
+        width: 18vw;
+    }
+    .boton {
+        width: 100%;
     }
     .contenedor-botones-dimensiones{
-        width: 45vw;
+        width: 17vw;
     }
     .contenedor-botones-color{
-        width: 45vw;
+        width: 17vw;
     }
     .contenedor-boton-agregar-al-carrito{
-        width: 90vw;
+        width: 30vw;
     }
     .boton-dimensiones, .seleccionar-colores, .boton-colores, .seleccionar-dimensiones{
-        margin-bottom: 50px;
-        font-size: 20px;
+        font-size: 22px;
 }
-    .boton-al-carrito, .boton{
+    .boton-al-carrito {
         font-size: 20px;
+        width: 100%;
     }
     .contenedor-botones-abajo{
         display: flex;
@@ -444,7 +443,8 @@ main section img{
         margin-top: 40px;
         margin-bottom: 40px;
         position: relative;
-        left: 60px;
+        left: 30px;
+        font-size: 28px;
     }
     .seleccionar-colores:hover, .seleccionar-dimensiones:hover, .boton-al-carrito:hover, .boton:hover{
         transition: all 450ms;
@@ -467,35 +467,42 @@ main section img{
 /* 3ERA MEDIA QUERIS  */
 @media (min-width: 1440px) {
     .titulo-producto{
-        font-size: 34px;
-        margin-left: 8px;
+        font-size: 38px;
+        margin-left: 28px;
     }
     .seccion-del-carrusel{
-        height: 55vh;
+        height: auto;
         width: 40vw;
 }
     .descripcion-general{
         display: flex;
-        width: 24vw;
+        width: 30vw;
         flex-direction: column;
+        margin-bottom: 10px;
+        margin-left: 10px;
 }
     .descripcion-corta{
-        font-size: 32px;
+        font-size: 28px;
 }
     .descripcion-larga{
         font-size: 24px;
 }
+    .boton {
+        margin: 40px;
+}
+ 
     .seccion-elecciones-de-compra {
-    flex-direction: column;
-    width: 25vw;
+    flex-wrap: nowrap;
+    width: 30vw;
 }
     .seccion-elecciones-de-compra form {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    margin: 10px;
     width: 100%;
     justify-content: space-evenly
 }
     .boton-dimensiones, .seleccionar-colores, .boton-colores, .seleccionar-dimensiones, .boton-al-carrito, .boton {
-        font-size: 26px;
+        font-size: 28px;
     }
 }

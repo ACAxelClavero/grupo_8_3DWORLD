@@ -68,7 +68,7 @@ input[type="password"] {
 /* Estilos para el botón de enviar en el formulario */
 button[type="submit"] {
     background-color: white;
-    color: black;
+        color: #47077F;
     padding: 10px 20px;
     border: 2px solid #7E5EFF;
     border-radius: 10px;
@@ -78,11 +78,12 @@ button[type="submit"] {
     margin: 0 auto; /* Centrar horizontalmente */
     margin-bottom: 10px;
     text-decoration: none !important; /* Agregamos !important para asegurar que se aplique */
+    width: 60%;
 }
 
 button[type="submit"]:hover {
-    background-color: #D1D1EF;
-}
+    background-color: #8373C4;
+    color: #f2e3ff;}
 
 /* Estilos adicionales para el perfil */
 #registration-container h2 {
@@ -96,20 +97,28 @@ button[type="submit"]:hover {
 }
 
 button[type="button"] {
-    background-color: #D1D1EF;
-    color: #47077F;
+    background-color: white;
+        color: #47077F;
     padding: 10px 20px;
     border: 2px solid #7E5EFF;
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
     display: inline-block;
-    margin-right: 10px;
-    margin-bottom: 10px;
+    margin: 0 auto;   
+     margin-bottom: 10px;
     text-decoration: none !important; /* Agregamos !important para asegurar que se aplique */
+    width: 60%;
+
 }
 
 button[type="button"]:hover {
     background-color: #8373C4;
     color: #f2e3ff;
+}
+
+@media (max-width: 800px) {
+    #registration-container {
+    width: 80%;
+    }
 }

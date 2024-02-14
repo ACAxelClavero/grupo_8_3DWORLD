@@ -113,7 +113,20 @@ button[type="reset"]:hover {
     display: flex;
     flex-direction: row;
 }
+.errores {
+    margin-top: 10px;
+}
 
+.errores ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.errores ul li {
+    color: red;
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
 /* Media queries para tamaños de pantalla */
 @media screen and (max-width: 768px) {
     /* Estilos para tablet */
