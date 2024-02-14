@@ -6,6 +6,7 @@ body {
     text-align: center;
     background-color: #303056;
     color: #000000;
+    z-index: 1;
 }
 
 /* Encabezado y pie de página ocultos cuando se muestra el formulario */
@@ -15,11 +16,12 @@ header, footer {
 
 /* Contenedor principal del formulario */
 .background-container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Coloca el fondo detrás del contenido */
 }
 /* Contenedor principal del formulario */
 main {
@@ -92,6 +94,7 @@ button[type="button"]:hover {
     display: flex;
     justify-content: space-between; /* Distribuir equitativamente los botones */
     align-items: center; /* Centrar verticalmente los botones */
+    margin-top: 1vw;
 }
 
 #enlaceRegistrarse {
@@ -107,6 +110,11 @@ button[type="button"]:hover {
     #login-container {
         width: 70%; /* Cambia el ancho del formulario para tablet */
     }
+    .botones {
+            margin-top: 4vw;
+
+    }
+
 }
 
 @media screen and (max-width: 576px) {
@@ -114,4 +122,11 @@ button[type="button"]:hover {
     #login-container {
         width: 90%; /* Cambia el ancho del formulario para celular */
     }
+    .botones {
+        margin: 1vw;
 }
+button[type="submit"], button[type="button"] {
+    padding: 5px 15px;
+}
+}
+

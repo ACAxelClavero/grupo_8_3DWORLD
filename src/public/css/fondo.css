@@ -1,12 +1,14 @@
+
 .container {
     position: relative;
     width: 100vw;
-    height: 100vh;
-    overflow: hidden;
+    height: 300vh;
+        overflow: hidden;
 }
 .efecto {
     position: relative;
     display: flex;
+    
 }
 .efecto img {
     position: relative;
@@ -24,7 +26,7 @@
 }
 @keyframes animate {
     0% {
-        transform: translateY(100vh) scale(0.4);
+        transform: translateY(150vh) scale(0.4);
     }
     100% {
         transform: translateY(-10vh) scale(1.5);

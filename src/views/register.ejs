@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/register_form.css">
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <title>3D World</title>
 </head>
@@ -50,8 +51,12 @@
                     <span style="color : red" class="form_input_alert"><%= locals.errors.password.msg %></span>
                   <% } %>
                   
+                    <div>
+                        <button type="submit">Enviar</button>
+                        <a href="/"><button type="button">Volver página principal</button></a>
+                       </div>
 
-                <button type="submit">Enviar</button>
+
             </form>
         </div>
     </main>

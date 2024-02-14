@@ -5,13 +5,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/css/styles.css">
         <link rel="stylesheet" href="/css/new-product-style.css">
+        <link rel="stylesheet" href="/css/fondo.css">
+
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <title>Editar producto</title>
 </head>
 
 <body>
+    <div class="background-container">
+        <%- include('./fondo.ejs')  %>
+</div>
 <main>  
-   
     <form action="/product/<%= product.id %>?_method=PUT" method="post" class="form-product" enctype="multipart/form-data">
            <h1 class="titulo"> Editar producto</h1>
     <div class="errores">
